@@ -1,0 +1,60 @@
+//===================================
+// Components => Social Media
+//===================================
+
+.social-media-list {
+  &__item {
+    width: 2em;
+    height: 2em;
+    border: 1px solid $color-brand;
+    border-radius: 50%;
+    margin: $spacing-tiny;
+
+    &.facebook { 
+      border-color: $color-facebook;
+
+      i { color: $color-facebook; } 
+    }
+
+    &.twitter { 
+      border-color: $color-twitter;
+
+      i { color: $color-twitter; } 
+    }
+    
+    &.google-plus { 
+      border-color: $color-google-plus;
+
+      i { color: $color-google-plus; } 
+    }
+    
+    &.linkedin { 
+      border-color: $color-linkedin;
+
+      i { color: $color-linkedin; } 
+    }
+    
+    &.instagram { 
+      border-color: $color-instagram;
+
+      i { color: $color-instagram; } 
+    }
+    
+    &.pinterest { 
+      border-color: $color-pinterest;
+
+      i { color: $color-pinterest; } 
+    }
+    
+    &.rss { 
+      border-color: $color-rss;
+
+      i { color: $color-rss; } 
+    }
+
+    i { 
+      padding: 0.4em;
+      color: $color-brand;
+    }
+  }
+}

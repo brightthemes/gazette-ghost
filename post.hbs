@@ -1,0 +1,69 @@
+{{!< default}}
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+    <div class="content" role="main">
+        {{!-- Advert --}}
+        <div class="ad bottom-0 hidden-xs">
+            <div class="ad-unit ad-unit-top ad-unit-w-728 ad-unit-h-90">
+                <a href="">
+                    <img src="http://res.cloudinary.com/bironthemes/gazette/gazette-w728-h90" alt="ad placeholder"/>
+                </a>
+            </div>
+        </div>
+        {{!-- Post elements --}}
+        <div class="split clearfix">
+            <div class="col-lg-9 post-main-area">
+                <article class="{{post_class}}">
+                    {{!-- Post content wrapper --}}
+                    <div class="post-wrapper">
+                        {{!-- Social share icons--}}
+                        {{> post-header}}
+                        <div class="post-content">
+                            {{!-- Post content --}}
+                            {{content}}
+                        </div>
+                        {{!-- Bottom share buttons --}}
+                        {{> post-footer}}
+                    </div>
+                </article>
+                {{!-- Include Post author info --}}
+                {{> author-box}}
+                {{!-- Include Related Posts --}}
+                {{> related-posts}}
+                {{!-- Include Disqus Comments --}}
+                {{> comments}}
+            </div>
+            {{!-- Include sidebar --}}
+            {{> sidebar}}
+        </div>
+    </div>
+
+    {{!-- Links to Previous/Next posts --}}
+    <div class="read-next lazyload animated fadeIn clearfix">
+        {{#prev_post}}
+            <a class="col-sm-6 col-xs-12 read-next-story prev" href="{{url}}">
+                {{#if feature_image}}
+                    <div class="lazyload prev-image" data-src="{{img_url feature_image}}" style="background-image: url({{img_url feature_image}})"></div>
+                {{else}}
+                    <div class="lazyload prev-image no-image"></div>
+                {{/if}}
+                <section class="post-info">
+                    <h2>{{title}}</h2>
+                </section>
+            </a>
+        {{/prev_post}}
+        {{#next_post}}
+            <a class="col-sm-6 col-xs-12 read-next-story next" href="{{url}}">
+                {{#if feature_image}}
+                    <div class="lazyload prev-image" data-src="{{img_url feature_image}}" style="background-image: url({{img_url feature_image}})"></div>
+                {{else}}
+                    <div class="lazyload prev-image no-image"></div>
+                {{/if}}
+                <section class="post-info">
+                    <h2>{{title}}</h2>
+                </section>
+            </a>
+        {{/next_post}}
+    </div>
+{{/post}}

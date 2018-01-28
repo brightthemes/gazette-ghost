@@ -1,0 +1,30 @@
+//===================================
+// Components => Section
+//===================================
+
+section {
+  margin: $spacing-base 0;
+}
+
+.section-title {
+  position: relative;
+  font-weight: $font-weight-extra-bold;
+
+  span { 
+    position: relative;
+    background-color: $color-background;
+    padding: 0 $spacing-base;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+
+  &:after {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    content: '';
+    height: 1px;
+    background: linear-gradient(to right, $color-brand, $color-secondary);
+  }
+}

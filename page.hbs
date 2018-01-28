@@ -1,0 +1,38 @@
+{{!< default}}
+
+{{!-- Everything inside the #post tags pulls data from the page --}}
+{{#post}}
+    {{!-- {{> page-head}} --}}
+
+    <div class="content" role="main" id="content">
+        {{!-- Advert --}}
+        <div class="ad bottom-0 hidden-xs">
+            <div class="ad-unit ad-unit-top ad-unit-w-728 ad-unit-h-90">
+                <a href="">
+                    <img src="http://res.cloudinary.com/bironthemes/gazette/gazette-w728-h90" alt="ad placeholder"/>
+                </a>
+            </div>
+        </div>
+        {{!-- All page component --}}
+        <div class="split clearfix">
+            <div class="col-md-9 page-main-area">
+                <div class="{{post_class}}">
+                    {{!-- Page content wrapper --}}
+                    <div class="page-wrapper">
+                        {{!-- Social share --}}
+                        {{> social-share}}
+                        <div class="page-content">
+                            {{!-- Content --}}
+                            {{content}}
+                        </div>
+                    </div>
+                </div>
+                {{!-- Disqus comments --}}
+                {{> comments}}
+            </div>
+            {{!-- Sidebar widgets --}}
+            {{> sidebar}}
+        </div>
+    </div>
+{{/post}}
+

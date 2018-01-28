@@ -1,0 +1,44 @@
+{{!-- Author Box --}}
+{{#author}}
+    <div class="author-box-section lazyload animated fadeIn">
+        <p class="author-title">Author</p>
+        <div class="author-box">
+            <div class="row">
+                {{#if profile_image}}
+                    <a class="lazyload author-box-image" href="{{url}}"
+                        data-src="{{img_url profile_image}}" style="background-image: url({{img_url profile_image}})">
+                    </a>
+                {{/if}}
+                <h4 class="author-name"><a href="{{url}}">{{name}}</a></h4>
+            </div>
+            {{#if bio}}
+                <p class="author-description">{{bio}}</p>
+            {{/if}}
+            <ul class="author-links clearfix">
+                {{#if location}}
+                    <li class="author-location">
+                        <i class="fa fa-lg fa-map-marker" aria-hidden="true"></i>{{location}}
+                    </li>
+                {{/if}}
+                {{#if website}}
+                    <li class="author-website">
+                        <i class="fa fa-lg fa-link" aria-hidden="true"></i>
+                        <a href="{{website}}" target="_blank">{{website}}</a>
+                    </li>
+                {{/if}}
+                {{#if twitter}}
+                    <li class="author-twitter">
+                        <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
+                        <a href="{{twitter_url}}" target="_blank">{{name}}</a>
+                    </li>
+                {{/if}}
+                {{#if facebook}}
+                    <li class="author-facebook">
+                        <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
+                        <a href="{{facebook_url}}" target="_blank">{{name}}</a>
+                    </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+{{/author}}

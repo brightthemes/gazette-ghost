@@ -1,0 +1,26 @@
+//===================================
+// Input and Buttons
+//===================================
+
+input, textarea, select { 
+  padding: 0 $spacing-small;
+  border-radius: $global-border-radius;
+  
+  @include attention() { outline: none; }
+}
+
+button {
+  color: $color-black;
+  font-weight: $font-weight-bold;
+  font-family: $font-family-sans-serif;
+  font-size: $font-size-base;
+  transition: color $global-transition, background $global-transition;
+  background: transparent;
+  text-transform: uppercase;
+  display: inline-block;
+  border: 2px solid $color-black;
+  border-radius: $global-border-radius;
+  padding: $spacing-tiny $spacing-small;
+
+  @include attention() { outline: none; }
+}

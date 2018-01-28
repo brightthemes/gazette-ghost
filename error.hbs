@@ -1,0 +1,25 @@
+{{!< default}}
+
+{{!-- Page 404 --}}
+<div class="content error-404 clearfix">
+    <div class="col-md-6">
+        <p class="error-title">404</p> 
+    </div>
+    <div class="col-md-6">
+        <p class="error-text-big">Page Not Found</p>
+        <p class="error-text">Something went wrong!</p>
+        <p class="error-text">We can't seem to find the page you are looking for.</p>
+        <div class="error-links"> 
+            <a href="{{@blog.url}}">
+                <div class="btn-404">
+                    <i class="fa fa-share fa-flip-horizontal"></i> HOME
+                </div>
+            </a>  
+            <a href="{{@blog.url}}/contact">
+                <div class="btn-404">
+                    <i class="fa fa-paper-plane"></i> CONTACT
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

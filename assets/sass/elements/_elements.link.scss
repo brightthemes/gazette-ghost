@@ -1,0 +1,26 @@
+//===================================
+// Links
+//===================================
+
+a {
+  color: $color-link;
+  text-decoration: none;
+  transition: color $global-transition;
+
+  @include attention () { 
+    color: $color-link-hover; 
+  }
+  
+  &:visited { color: $color-link-visited; }
+}
+
+.content {
+  a {
+    text-decoration: underline;
+    text-decoration-color: $color-border;
+
+    @include attention () { 
+      text-decoration-color: $color-link-hover; 
+    }
+  }
+}

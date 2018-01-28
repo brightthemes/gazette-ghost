@@ -1,0 +1,16 @@
+{{!-- Related posts --}}
+<div class="related-section lazyload animated fadeIn" id="related">
+    <p class="related-title">Related articles</p>
+    <ul class="related-list clearfix">
+        <script type="text/javascript">
+            function waitForjQuery() {
+                if (window.$){
+                    getCurrentPosts({{comment_id}});
+                } else {
+                    setTimeout(waitForjQuery, 50);
+                }
+            }
+            waitForjQuery();
+        </script>
+    </ul>
+</div>

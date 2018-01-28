@@ -1,0 +1,21 @@
+{{!-- Subscribe component (Ghost) --}}
+<div class="subscribe lazyload animated fadeIn">
+    <section class="gh-subscribe clearfix">
+        <div class="col-sm-6 gh-subscribe-left">
+            <div class="gh-envelope">
+                <div class="gh-paper"></div>
+            </div>
+        </div>
+        <div class="col-sm-6 gh-subscribe-right">
+            <div class="gh-formular">
+                <h3 class="gh-subscribe-title">Subscribe to our newsletter</h3>
+                {{> subscribe-form placeholder="Your email address" button_class="gh-subscribe-button"}}
+                <div class="gh-subscribe-rss">
+                    Or subscribe
+                    <a target="_blank" href="http://cloud.feedly.com/#subscription/feed/{{@blog.url}}/rss/">via RSS</a>
+                    with Feedly!
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

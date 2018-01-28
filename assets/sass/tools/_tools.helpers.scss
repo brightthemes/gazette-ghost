@@ -1,0 +1,50 @@
+//===================================
+// Tools => Helpers
+//===================================
+
+@mixin overlay {
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    @content;
+  }
+}
+
+@mixin overlay-dark {
+  @include overlay() {
+    background-image: linear-gradient(to bottom, rgba($color-dark, 0.5), rgba($color-dark, 0.8));
+  }
+}
+
+@mixin overlay-light {
+  @include overlay() {
+    background-image: linear-gradient(to bottom, rgba($color-light, 0.5), rgba($color-light, 0.8));
+  }
+}
+
+@mixin overlay-gradient {
+  @include overlay() {
+    background-image: linear-gradient(to bottom, rgba($color-secondary, 0.25) 20%, rgba($color-brand, 0.25) 40%, rgba($color-dark, 0.8));
+  }
+}
+
+@mixin cover-background {
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+};
+
+.hidden {
+  display: none;
+}
+
+.invisible {
+  visibility: hidden;
+}

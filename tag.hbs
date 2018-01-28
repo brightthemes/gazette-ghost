@@ -1,0 +1,51 @@
+{{!< default}}
+
+{{!-- The first three articles form the header part --}}
+<div class="grid-articles tag-articles grid3 clearfix">
+    {{#foreach posts to="3"}}
+        <article class="grid-story">
+            {{#if feature_image}}
+                <div class="lazyload grid-image" data-src="{{img_url feature_image}}" style="background-image: url({{img_url feature_image}})"></div>
+            {{else}}
+                <div class="lazyload grid-image no-image"></div>
+            {{/if}}
+            <a class="grid-trigger" href="{{url}}"></a>
+            <div class="grid-gradient"></div>
+            <div class="grid-logo"></div>
+            <span class="cover-date">{{date published_at format="MMMM DD, YYYY"}}</span>
+            <header class="grid-header">
+                <div class="grid-tags">
+                    <h5 class="grid-section">
+                        {{tags limit="10" separator=""}}
+                    </h5>
+                </div>
+                <h2 class="grid-title"><a href="{{url}}">{{{title}}}</a></h2>
+                <ul class="grid-byline">
+                    {{> post-info}}
+                </ul>
+            </header>
+        </article>
+    {{/foreach}}
+</div>
+
+{{!-- The main content area on the homepage --}}
+<div class="content" role="main">
+    <section class="latest tag-latest">        
+        {{!-- Advert --}}
+        <div class="ad">
+            <div class="ad-unit ad-unit-top ad-unit-w-728 ad-unit-h-90 hidden-xs">
+                <a href="">
+                    <img src="http://res.cloudinary.com/bironthemes/gazette/gazette-w728-h90.png" alt="ad placeholder"/>
+                </a>
+            </div>
+        </div>
+        {{!-- Posts in tag --}}
+        <h2>Other news in {{tag.name}}</h2>
+        <ul class="latest-list clearfix">
+            {{#foreach posts from="4"}}
+                {{> latest-posts}}
+            {{/foreach}}
+        </ul>
+    </section>
+    {{pagination}}
+</div>

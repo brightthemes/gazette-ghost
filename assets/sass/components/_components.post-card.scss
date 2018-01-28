@@ -1,0 +1,107 @@
+//===================================
+// Components => Post Card
+//===================================
+
+.post-card {
+  margin-bottom: $spacing-base;
+  background-color: $color-white;
+  border-radius: $global-border-radius;
+
+  @include mq($from: md) {
+    display: flex;
+  }
+
+  &.featured {
+    background-color: $color-white;
+    border-radius: $global-border-radius;
+    transition: box-shadow $global-transition;
+    flex-direction: row-reverse;
+
+    @include attention () {
+      box-shadow: 0 5px 30px 0 rgba($color-dark, 0.2);
+      transition: box-shadow $global-transition;
+    }
+
+    .post-card__image {
+      a {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        @include mq($from: md) {
+          min-height: 20em;
+          border-top-left-radius: 0;
+          border-top-right-radius: $global-border-radius;
+          border-bottom-right-radius: $global-border-radius;
+        }
+      }
+
+      @include mq($from: md) {
+        padding-right: 0;
+        flex-basis: 50%;
+      }     
+    }
+
+    .post-card__content {
+      border-top: 0;
+      padding: $spacing-base;
+      border-bottom-left-radius: $global-border-radius;
+      border-bottom-right-radius: $global-border-radius;
+
+      @include mq($from: md) {
+        border-left: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: $global-border-radius;
+      }    
+    }
+  }
+
+  &__image {
+    width: 100%;
+    background-color: $color-white;
+
+    @include mq($from: md) {
+      flex: 1 0 35%;
+    }
+
+    a {
+      display: block;
+      height: 100%;
+      min-height: 15em;
+      border-radius: $global-border-radius;
+
+      @include cover-background();
+    }
+  }
+
+  &__content {
+    padding: $spacing-base;
+
+    @include mq($from: md) {
+      // padding-top: 0;
+      // padding-left: $spacing-base;
+      flex: 0 1 auto;
+      width: 100%;
+    }
+  }
+
+  &__tag {
+    display: flex;
+    margin-bottom: $spacing-small;
+  }
+
+  &__title {
+    margin-bottom: $spacing-tiny;
+  }
+
+  &__excerpt {
+    margin-bottom: $spacing-small;
+  }
+
+  &__info {
+    display: flex;
+  }
+
+  &__date, &__author, &__comment {
+    margin: 0;
+  }
+}

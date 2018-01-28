@@ -1,0 +1,39 @@
+//===================================
+// Components => Footer
+//===================================
+
+.footer {
+  background-color: $color-gray-light;
+
+  &__top {
+    padding-top: $spacing-base;
+    padding-bottom: $spacing-base;
+    text-align: center;
+    
+    @include mq($from: md) {
+      padding-top: $spacing-large;
+      padding-bottom: $spacing-large;
+    }
+
+    a { display: inline-block; }
+
+    h3 { margin-bottom: $spacing-small; }
+
+    p {
+      max-width: 30em;
+      margin: 0 auto $spacing-base;
+    }
+  }
+
+  hr { 
+    max-width: 15em;
+    margin: $spacing-base auto;
+  }
+
+  &__bottom {
+    padding: $spacing-base 0;
+    background-color: $color-dark;
+    color: $color-light;
+    text-align: center;
+  }
+}

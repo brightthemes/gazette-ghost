@@ -1,0 +1,70 @@
+//===================================
+// Components => Header
+//===================================
+
+.header-top {
+  height: 6em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($color-brand, 0.25);
+
+  @include mq($from: sm) {
+    height: 10em;
+  }
+
+  &__title {
+    font-size: 2rem;
+    margin: 0;
+
+    @include mq($from: sm) {
+      font-size: 3em;
+    }
+
+    @include mq($from: md) {
+      font-size: 4em;
+    }
+  }
+}
+
+.header-main {
+  background-color: $color-dark;
+
+  &__brand {
+    display: flex;
+    flex: 0 1 auto;
+    align-items: center;
+    padding-right: $spacing-small;
+  }
+
+  &__title {
+    color: $color-light;
+    margin: 0;
+  }
+
+  nav {
+    flex-grow: 1;
+
+    ul {
+      margin: 0;
+      list-style: none;
+      padding: 0;
+
+      li {
+        display: inline-block;
+
+        @include attention() {
+          background-color: rgba($color-light, 0.1);
+        }
+
+        a {
+          display: flex;
+          color: $color-light;
+          text-transform: uppercase;
+          font-weight: $font-weight-bold;
+          padding: $spacing-base $spacing-small;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{{!-- Post Author and Date --}}
+<li>{{author}}</li>
+<li>
+    <i class="fa fa-calendar-o"></i>
+    <time datetime="{{date format="YYYY-MM-DD"}}" class="timeago">
+        {{date published_at timeago="true"}}
+    </time>
+</li>
+<li>
+	<div>
+		<i class="fa fa-comments-o"></i>
+		<a href="{{url absolute='true'}}#disqus_thread" class="comments comment-count">0</a>
+	</div>
+</li>
