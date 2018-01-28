@@ -3,31 +3,29 @@
 //===================================
 
 .footer {
-  background-color: $color-gray-light;
-
   &__top {
-    padding-top: $spacing-base;
-    padding-bottom: $spacing-base;
-    text-align: center;
-    
-    @include mq($from: md) {
-      padding-top: $spacing-large;
-      padding-bottom: $spacing-large;
-    }
-
-    a { display: inline-block; }
-
-    h3 { margin-bottom: $spacing-small; }
-
-    p {
-      max-width: 30em;
-      margin: 0 auto $spacing-base;
-    }
+    background-color: rgba($color-dark, 0.9); 
+    padding: $spacing-huge 0;
   }
 
-  hr { 
-    max-width: 15em;
-    margin: $spacing-base auto;
+  &__social,
+  &__nav {
+    padding: $spacing-base 0;
+  }
+
+  &__nav {
+    .nav__item a {
+      color: $color-light;
+      text-transform: uppercase;
+      font-weight: $font-weight-bold;
+      margin: 0 $spacing-tiny;
+      font-size: 0.9 * $font-size-base; 
+      transition: color $global-transition;
+
+      @include attention () {
+        color: $color-white;
+      }
+    }
   }
 
   &__bottom {
@@ -35,5 +33,11 @@
     background-color: $color-dark;
     color: $color-light;
     text-align: center;
+    font-size: 0.9 * $font-size-base;
+
+    a {
+      color: $color-light;
+      font-weight: $font-weight-bold;
+    }
   }
 }

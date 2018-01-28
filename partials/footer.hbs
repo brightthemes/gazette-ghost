@@ -1,16 +1,20 @@
 {{!-- Site footer --}}
-<footer class="site-footer clearfix">
-    <div class="footer-top clearfix">
-        {{!-- Social Media Links --}}
+<footer class="footer">
+  <div class="footer__top">
+    <div class="wrapper container-fluid center-xs">
+      <div class="footer__social">
+        {{!-- Social Media Links --}} 
         {{> social-media}}
-        {{!-- Site navigation --}}
+      </div>
+      {{!-- Site navigation --}} 
+      <div class="footer__nav">
         {{navigation}}
+      </div>
     </div>
-    <div class="footer-bottom clearfix">
-        <div class="copyright">
-            Copyright &copy; {{date format="YYYY"}}
-            <a href="{{@blog.url}}">{{@blog.title}}</a>.
-            All rights reserved.
-        </div>
-    </div>
+  </div>
+  <div class="footer__bottom">
+    Copyright &copy; {{date format="YYYY"}}
+    <a href="{{@blog.url}}">{{@blog.title}}</a>. Proudly published with
+    <a href="https://ghost.org">Ghost</a>.
+  </div>
 </footer>

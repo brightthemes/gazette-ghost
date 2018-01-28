@@ -2,59 +2,67 @@
 // Components => Social Media
 //===================================
 
-.social-media-list {
-  &__item {
-    width: 2em;
-    height: 2em;
-    border: 1px solid $color-brand;
-    border-radius: 50%;
-    margin: $spacing-tiny;
+.navbar__social a,
+.footer__social a {
+  position: relative;
+  display: inline-block;
+  
+  i { 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 1.2 * $font-size-base;
+    color: $color-light;
+  }
+}
 
-    &.facebook { 
-      border-color: $color-facebook;
+.navbar__social {
+  position: fixed;
+  width: 100%;
+  text-align: right;
+  height: 30px;
+  background-color: $color-black;
 
-      i { color: $color-facebook; } 
-    }
+  a {
+    height: 100%;
+    width: 30px;
+    margin: 0 -2px;
+    transition: background-color $global-transition;
 
-    &.twitter { 
-      border-color: $color-twitter;
-
-      i { color: $color-twitter; } 
-    }
-    
-    &.google-plus { 
-      border-color: $color-google-plus;
-
-      i { color: $color-google-plus; } 
-    }
-    
-    &.linkedin { 
-      border-color: $color-linkedin;
-
-      i { color: $color-linkedin; } 
-    }
-    
-    &.instagram { 
-      border-color: $color-instagram;
-
-      i { color: $color-instagram; } 
-    }
-    
-    &.pinterest { 
-      border-color: $color-pinterest;
-
-      i { color: $color-pinterest; } 
-    }
-    
-    &.rss { 
-      border-color: $color-rss;
-
-      i { color: $color-rss; } 
+    @include attention() {
+      background-color: $color-brand;
     }
 
     i { 
-      padding: 0.4em;
-      color: $color-brand;
+      color: $color-white;
+      font-size: 1.1 * $font-size-base;
+    }
+  }
+}
+
+.footer__social {
+  a {
+    height: 40px;
+    width: 40px;
+    border: 2px solid $color-light;
+    margin: $spacing-tiny;
+    transition: background-color $global-transition;
+
+    i { transition: color $global-transition; }
+
+    @include attention() {
+      background-color: $color-light;
+
+      i { color: rgba($color-dark, 0.9); }
+    }
+
+    @include mq($from: md) {
+      height: 45px;
+      width: 45px;
+      margin: $spacing-tiny;
+
+      i { font-size: 1.3 * $font-size-base; }
     }
   }
 }

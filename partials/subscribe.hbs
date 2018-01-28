@@ -1,21 +1,32 @@
-{{!-- Subscribe component (Ghost) --}}
-<div class="subscribe lazyload animated fadeIn">
-    <section class="gh-subscribe clearfix">
-        <div class="col-sm-6 gh-subscribe-left">
-            <div class="gh-envelope">
-                <div class="gh-paper"></div>
-            </div>
+{{!-- Email subscribe form --}} 
+{{#if @labs.subscribers}}
+<div class="subscribe">
+  <div class="wrapper container-fluid">
+    <div class="row center-xs">
+      <div class="col-md-6 subscribe__left">
+        <div class="subscribe__envelope">
+          <div class="subscribe__paper"></div>
         </div>
-        <div class="col-sm-6 gh-subscribe-right">
-            <div class="gh-formular">
-                <h3 class="gh-subscribe-title">Subscribe to our newsletter</h3>
-                {{> subscribe-form placeholder="Your email address" button_class="gh-subscribe-button"}}
-                <div class="gh-subscribe-rss">
-                    Or subscribe
-                    <a target="_blank" href="http://cloud.feedly.com/#subscription/feed/{{@blog.url}}/rss/">via RSS</a>
-                    with Feedly!
-                </div>
-            </div>
+      </div>
+      <div class="col-md-6 subscribe__right">
+        <div class="subscribe__formular">
+          <h3 class="subscribe__title">Subscribe to our newsletter</h3>
+          {{subscribe_form 
+            form_class="subscribe__form" 
+            input_class="subscribe__input" 
+            button_class="subscribe__btn" 
+            placeholder="Your email address" 
+            autofocus="true" 
+          }}
+          <div class="subscribe__rss">
+            Or subscribe
+            <a target="_blank" 
+              href="http://cloud.feedly.com/#subscription/feed/{{@blog.url}}/rss/">
+              via RSS</a> with Feedly!
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
 </div>
+{{/if}}

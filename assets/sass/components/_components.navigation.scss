@@ -1,0 +1,13 @@
+//===================================
+// Components => Navigation
+//===================================
+
+.nav {
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    list-style: none;
+    display: inline;
+  }
+}
