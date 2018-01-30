@@ -5,9 +5,40 @@
 .nav {
   margin: 0;
   padding: 0;
+  text-transform: uppercase;
 
   &__item {
     list-style: none;
-    display: inline;
+    display: inline-block;
+
+    a { 
+      padding: 12.5px 10px;
+      display: inline-block;
+      transition: color $global-transition;
+
+      @include attention() {
+        color: $color-brand;
+      }
+    }
+  }
+
+  &--current {
+    position: relative;
+
+    a { 
+      @include attention() {
+        color: $color-dark;
+      }
+    }
+  
+    &:after {
+      content: '';
+      width: 100%;
+      position: absolute;
+      left: 0; 
+      bottom: 0;
+      height: 3px;
+      background-color: $color-brand;
+    }
   }
 }
