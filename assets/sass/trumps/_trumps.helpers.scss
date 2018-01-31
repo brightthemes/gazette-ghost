@@ -1,6 +1,8 @@
 //===================================
-// 7. Trumps
+// Trumps => Helpers
 //===================================
 
-// Font
-@import 'trumps.helpers';
+.is-hidden {
+  display: none;
+  visibility: hidden;
+}

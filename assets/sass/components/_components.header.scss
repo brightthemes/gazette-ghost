@@ -20,9 +20,18 @@
     display: flex;
     background-color: $color-white;
     box-shadow: 0 0 5px $color-gray-light;
+    position: relative;
   }
 
   &__brand {
+    flex-grow: 1;
+    text-align: left;
+    order: 1;
+
+    @include mq($from: sm) {
+      flex-grow: 0;
+    }
+
     &--text {
       font-size: 1.6 * $font-size-base;
       padding: 10px;
@@ -41,87 +50,59 @@
   }
 
   &__menu {
-    flex: 1 0;
+    display: none; 
+    left: 0;
+    right: 0;
+    top: 100%;
+    position: absolute;
+    background-color: $color-white;
+    box-shadow: 0 0 5px #d3d3d3;
+    order: 2;
+
+    @include mq($from: sm) {
+      display: block;
+      position: relative;
+      flex: 1 0;
+      box-shadow: none;
+    }
   }
 
-  &__search a {
-    padding: 15.5px 10px;
-    transition: color $global-transition;
+  &__search {
+    order: 3;
+
+    a {
+      padding: 15.5px 10px;
+      transition: color $global-transition;
+      cursor: pointer;
+      
+      @include attention() {
+        color: $color-brand;
+      }
+      
+      i { font-size: 1.6 * $font-size-base; }
+    }
+  }
+
+  &--toggle {
+    font-size: 2 * $font-size-base;
+    align-items: center;
+    display: flex;
     cursor: pointer;
-    
+    padding-right: $spacing-tiny;
+    transition: color $global-transition;
+    order: 4;
+
     @include attention() {
       color: $color-brand;
     }
-    
-    i { font-size: 1.6 * $font-size-base; }
+
+    @include mq($from: sm) {
+      display: none;
+    }
+  }
+
+  #menu--toggle:checked + .navbar__menu {
+    display: block;
   }
 }
 
-  
-
-// .header-top {
-//   height: 6em;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   background-color: rgba($color-brand, 0.25);
-
-//   @include mq($from: sm) {
-//     height: 10em;
-//   }
-
-//   &__title {
-//     font-size: 2rem;
-//     margin: 0;
-
-//     @include mq($from: sm) {
-//       font-size: 3em;
-//     }
-
-//     @include mq($from: md) {
-//       font-size: 4em;
-//     }
-//   }
-// }
-
-// .header-main {
-//   background-color: $color-dark;
-
-//   &__brand {
-//     display: flex;
-//     flex: 0 1 auto;
-//     align-items: center;
-//     padding-right: $spacing-small;
-//   }
-
-//   &__title {
-//     color: $color-light;
-//     margin: 0;
-//   }
-
-//   nav {
-//     flex-grow: 1;
-
-//     ul {
-//       margin: 0;
-//       list-style: none;
-//       padding: 0;
-
-//       li {
-//         display: inline-block;
-
-//         @include attention() {
-//           background-color: rgba($color-light, 0.1);
-//         }
-
-//         a {
-//           display: flex;
-//           color: $color-light;
-//           text-transform: uppercase;
-//           font-weight: $font-weight-bold;
-//           padding: $spacing-base $spacing-small;
-//         }
-//       }
-//     }
-//   }
-// }

@@ -3,6 +3,8 @@
 //===================================
 
 .footer {
+  font-family: $font-family-sans-serif;
+
   &__top {
     background-color: rgba($color-dark, 0.9); 
     padding: $spacing-huge 0;
@@ -14,16 +16,23 @@
   }
 
   &__nav {
-    .nav__item a {
-      color: $color-light;
-      text-transform: uppercase;
-      font-weight: $font-weight-bold;
-      margin: 0 $spacing-tiny;
-      font-size: 0.9 * $font-size-base; 
-      transition: color $global-transition;
+    .nav__item {
+      &.nav--current {
+        &:after { content: none; }
+      }
 
-      @include attention () {
-        color: $color-white;
+      a {
+        color: $color-light;
+        text-transform: uppercase;
+        font-weight: $font-weight-bold;
+        margin: 0 $spacing-tiny;
+        padding: 0;
+        font-size: $font-size-base; 
+        transition: color $global-transition;
+
+        @include attention () {
+          color: $color-brand;
+        }
       }
     }
   }
