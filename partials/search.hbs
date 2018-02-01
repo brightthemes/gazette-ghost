@@ -1,26 +1,15 @@
 {{!-- Blog search --}}
-<div class="search">
-    <header class="search-header">
-        {{#if @blog.logo}}
-            <div class="logo">
-                <a href="{{@blog.url}}">
-                    <img src="{{@blog.logo}}" alt="{{@blog.title}}"/>
-                </a>
-            </div>
-        {{else}}
-            <div class="logo">
-                <a class="navbar-brand" href="{{@blog.url}}">{{@blog.title}}</a>
-            </div>
-        {{/if}}
-        <div class="search-close"><i class="fa fa-times fa-lg"></i></div>
-    </header>
-    <form action="/" method="get" class="search-form">
-        <input type="text" id="search-field" class="search-input" placeholder="Search" autocomplete="off" required>
-        <button class="search-icon" type="submit" value="search">
-            <i class="fa fa-search fa-lg fa-rotate-90"></i>
-        </button>
-        <div class="slider"></div>
-        <div class="slider-after"></div>
-    </form>
-    <div class="search-results" id="results"></div>
+<div class="search" id="search">
+  <a class="search--close" id="search-close">
+    <i class="fa fa-times fa-lg"></i>
+  </a>
+  <form action="/" method="get" class="search__form">
+    <input type="text" id="search-field" class="search__input" placeholder="Search" autocomplete="off" required>
+    <button class="search__icon" type="submit" value="search">
+      <i class="fa fa-search fa-lg fa-rotate-90"></i>
+    </button>
+    {{!--
+    <div class="slider"></div> --}}
+  </form>
+  <div class="search__result" id="results"></div>
 </div>

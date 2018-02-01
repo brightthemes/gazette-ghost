@@ -23,6 +23,7 @@ button {
   border: 2px solid $color-black;
   border-radius: $global-border-radius;
   padding: $spacing-tiny $spacing-small;
-
+  cursor: pointer;
+  
   @include attention() { outline: none; }
 }

@@ -21,6 +21,12 @@
     background-color: $color-white;
     box-shadow: 0 0 5px $color-gray-light;
     position: relative;
+
+    &--scrolled {
+      position: fixed;
+      width: 100%;
+      top: 0;
+    }
   }
 
   &__brand {

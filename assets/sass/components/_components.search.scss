@@ -1,0 +1,108 @@
+//===================================
+// Components => search
+//===================================
+
+.search {
+  display: none;
+  position: fixed;
+  font-family: $font-family-sans-serif;
+  background: $color-background;
+  padding: 3 * $spacing-base $spacing-base 0;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  left: 0;
+  top: 0;
+
+  .wrapper { height: 100%; }
+
+  &--close {
+    position: absolute;
+    padding: $spacing-small 0.75 * $spacing-base;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    color: $color-dark;
+    transition: color $global-transition;
+
+    @include attention() {
+      color: $color-brand;
+    }
+  }
+
+  &__form {
+    margin: 0 auto;
+    max-width: 640px;
+    position: relative;
+    width: 100%;
+    display: flex;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -$spacing-tiny;
+      left: 0;
+      height: 3px;
+      background-color: rgba($color-gray, 0.6);
+      width: 100%;
+    }
+  }
+
+  &__input {
+    font-family: $font-family-sans-serif;
+    color: $color-brand;
+    font-weight: $font-weight-bold;
+    border: none;
+    font-size: 3 * $font-size-base;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    flex: 1 0;
+    width: 80%;
+  }
+
+  &__icon {
+    border: none;
+    color: rgba($color-gray, 0.6);
+    font-size: 1.8 * $font-size-base;
+    transition: color $global-transition;
+    padding: $spacing-small 0;
+
+    @include attention() {
+      color: $color-brand;
+    }
+  }
+
+  &__result {
+    max-width: 640px;
+    margin: 0 auto;
+    margin-top: $spacing-large;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    height: 80%;
+
+    &-amount {
+      font-size: 1.6 * $font-size-base;
+      font-weight: $font-weight-bold;
+      text-align: center;
+      display: block;
+      width: 100%;
+    }
+
+    &-item {
+      background-color: $color-white;
+      padding: $spacing-small $spacing-base;
+      margin: $spacing-base 0;
+
+      a { }
+
+      // &:nth-child(odd) {
+      //   margin-right: $spacing-tiny;
+      // }
+
+      // &:nth-child(even) {
+      //   margin-left: $spacing-tiny;
+      // }
+    }
+  }
+}

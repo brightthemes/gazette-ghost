@@ -6,7 +6,7 @@
   </div>
 
   {{!-- Default navigation --}}
-  <div class="navbar__default center-xs middle-xs">
+  <div id="navbar-default" class="navbar__default center-xs middle-xs">
     <div class="navbar__brand">
       <a href="{{@blog.url}}" class="navbar__brand--{{#if @blog.logo}}logo{{else}}text{{/if}}">
         {{#if @blog.logo}}
@@ -22,7 +22,7 @@
       {{navigation}}
     </div>
     <div class="navbar__search">
-      <a class="navbar__search--open">
+      <a class="navbar__search--open" id="search-open">
         <i class="fa fa-search fa-lg fa-rotate-90"></i>
       </a>
     </div>

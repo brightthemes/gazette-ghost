@@ -34,7 +34,8 @@ gulp.task('fonts', function() {
 gulp.task('scripts', function() {
     return gulp
         .src([
-            // asset_src + 'js/scripts/jquery.ghostHunter.js',
+            npm_src   + 'lunr/lunr.js',
+            asset_src + 'js/scripts/ghostHunter.js',
             asset_src + 'js/scripts/script.js'
         ])
         .pipe(concat('app.js'))
