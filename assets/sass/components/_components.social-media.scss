@@ -39,8 +39,9 @@
 }
 
 .footer__social a {
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
+  font-size: $font-size-base;
   border: 2px solid $color-light;
   margin: $spacing-tiny;
   transition: background-color $global-transition;

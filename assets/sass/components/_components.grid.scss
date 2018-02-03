@@ -1,0 +1,277 @@
+//===================================
+// Components => Article Grid
+//===================================
+.grid {
+  display: flex;
+  flex-flow: wrap;
+  margin: $spacing-small;
+
+  &-1 {    
+    @include mq($from: md) {
+      .grid-story:nth-child(1) {
+        min-height: 30rem;
+      }
+    
+      .grid-story__header-title {
+        font-size: 2.4 * $font-size-base;
+      }
+    } 
+  }
+  
+  &-2 {    
+    @include mq($from: md) {
+      .grid-story:nth-child(1) {
+        margin-right: $spacing-small;
+      }
+
+      .grid-story__header-title {
+        font-size: 2.2 * $font-size-base;
+      }
+
+      .grid-story:nth-child(1),
+      .grid-story:nth-child(2) {
+        min-height: 24rem;
+        flex-basis: 50%;
+        flex: 1;
+      }
+    } 
+  }
+  
+  &-3 {
+    @include mq($from: md) {
+      .grid-story:nth-child(1) {
+        flex-basis: 100%;
+        min-height: 20rem;
+  
+        .grid-story__header-title {
+          font-size: 2.2 * $font-size-base;
+        }
+      }
+
+      .grid-story:nth-child(2){
+        margin-right: $spacing-small;
+      }
+
+      .grid-story:nth-child(2),
+      .grid-story:nth-child(3) {
+        min-height: 18rem;
+        flex-basis: 50%;
+        flex: 1;
+      }
+    } 
+  }
+
+  &-4 {
+    @include mq($from: md) {
+      .grid-story:nth-child(2){
+        margin-right: $spacing-small;
+      }
+
+      .grid-story:nth-child(2),
+      .grid-story:nth-child(3) {
+        flex-basis: 50%;
+        flex: 1;
+      }
+    }
+
+    @include mq($from: lg) {
+      .grid-story:nth-child(1) {  
+        margin-right: 0;
+        min-height: 24rem;
+
+        .grid-story__header-title {
+          font-size: 2.4 * $font-size-base;
+        }
+      }
+
+      .grid-story:last-child {
+        margin-bottom: $spacing-small;
+      }
+
+      .grid-story:nth-child(2),
+      .grid-story:nth-child(3) {
+        margin-right: $spacing-small;
+      }
+
+      .grid-story:nth-child(2),
+      .grid-story:nth-child(3),
+      .grid-story:nth-child(4) {
+        min-height: 20rem;
+        flex-basis: 33.33%;
+        flex: 1;
+      }
+    }
+  }
+}
+
+// @supports (display: grid) {
+//   .grid{
+//     display: grid;
+//     grid-gap: $spacing-small;
+//     grid-auto-flow: dense;
+
+//     &-4 {
+//       @include mq($from: md) {   
+//         grid-template-rows: repeat(2, 1fr);
+//         grid-template-columns: repeat(3, 1fr);
+
+//         .grid-story:nth-child(1) {
+//           grid-column-end: span 3;
+//         }
+//       }
+  
+//       @include mq($from: xl) { 
+//         grid-template-rows: repeat(2, 1fr);
+//         grid-template-columns: repeat(4, 1fr);
+
+//         .grid-story:nth-child(1) {
+//           grid-row-end: span 2;
+//           grid-column-end: span 2;
+//         }
+
+//         .grid-story:nth-child(2) {
+//           grid-column-end: span 2;
+//         }
+//       }
+//     }
+
+//     &-3 {
+//       @include mq($from: md) {   
+//         grid-template-rows: repeat(2, 1fr);
+//         grid-template-columns: repeat(2, 1fr);
+
+//         .grid-story:nth-child(1) {
+//           grid-column-end: span 2;
+//         }
+//       }
+  
+//       @include mq($from: xl) { 
+//         grid-template-rows: repeat(2, 1fr);
+//         grid-template-columns: repeat(3, 1fr);
+
+//         .grid-story:nth-child(1) {
+//           grid-row-end: span 2;
+//           grid-column-end: span 2;
+//         }
+//       }
+//     }
+
+//     &-2 {
+//       @include mq($from: md) {   
+//         grid-template-rows: repeat(2, 1fr);
+//         grid-template-columns: repeat(2, 1fr);
+
+//         .grid-story:nth-child(1),
+//         .grid-story:nth-child(2) {
+//           grid-row-end: span 2;
+//         }
+//       }
+//     }
+//   }
+// }
+
+.grid-story {
+  min-height: 16rem;
+  position: relative;
+  margin-bottom: $spacing-small;
+  flex-basis: 100%;
+
+  &:nth-child(1n+5) { display: none; }
+
+  @include attention() {
+    .grid-story__gradient {
+      opacity: 0;
+    }
+  }
+
+  &__image, 
+  &__trigger,
+  &__gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__image {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+  }
+
+  &__trigger {
+    z-index: 3;
+  }
+
+  &__gradient {
+    z-index: 2;
+    opacity: 0.8;
+    background: linear-gradient(135deg,$color-brand 0, 
+                                  rgba($color-black,0.6) 60%,
+                                  rgba($color-secondary, 0.4) 100%);
+    transition: opacity $global-transition;
+  }
+
+  &__header {
+    position: absolute;
+    width: 100%;
+    z-index: 4;
+    bottom: 0;
+    padding: $spacing-small;
+    background: linear-gradient(to bottom,
+                                transparent 0,
+                                rgba($color-dark,0.4) 20%,
+                                rgba($color-dark,0.8) 100%);
+
+    @include mq($from: lg) {
+      padding: $spacing-base;
+    }
+
+    &-tags a,
+    &-title a,
+    &-info a,
+    &-info time {
+      color: $color-light;
+      font-family: $font-family-sans-serif;
+
+      &:visited {
+        color: $color-light;
+      }
+    }
+
+    &-tags {
+      margin-bottom: $spacing-small;
+
+      a {
+        display: inline-block;
+        font-size: 0.9 * $font-size-base;
+        text-transform: uppercase;
+        padding: $spacing-tiny $spacing-small;
+        margin-right: $spacing-small;
+        border: 1px solid $color-light;
+        transition: color $global-transition,
+                    background-color $global-transition,
+                    border-color $global-transition;
+        
+        @include attention() {
+          color: $color-dark;
+          background-color: $color-light;
+        }
+      }
+    }
+
+    &-title {
+      font-size: 1.4 * $font-size-base;
+      margin-bottom: $spacing-tiny;
+
+      @include mq($from: sm) {
+        font-size: 1.6 * $font-size-base;
+      }
+    }
+
+    i { 
+      color: $color-light; 
+      margin-left: $spacing-tiny;
+    }
+  }
+}

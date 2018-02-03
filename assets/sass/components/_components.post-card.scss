@@ -9,6 +9,7 @@
 
   @include mq($from: md) {
     display: flex;
+    flex-direction: column;
   }
 
   &.featured {

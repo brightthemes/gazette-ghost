@@ -7,7 +7,11 @@
 
   &__top {
     background-color: rgba($color-dark, 0.9); 
-    padding: $spacing-huge 0;
+    padding: $spacing-base 0;
+
+    @include mq($from: md) {
+      padding: $spacing-huge 0;
+    }
   }
 
   &__social,
@@ -17,10 +21,8 @@
 
   &__nav {
     .nav__item {
-      &.nav--current {
-        &:after { content: none; }
-      }
-
+      display: inline-block;
+      
       a {
         color: $color-light;
         text-transform: uppercase;
@@ -33,6 +35,10 @@
         @include attention () {
           color: $color-brand;
         }
+      }
+      
+      &.nav--current {
+        &:after { content: none; }
       }
     }
   }

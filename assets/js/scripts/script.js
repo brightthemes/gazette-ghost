@@ -9,7 +9,7 @@ var callback = function(){
   // Fix navbar after scrolling
   var sNavbar = document.getElementById("navbar-default");
 
-  // On click open search
+  // Search related actions
   var searchOpen = document.getElementById('search-open');
   var searchClose = document.getElementById('search-close');
   var searchField = document.getElementById('search-field');
@@ -27,23 +27,61 @@ var callback = function(){
     document.body.style.overflowY = "auto";
   };
 
-  // Determine color
-  var color = window.getComputedStyle(
-    document.getElementById('search-field')
-  ).getPropertyValue('color')
+  // Detect how many featured posts are to be shown and adjust the class
+  var featuredPostCount = document.querySelectorAll(".grid-story").length;
+  switch(featuredPostCount) {
+    case 1:
+      removeClass('.grid', 'grid-2');
+      removeClass('.grid', 'grid-3');
+      removeClass('.grid', 'grid-4');
+      break;
+    case 2:
+      removeClass('.grid', 'grid-1');
+      removeClass('.grid', 'grid-3');
+      removeClass('.grid', 'grid-4');
+      break;
+    case 3:
+      removeClass('.grid', 'grid-1');
+      removeClass('.grid', 'grid-2');
+      removeClass('.grid', 'grid-4');
+      break;
+    case 4:
+      removeClass('.grid', 'grid-1');
+      removeClass('.grid', 'grid-2');
+      removeClass('.grid', 'grid-3');
+      break;
+    default: 
+      removeClass('.grid', 'grid-1');
+      removeClass('.grid', 'grid-2');
+      removeClass('.grid', 'grid-3');
+      break;
+  }
+
   // Blog search
+  var infoTemplate = '<p class="search__result-amount">{{amount}} results found</p>';
+  var resultTemplate =  '<a href="{{link}}" class="search__result-link">' +
+                          '<h4>{{title}}</h4>' +
+                          '<p>{{pubDate}}</p>' +
+                        '</a>';
+  var searchSlider = document.getElementById("search__form-slider");
+
   document.querySelector('#search-field').ghostHunter.init({
     results         : '#results',
     onKeyUp         : true,
     includepages    : true,
     onPageLoad      : true,
-    info_template   : '<p class="search__result-amount">{{amount}} results found</p>',
-    result_template : '<div class="search__result-item">' +
-                        '<a href="{{link}}" class="search__result-link">' +
-                          '<h4>{{title}}</h4>' +
-                          '<p>{{pubDate}}</p>' +
-                        '</a>' +
-                      '</div>'
+    info_template   : infoTemplate,
+    result_template : resultTemplate,
+    before          : function() {
+                        searchSlider.style.transition= 'width 0.5s ease';
+                        searchSlider.style.width = '100%';
+                      },
+    onComplete      : function() { 
+                        setTimeout(function(){ 
+                          searchSlider.style.transition= 'width 0s ease';
+                          searchSlider.style.width = '0%'; 
+                        }, 500);
+                      }
   });
 
 };

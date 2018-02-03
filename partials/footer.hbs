@@ -1,4 +1,11 @@
 {{!-- Site footer --}}
+
+{{!-- Email subscribe form at the main page --}}
+{{#if @labs.subscribers}}
+    {{> subscribe}}
+{{/if}}
+
+{{!-- Footer --}}
 <footer class="footer">
   <div class="footer__top">
     <div class="wrapper container-fluid center-xs">

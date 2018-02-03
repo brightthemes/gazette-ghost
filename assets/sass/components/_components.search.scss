@@ -37,9 +37,21 @@
     width: 100%;
     display: flex;
 
+    &-slider {
+      position: absolute;
+      z-index: 2;
+      background-color: $color-brand;
+      bottom: -$spacing-tiny;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      // transition: width $global-transition;
+    }
+
     &:after {
       content: "";
       position: absolute;
+      z-index: 1;
       bottom: -$spacing-tiny;
       left: 0;
       height: 3px;
@@ -68,9 +80,14 @@
     transition: color $global-transition;
     padding: $spacing-small 0;
 
-    @include attention() {
+    &:hover {
       color: $color-brand;
     }
+    // @include attention() {
+      
+    // }
+
+    // &:active, &:focus { color: rgba($color-gray, 0.6); }
   }
 
   &__result {
@@ -89,20 +106,24 @@
       width: 100%;
     }
 
-    &-item {
+    &-link {
+      display: block;
       background-color: $color-white;
       padding: $spacing-small $spacing-base;
       margin: $spacing-base 0;
 
-      a { }
+      h4, p { 
+        margin: 0; 
+        color: $color-dark;
+      }
 
-      // &:nth-child(odd) {
-      //   margin-right: $spacing-tiny;
-      // }
+      h4 {
+        font-size: 1.2 * $font-size-base;
 
-      // &:nth-child(even) {
-      //   margin-left: $spacing-tiny;
-      // }
+        @include mq($from: md) {
+          font-size: 1.4 * $font-size-base;
+        }
+      }
     }
   }
 }
