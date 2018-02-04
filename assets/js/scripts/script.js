@@ -6,6 +6,26 @@
 var callback = function(){
   // trigger events on Dom ready.
 
+  // Lazy load images
+  var lazyLoad = new LazyLoad({
+    elements_selector: ".lazyload",
+    class_loading: "loading",
+    class_loaded: "loaded",    
+    callback_enter: function() {
+      addClass('.lazyload', 'loading');
+    },
+    callback_load: function() {
+      removeClass('.lazyload', 'loading');
+      addClass('.lazyload', 'loaded');
+    },
+    callback_set: function() {
+      removeClass('.lazyload', 'loading');
+      addClass('.lazyload', 'loaded');
+    }
+  });
+
+  lazyLoad.update();
+
   // Fix navbar after scrolling
   var sNavbar = document.getElementById("navbar-default");
 

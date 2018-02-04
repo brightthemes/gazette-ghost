@@ -4,6 +4,9 @@
 
 .section {
   margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
 
   &__title {
     position: relative;

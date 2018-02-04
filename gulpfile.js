@@ -35,12 +35,13 @@ gulp.task('scripts', function() {
     return gulp
         .src([
             npm_src   + 'lunr/lunr.js',
+            npm_src   + 'vanilla-lazyload/dist/lazyload.js',
             asset_src + 'js/scripts/ghostHunter.js',
             asset_src + 'js/scripts/script.js'
         ])
         .pipe(concat('app.js'))
         .pipe(rename({suffix: '.min'}))
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(gulp.dest(dest + 'js'));
 });
 

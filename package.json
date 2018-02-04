@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "font-awesome": "^4.7.0",
-    "lunr": "^2.1.5"
+    "lunr": "^2.1.5",
+    "vanilla-lazyload": "^8.6.0"
   }
 }

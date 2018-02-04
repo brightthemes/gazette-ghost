@@ -1,0 +1,14 @@
+//===================================
+// Components => Lazyload
+//===================================
+
+.lazyload {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  transition: filter $global-transition, -webkit-filter $global-transition;
+}
+
+.lazyload.loaded {
+  -webkit-filter: blur(0);
+  filter: blur(0);
+}

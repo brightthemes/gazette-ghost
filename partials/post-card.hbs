@@ -1,12 +1,7 @@
 {{!-- Post card --}}
-<div class="col-md-6 col-lg-4 post-card">
+<div class="post-card">
   <div class="post-card__image">
-    <a class="lazyload" href="{{url}}" data-src="{{img_url feature_image}}" 
-          style="background-image: url({{img_url feature_image}})">
-    </a>
-    {{!-- <div class="latest-image-overlay hidden-xs">
-      {{tags limit="1"}}
-    </div> --}}
+    <a class="lazyload" href="{{url}}" data-src="{{img_url feature_image}}"></a>
   </div>
   <div class="post-card__content">
     <h4 class="post-card__content-title">
@@ -18,10 +13,5 @@
     <div class="post-card_content-excerpt">
       {{excerpt words="30"}}&hellip;
     </div>
-    {{!-- <div class="read-more">
-        <a href="{{url}}">
-            <div class="read-more-button">Read More</div>
-        </a>
-    </div> --}}
   </div>
 </div>
