@@ -4,7 +4,7 @@
 .grid {
   display: flex;
   flex-flow: wrap;
-  margin: $spacing-small;
+  margin: $spacing-base;
 
   &-1 {    
     @include mq($from: md) {
@@ -21,7 +21,7 @@
   &-2 {    
     @include mq($from: md) {
       .grid-story:nth-child(1) {
-        margin-right: $spacing-small;
+        margin-right: $spacing-base;
       }
 
       .grid-story__header-title {
@@ -49,7 +49,7 @@
       }
 
       .grid-story:nth-child(2){
-        margin-right: $spacing-small;
+        margin-right: $spacing-base;
       }
 
       .grid-story:nth-child(2),
@@ -64,7 +64,7 @@
   &-4 {
     @include mq($from: md) {
       .grid-story:nth-child(2){
-        margin-right: $spacing-small;
+        margin-right: $spacing-base;
       }
 
       .grid-story:nth-child(2),
@@ -84,18 +84,15 @@
         }
       }
 
-      .grid-story:last-child {
-        margin-bottom: $spacing-small;
-      }
-
       .grid-story:nth-child(2),
       .grid-story:nth-child(3) {
-        margin-right: $spacing-small;
+        margin-right: $spacing-base;
       }
 
       .grid-story:nth-child(2),
       .grid-story:nth-child(3),
       .grid-story:nth-child(4) {
+        margin-bottom: 0;
         min-height: 20rem;
         flex-basis: 33.33%;
         flex: 1;
@@ -173,14 +170,20 @@
 .grid-story {
   min-height: 16rem;
   position: relative;
-  margin-bottom: $spacing-small;
+  margin-bottom: $spacing-base;
   flex-basis: 100%;
+
+  &:last-child { margin-bottom: 0; }
 
   &:nth-child(1n+5) { display: none; }
 
   @include attention() {
     .grid-story__gradient {
       opacity: 0;
+    }
+
+    .grid-story__image {
+      filter: grayscale(0);
     }
   }
 
@@ -193,10 +196,11 @@
   }
 
   &__image {
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
     z-index: 1;
+    filter: grayscale(0.6);
+    transition: filter $global-transition;
+
+    @include cover-background();
   }
 
   &__trigger {
@@ -217,14 +221,14 @@
     width: 100%;
     z-index: 4;
     bottom: 0;
-    padding: $spacing-small;
+    padding: $spacing-base;
     background: linear-gradient(to bottom,
                                 transparent 0,
                                 rgba($color-dark,0.4) 20%,
                                 rgba($color-dark,0.8) 100%);
 
-    @include mq($from: lg) {
-      padding: $spacing-base;
+    @include mq($from: xl) {
+      padding: $spacing-large;
     }
 
     &-tags a,

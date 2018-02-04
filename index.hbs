@@ -1,7 +1,7 @@
 {{!< default}} 
 
 {{!-- The big featured header --}} 
-{{#get "posts" limit="10" include="author,tags" 
+{{#get "posts" limit="4" include="author,tags" 
                 filter="featured:true" as |featured| }} 
   <div class="grid grid-1 grid-2 grid-3 grid-4">
     {{#foreach featured}}
@@ -46,11 +46,11 @@
   {{!-- Posts by category --}} 
   {{#get "tags" limit="6" include="count.posts" 
                 order="count.posts desc" as |category|}}
-  <div class="sections clearfix">
+  <section class="section category-posts row">
     {{#foreach category}} 
       {{> category-posts}} 
     {{/foreach}}
-  </div>
+  </section>
   {{/get}}
 
 </div>
