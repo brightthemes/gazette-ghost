@@ -1,0 +1,115 @@
+//===================================
+// Components => Category Posts
+//===================================
+
+.category-title {
+  display: block;
+}
+
+.category-posts {
+  width: 100%; 
+  
+  @include mq($from: md) {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+    max-width: 50%;
+
+    &:nth-child(odd) {
+      padding-right: $spacing-small;
+    }
+
+    &:nth-child(even) {
+      padding-left: $spacing-small;
+    }
+  }
+
+  @include mq($from: lg) {
+    flex-basis: 33.33%;
+
+    &:nth-child(2n+0),
+    &:nth-child(2n+1) {
+      padding: 0;
+    }
+    
+    &:nth-child(3n+1) {
+      padding-right: $spacing-small;
+    }
+
+    &:nth-child(3n+2) {
+      padding-left: $spacing-small;
+      padding-right: $spacing-small;
+    }
+
+    &:nth-child(3n+3) {
+      padding-left: $spacing-small;
+    }
+  }
+}
+
+.category-post {
+  background-color: $color-white;
+  padding: $spacing-small $spacing-base;
+  margin: $spacing-small 0;
+  position: relative;
+  flex-grow: 1;
+
+  &:first-of-type {
+    padding: 0;
+    margin: 0 0 $spacing-small;
+    height: 18rem;
+    flex-grow: 0;
+
+    .category-post__info {
+      a, i, time { color: $color-light; } 
+    }
+  }
+
+  &__image {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    @include cover-background();
+  }
+
+  &__header {
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    padding: $spacing-small $spacing-base;
+    color: $color-light;
+    background: linear-gradient(to bottom,
+                                transparent 0,
+                                rgba($color-dark,0.4) 20%,
+                                rgba($color-dark,0.8) 100%);
+
+    &-title {
+      font-size: 1.6 * $font-size-base;
+      line-height: 1.4;
+      margin: 0 0 $spacing-tiny;
+
+      a, a:visited { 
+        color: $color-light; 
+      }
+    }
+  }
+
+  &__title { 
+    font-size: 1.2 * $font-size-base;
+    margin-bottom: $spacing-tiny; 
+  }
+
+  &__info {
+    font-family: $font-family-sans-serif;
+
+    a, i, time { 
+      color: $color-dark; 
+      font-size: 1.1 * $font-size-base;
+    }
+
+    i { margin-left: $spacing-tiny; }
+  }
+}

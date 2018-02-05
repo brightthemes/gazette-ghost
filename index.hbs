@@ -10,8 +10,6 @@
       </div>
       <a class="grid-story__trigger" href="{{url}}"></a>
       <div class="grid-story__gradient"></div>
-      {{!-- <div class="grid-story__logo"></div> --}}
-      {{!-- <span class="grid-story__date">{{date published_at format="MMMM DD, YYYY"}}</span> --}}
       <header class="grid-story__header">
         <div class="grid-story__header-tags">
           {{tags limit="3" separator=""}}
@@ -34,8 +32,8 @@
   {{!-- Latest posts --}} 
   {{#get "posts" filter="featured:false" order="published_at desc" 
                  limit="9" include="author,tags" as |latest|}}
-  <section class="section latest-posts">
-    <h3 class="section__title">Latest news</h3>
+  <h3 class="section__title">Latest news</h3>
+  <section class="section latest">
     {{#foreach latest}} 
       {{> post-card}} 
     {{/foreach}}
@@ -45,7 +43,7 @@
   {{!-- Posts by category --}} 
   {{#get "tags" limit="6" include="count.posts" 
                 order="count.posts desc" as |category|}}
-  <section class="section category-posts row">
+  <section class="section category">
     {{#foreach category}} 
       {{> category-posts}} 
     {{/foreach}}

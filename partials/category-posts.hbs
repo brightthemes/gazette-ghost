@@ -1,51 +1,46 @@
 {{!-- Category posts --}}
-<section class="by-category section-category col-xs-12 col-sm-6 col-md-4">
-    <h2><a href="{{url}}">{{name}}</a></h2>
-    {{#get "posts" filter="tags:{{slug}}" limit="5" include="author,tags" as |article|}}
-        <ul>
-            {{#foreach article from="1" to="1"}}
-                <li>
-                    <article class="section-latest">
-                        <a class="section-latest-trigger" href="{{url}}"></a>
-                        <a href="{{url}}" class="zoom-image">
-                            {{!-- {{#if feature_image}}
-                                <div class="lazyload section-latest-image" data-src="{{img_url feature_image}}"
-                                    style="background-image: url({{img_url feature_image}})">
-                                </div>
-                            {{else}}
-                                <div class="lazyload section-latest-image no-image"></div>
-                            {{/if}} --}}
-                        </a>
-                        <header class="section-latest-header">
-                            <h3 class="section-latest-title"><a href="{{url}}">{{{title}}}</a></h3>
-                            <ul class="section-latest-byline clearfix">
-                                {{> post-info}}
-                            </ul>
-                        </header>
-                    </article>
-                </li>
-            {{/foreach}}
-            {{#foreach article from="2"}}
-                <li>
-                    <article class="section-rest clearfix">
-                        {{!-- {{#if feature_image}}
-                            <a class="lazyload section-rest-image" href="{{url}}" data-src="{{img_url feature_image}}"
-                                style="background-image: url({{img_url feature_image}})">
-                            </a>
-                        {{else}}
-                            <a class="lazyload section-rest-image no-image" href="{{url}}"></a>
-                        {{/if}} --}}
-                        <header class="section-rest-header">
-                            <h4 class="section-rest-title">
-                                <a href="{{url}}">{{{title}}}</a>
-                            </h4>
-                            <ul class="section-rest-byline clearfix">
-                                {{> post-info}}
-                            </ul>
-                        </header>
-                    </article>
-                </li>
-            {{/foreach}}
-        </ul>
-    {{/get}}
-</section>
+<div class="category-posts">
+<h2 class="category__title"><a href="{{url}}">{{name}}</a></h2>
+{{#get "posts" filter="tags:{{slug}}" limit="5" include="author,tags" as |article|}}
+  {{!-- {{#foreach article from="1" to="1"}}
+  <article class="category-post">
+    <a class="lazyload" href="{{url}}" data-src="{{img_url feature_image}}"></a>
+    <div class="category-post__header">
+      <h3 class="category-post__title"><a href="{{url}}">{{{title}}}</a></h3>
+      <div class="category-post__info">
+        {{> post-info}}
+      </div>
+    </div>
+  </article>
+  {{/foreach}}
+  {{#foreach article from="2"}}
+  <article class="category-post">
+    <h4 class="category-post__title">
+      <a href="{{url}}">{{{title}}}</a>
+    </h4>
+    <div class="category-post__info">
+      {{> post-info}}
+    </div>
+  </article>
+  {{/foreach}} --}}
+
+  {{#foreach article}}
+  <article class="category-post">
+    {{#if @first}}
+      <a class="category-post__image lazyload" 
+         href="{{url}}" data-src="{{img_url feature_image}}"></a>
+    {{/if}}
+    {{#if @first}}<div class="category-post__header">{{/if}}
+      {{#if @first}}
+      <h3 class="category-post__header-title"><a href="{{url}}">{{{title}}}</a></h3>
+      {{else}}
+      <h4 class="category-post__title"><a href="{{url}}">{{{title}}}</a></h4>
+      {{/if}}
+      <div class="category-post__info">
+        {{> post-info}}
+      </div>
+    {{#if @first}}</div>{{/if}}
+  </article>
+  {{/foreach}}
+{{/get}}
+</div>
