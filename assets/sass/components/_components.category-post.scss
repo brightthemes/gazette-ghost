@@ -4,11 +4,13 @@
 
 .category-title {
   display: block;
+  margin: 0 0 $spacing-small;
 }
 
 .category-posts {
   width: 100%; 
-  
+  margin-bottom: $spacing-base;
+
   @include mq($from: md) {
     display: flex;
     flex-direction: column;
@@ -53,6 +55,13 @@
   margin: $spacing-small 0;
   position: relative;
   flex-grow: 1;
+  overflow: hidden;
+
+  @include attention() {
+    .category-post__image {
+      transform: scale(1.05);
+    }
+  }
 
   &:first-of-type {
     padding: 0;
@@ -71,6 +80,7 @@
     display: block;
     width: 100%;
     height: 100%;
+    transition: transform $global-transition;
 
     @include cover-background();
   }
@@ -99,7 +109,7 @@
 
   &__title { 
     font-size: 1.2 * $font-size-base;
-    margin-bottom: $spacing-tiny; 
+    margin: 0 0 $spacing-small; 
   }
 
   &__info {

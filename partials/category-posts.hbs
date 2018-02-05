@@ -1,29 +1,7 @@
 {{!-- Category posts --}}
 <div class="category-posts">
-<h2 class="category__title"><a href="{{url}}">{{name}}</a></h2>
+<h3 class="category__title"><a href="{{url}}">{{name}}</a></h3>
 {{#get "posts" filter="tags:{{slug}}" limit="5" include="author,tags" as |article|}}
-  {{!-- {{#foreach article from="1" to="1"}}
-  <article class="category-post">
-    <a class="lazyload" href="{{url}}" data-src="{{img_url feature_image}}"></a>
-    <div class="category-post__header">
-      <h3 class="category-post__title"><a href="{{url}}">{{{title}}}</a></h3>
-      <div class="category-post__info">
-        {{> post-info}}
-      </div>
-    </div>
-  </article>
-  {{/foreach}}
-  {{#foreach article from="2"}}
-  <article class="category-post">
-    <h4 class="category-post__title">
-      <a href="{{url}}">{{{title}}}</a>
-    </h4>
-    <div class="category-post__info">
-      {{> post-info}}
-    </div>
-  </article>
-  {{/foreach}} --}}
-
   {{#foreach article}}
   <article class="category-post">
     {{#if @first}}
