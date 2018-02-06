@@ -1,27 +1,25 @@
 {{!-- Links to Previous/Next posts --}}
-<div class="read-next animated fadeIn clearfix">
+<div class="read-next">
   {{!-- Prevoius Post --}}
   {{#prev_post}}
-    <a class="read-next__story prev {{^if img_url}}no-image{{/if}}" href="{{url}}">
-      {{#if img_url}}
-        <div class="lazyload blur read-next__image" data-src="{{img_url}}" 
-            style="background-image: url({{img_url}})"></div>
-      {{/if}}
-      <div class="read-next__info">
-        <h3 class="read-next__title">{{title}}</h3>
+    <a class="read-next__story prev" href="{{url}}">
+      <div class="read-next__story-image lazyload" 
+        data-src="{{img_url feature_image}}">
+      </div>
+      <div class="read-next__story-info">
+        <h3 class="read-next__story-title">{{title}}</h3>
       </div>
     </a>
   {{/prev_post}}
 
   {{!-- Next Post --}}
   {{#next_post}}
-    <a class="read-next__story next {{^if img_url}}no-image{{/if}}" href="{{url}}">
-      {{#if img_url}}
-        <div class="lazyload blur read-next__image" data-src="{{img_url}}" 
-            style="background-image: url({{img_url}})"></div>
-      {{/if}}
-      <div class="read-next__info">
-        <h3 class="read-next__title">{{title}}</h3>
+    <a class="read-next__story next" href="{{url}}"> 
+      <div class="read-next__story-image lazyload" 
+        data-src="{{img_url feature_image}}">
+      </div>
+      <div class="read-next__story-info">
+        <h3 class="read-next__story-title">{{title}}</h3>
       </div>
     </a>
   {{/next_post}}

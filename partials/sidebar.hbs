@@ -1,6 +1,4 @@
 {{!-- Sidebar --}}
-<aside class="col-lg-3 sidebar">
-
     {{!-- Sidebar featured posts --}}
     {{#get "posts" filter="featured:true+id:-{{comment_id}}" limit="5" include="author,tags" as |featured|}}
         <section class="sidebar-featured" id="sidebar-featured">
@@ -107,4 +105,3 @@
             </div>
         </section>
     {{/get}}
-</aside>

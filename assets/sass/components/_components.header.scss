@@ -4,6 +4,7 @@
 
 .navbar {
   font-weight: $font-weight-bold;
+  @include box-shadow($blur: 2em, $color: rgba($color-black, 0.2));
   
   a { color: $color-dark; }
 
@@ -18,7 +19,6 @@
     font-family: $font-family-sans-serif;
     display: flex;
     background-color: $color-white;
-    box-shadow: 0 0 5px $color-gray-light;
     position: relative;
 
     &--scrolled {
@@ -61,14 +61,12 @@
     top: 100%;
     position: absolute;
     background-color: $color-white;
-    box-shadow: 0 0 5px #d3d3d3;
     order: 2;
 
     @include mq($from: sm) {
       display: block;
       position: relative;
       flex: 1 0;
-      box-shadow: none;
     }
   }
 

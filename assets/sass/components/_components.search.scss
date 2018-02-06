@@ -83,11 +83,6 @@
     &:hover {
       color: $color-brand;
     }
-    // @include attention() {
-      
-    // }
-
-    // &:active, &:focus { color: rgba($color-gray, 0.6); }
   }
 
   &__result {
@@ -111,6 +106,7 @@
       background-color: $color-white;
       padding: $spacing-small $spacing-base;
       margin: $spacing-base 0;
+      border-radius: $global-border-radius;
 
       h4, p { 
         margin: 0; 

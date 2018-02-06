@@ -11,7 +11,8 @@
   &__title {
     position: relative;
     font-weight: $font-weight-extra-bold;
-    width: 100%;
-    display: inline-block;
+    padding-left: $spacing-base;
+
+    @include title-special();
   }
 }

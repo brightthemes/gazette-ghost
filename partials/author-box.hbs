@@ -1,16 +1,14 @@
 {{!-- Author Box --}}
 {{#author}}
-    <div class="author-box-section lazyload animated fadeIn">
+    <div class="author-box">
         <p class="author-title">Author</p>
         <div class="author-box">
-            <div class="row">
                 {{#if profile_image}}
                     <a class="lazyload author-box-image" href="{{url}}"
                         data-src="{{img_url profile_image}}" style="background-image: url({{img_url profile_image}})">
                     </a>
                 {{/if}}
                 <h4 class="author-name"><a href="{{url}}">{{name}}</a></h4>
-            </div>
             {{#if bio}}
                 <p class="author-description">{{bio}}</p>
             {{/if}}

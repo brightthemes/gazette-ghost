@@ -45,6 +45,7 @@
   border: 2px solid $color-light;
   margin: $spacing-tiny;
   transition: background-color $global-transition;
+  border-radius: $global-border-radius;
 
   i { transition: color $global-transition; }
 

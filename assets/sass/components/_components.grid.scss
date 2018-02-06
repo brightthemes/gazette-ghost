@@ -1,6 +1,7 @@
 //===================================
 // Components => Article Grid
 //===================================
+
 .grid {
   display: flex;
   flex-flow: wrap;
@@ -172,6 +173,7 @@
   position: relative;
   margin-bottom: $spacing-base;
   flex-basis: 100%;
+  border-radius: $global-border-radius;
 
   &:last-child { margin-bottom: 0; }
 
@@ -193,6 +195,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    border-radius: inherit;
   }
 
   &__image {
@@ -222,6 +225,7 @@
     z-index: 4;
     bottom: 0;
     padding: $spacing-base;
+    border-radius: inherit;
     background: linear-gradient(to bottom,
                                 transparent 0,
                                 rgba($color-dark,0.4) 20%,
@@ -253,6 +257,7 @@
         padding: $spacing-tiny $spacing-small;
         margin-right: $spacing-small;
         border: 1px solid $color-light;
+        border-radius: $global-border-radius;
         transition: color $global-transition,
                     background-color $global-transition,
                     border-color $global-transition;

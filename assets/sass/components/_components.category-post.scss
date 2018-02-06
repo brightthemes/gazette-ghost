@@ -2,9 +2,13 @@
 // Components => Category Posts
 //===================================
 
-.category-title {
+.category__title {
   display: block;
   margin: 0 0 $spacing-small;
+  position: relative;
+  padding-left: $spacing-base;
+  
+  @include title-special();
 }
 
 .category-posts {
@@ -56,6 +60,8 @@
   position: relative;
   flex-grow: 1;
   overflow: hidden;
+  border-radius: $global-border-radius;
+  @include box-shadow($blur: 0.25em);
 
   @include attention() {
     .category-post__image {
@@ -68,6 +74,7 @@
     margin: 0 0 $spacing-small;
     height: 18rem;
     flex-grow: 0;
+    border-top: 3px solid $color-brand;
 
     .category-post__info {
       a, i, time { color: $color-light; } 
