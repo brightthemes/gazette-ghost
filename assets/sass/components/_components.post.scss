@@ -1,0 +1,12 @@
+//===================================
+// Components => Post page
+//===================================
+
+.post {
+  margin: $spacing-base 0;
+  font-family: $font-family-serif;
+
+  @include mq($from: md) {
+    margin: $spacing-large 0;
+  }
+}

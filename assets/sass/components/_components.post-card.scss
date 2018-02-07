@@ -85,7 +85,6 @@
 
     &-info {
       margin-bottom: $spacing-base;
-      font-family: $font-family-sans-serif;
 
       a, i, time { 
         color: $color-dark; 
@@ -102,6 +101,7 @@
   }
 
   &__excerpt {
+    font-family: $font-family-serif;
     margin-bottom: $spacing-small;
   }
 }

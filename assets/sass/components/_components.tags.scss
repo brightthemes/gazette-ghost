@@ -2,47 +2,30 @@
 // Components => Tags
 //===================================
 
-.tag {
-  display: inline-block;
-  padding: $spacing-tiny $spacing-small;
-  margin-right: $spacing-small;
-  background-color: $color-brand;
-  color: $color-white;
-  border-radius: $global-border-radius;
-
-  &-1 { background-color: $color-tag-1; }
-  &-2 { background-color: $color-tag-2; }
-  &-3 { background-color: $color-tag-3; }
-  &-4 { background-color: $color-tag-4; }
-  &-5 { background-color: $color-tag-5; }
-  &-6 { background-color: $color-tag-6; }
-  &-7 { background-color: $color-tag-7; }
-  &-8 { background-color: $color-tag-8; }
-  &-9 { background-color: $color-tag-9; }
-  &-10 { background-color: $color-tag-10; }
-  &-11 { background-color: $color-tag-11; }
-  &-12 { background-color: $color-tag-12; }
-  &-13 { background-color: $color-tag-13; }
-  &-14 { background-color: $color-tag-14; }
-  &-15 { background-color: $color-tag-15; }
-  &-16 { background-color: $color-tag-16; }
-  &-17 { background-color: $color-tag-17; }
-  &-18 { background-color: $color-tag-18; }
-  &-19 { background-color: $color-tag-19; }
-  &-20 { background-color: $color-tag-20; }
-
-  @include attention() {
-    color: $color-white;
-  }
-
-  &:visited {
-    color: $color-white;
-  }
-}
-
 .tag-cloud {
-  .tag {
+  a {
+    display: inline-block;
     margin-right: $spacing-tiny;
     margin-bottom: $spacing-small;
+    padding: $spacing-tiny $spacing-small;
+    border-radius: $global-border-radius;
+    background-color: $color-white;
+    color: $color-dark;
+    text-transform: uppercase;
+    font-weight: $font-weight-bold;
+    font-size: 0.9 * $font-size-base;
+    transition: color $global-transition;
+
+    @include box-shadow($blur: 0.25em);
+
+    @include attention() {
+      color: $color-brand;
+    }
+
+    &:visited {
+      @include attention() {
+        color: $color-brand;
+      }
+    }
   }
 }

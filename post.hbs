@@ -4,9 +4,9 @@
 {{#post}}
 {{!-- Post elements --}}
 <div class="wrapper container-fluid">
-  <div class="row">
-    <div class="col-lg-9">
-      <article class="{{post_class}}">
+  <div class="row {{post_class}}">
+    <div class="col-lg-8">
+      <article>
         {{!-- Social share icons--}}
         {{> post-header}}
         <div class="post-content">
@@ -24,12 +24,12 @@
       {{> comments}}
     </div>
     {{!-- Include sidebar --}}
-    <aside class="col-lg-3 sidebar">
+    <aside class="col-lg-4 sidebar">
       {{> sidebar}}
     </aside>
   </div>
 </div>
 
-  {{!-- Links to Previous/Next posts --}}
-  {{> read-next}}
+{{!-- Links to Previous/Next posts --}}
+{{> read-next}}
 {{/post}}

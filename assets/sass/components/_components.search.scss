@@ -5,7 +5,6 @@
 .search {
   display: none;
   position: fixed;
-  font-family: $font-family-sans-serif;
   background: $color-background;
   padding: 3 * $spacing-base $spacing-base 0;
   height: 100%;
@@ -45,7 +44,6 @@
       left: 0;
       height: 3px;
       width: 0%;
-      // transition: width $global-transition;
     }
 
     &:after {
@@ -61,7 +59,6 @@
   }
 
   &__input {
-    font-family: $font-family-sans-serif;
     color: $color-brand;
     font-weight: $font-weight-bold;
     border: none;

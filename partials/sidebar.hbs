@@ -1,107 +1,76 @@
 {{!-- Sidebar --}}
-    {{!-- Sidebar featured posts --}}
-    {{#get "posts" filter="featured:true+id:-{{comment_id}}" limit="5" include="author,tags" as |featured|}}
-        <section class="sidebar-featured" id="sidebar-featured">
-            <h2 class="sidebar-title">Featured</h2>
-            <ul class="sidebar-item-wrapper sidebar-list clearfix">
-                {{#foreach featured}}
-                    <li class="col-sm-6 col-xs-12 col-md-12 sidebar-list-item">
-                        <article class="sidebar-story">
-                            {{#if feature_image}}
-                                <a class="lazyload sidebar-story-image" data-src="{{img_url feature_image}}" href="{{url}}"
-                                    style="background-image: url({{img_url feature_image}})">
-                                </a>
-                            {{else}}
-                                <a class="lazyload sidebar-story-image no-image" href="{{url}}"></a>
-                            {{/if}}
-                            <h4 class="sidebar-story-title">
-                                <a href="{{url}}">{{{title}}}</a>
-                            </h4>
-                            <ul class="sidebar-story-byline">
-                                {{> post-info}}
-                            </ul>
-                        </article>
-                    </li>
-                {{/foreach}}
-            </ul>
-        </section>
-    {{/get}}
 
-    {{!-- Section advertise --}}
-    <section class="sidebar-ad">
-        <h2 class="sidebar-title">Advertisement</h2>
-        <div class="sidebar-item-wrapper">
-            <div class="ad-unit ad-unit-sidebar ad-unit-w-300 ad-unit-h-250">
-                <a href="">
-                    <img src="http://res.cloudinary.com/bironthemes/gazette/gazette-w300-h250.png" alt="ad placeholder"/>
-                </a>
-            </div>
-        </div>
-    </section>
+{{!-- Sidebar featured posts --}}
+{{#get "posts" filter="featured:true+id:-{{comment_id}}" limit="5" include="author,tags" as |featured|}}
+<h3 class="sidebar__title">Featured posts</h3>
+<div class="sidebar__featured">
+  {{#foreach featured}}
+  <article class="sidebar__story">
+      {{!-- {{#if feature_image}}
+          <a class="lazyload sidebar-story-image" data-src="{{img_url feature_image}}" href="{{url}}"
+              style="background-image: url({{img_url feature_image}})">
+          </a>
+      {{else}}
+          <a class="lazyload sidebar-story-image no-image" href="{{url}}"></a>
+      {{/if}} --}}
+      <h4 class="sidebar__story-title">
+        <a href="{{url}}">{{{title}}}</a>
+      </h4>
+      <div class="sidebar__story-info">
+        {{author}}
+        <i class="fa fa-clock-o"></i>
+        <time datetime="{{date format="YYYY-MM-DD"}}">
+          {{date published_at timeago="true"}}
+        </time>
+      </div>
+  </article>
+  {{/foreach}}
+</div>
+{{/get}}
 
-    {{!-- Section newsletter --}}
-    {{#if @labs.subscribers}}
-        <section class="sidebar-newsletter">
-            <h2 class="sidebar-title">Newsletter</h2>
-            <div class="sidebar-item-wrapper">
-                <header class="newsletter-header">
-                    <p>Subscribe to our get the latest news directly into your mail box.</p>
-                </header>
-                {{!-- {{> subscribe-form placeholder="Your email address" button_class="subscribe-button"}} --}}
-                <div class="clearfix"></div>
-            </div>
-        </section>
-    {{/if}}
+{{!-- Tag Cloud --}}
+<h3 class="sidebar__title">Tag cloud</h3>
+<div class="sidebar__tag-cloud tag-cloud">
+  {{> tag-cloud}}
+</div>
 
-    {{!-- Tag Cloud --}}
-    <section class="sidebar-tag-cloud lazyload animated fadeIn">
-        <h2 class="sidebar-title">Tag Cloud</h2>
-        <div class="sidebar-item-wrapper">
-            {{> tag-cloud}}
-        </div>
-    </section>
+{{!-- Sidebar latest posts --}}
+{{#get "posts" filter="featured:false+id:-{{comment_id}}" limit="10" include="author,tags" as |latest|}}
+<h3 class="sidebar__title">Latest posts</h3>
+<div class="sidebar__latest">
+  {{#foreach latest}}
+  <article class="sidebar__story">
+      {{!-- {{#if feature_image}}
+          <a class="lazyload sidebar-story-image" data-src="{{img_url feature_image}}" href="{{url}}"
+              style="background-image: url({{img_url feature_image}})">
+          </a>
+      {{else}}
+          <a class="lazyload sidebar-story-image no-image" href="{{url}}"></a>
+      {{/if}} --}}
+      <h4 class="sidebar__story-title">
+        <a href="{{url}}">{{{title}}}</a>
+      </h4>
+      <div class="sidebar__story-info">
+        {{author}}
+        <i class="fa fa-clock-o"></i>
+        <time datetime="{{date format="YYYY-MM-DD"}}">
+          {{date published_at timeago="true"}}
+        </time>
+      </div>
+  </article>
+  {{/foreach}}
+</div>
+{{/get}}
 
-    {{!-- Sidebar latest posts --}}
-    {{#get "posts" filter="featured:false+id:-{{comment_id}}" limit="10" include="author,tags" as |latest|}}
-        <section class="sidebar-latest lazyload animated fadeIn">
-            <h2 class="sidebar-title">Latest</h2>
-            <ul class="sidebar-item-wrapper sidebar-list clearfix">
-                {{#foreach latest}}
-                    <li class="col-sm-6 col-xs-12 col-md-12 sidebar-list-item">
-                        <article class="sidebar-story">
-                            {{#if feature_image}}
-                                <a class="lazyload sidebar-story-image" data-src="{{img_url feature_image}}" href="{{url}}"
-                                    style="background-image: url({{img_url feature_image}})">
-                                </a>
-                            {{else}}
-                                <a class="lazyload sidebar-story-image no-image" href="{{url}}"></a>
-                            {{/if}}
-                            <h4 class="sidebar-story-title">
-                                <a href="{{url}}">{{{title}}}</a>
-                            </h4>
-                            <ul class="sidebar-story-byline">
-                                {{> post-info}}
-                            </ul>
-                        </article>
-                    </li>
-                {{/foreach}}
-            </ul>
-        </section>
-    {{/get}}
-
-    {{!-- Sidebar Top categories --}}
-    {{#get "tags" limit="10" include="count.posts" order="count.posts desc"}}
-        <section class="sidebar-categories lazyload animated fadeIn">
-            <h2 class="sidebar-title">Top Categories</h2>
-            <div class="sidebar-item-wrapper">
-                {{#foreach tags}}
-                    <a href="{{url}}">
-                        <div class="sidebar-category-line">
-                            <p class="sidebar-category-name">{{name}}</p>
-                            <p class="sidebar-category-number">{{count.posts}}</p>
-                        </div>
-                    </a>
-                {{/foreach}}
-            </div>
-        </section>
-    {{/get}}
+{{!-- Sidebar Top categories --}}
+{{#get "tags" limit="10" include="count.posts" order="count.posts desc"}}
+<h3 class="sidebar__title">Top categories</h3>
+<div class="sidebar__category">
+  {{#foreach tags}}
+  <a href="{{url}}">
+    <div class="sidebar__category-name">{{name}}</div>
+    <div class="sidebar__category-count">{{count.posts}}</div>
+  </a>
+  {{/foreach}}
+</div>
+{{/get}}

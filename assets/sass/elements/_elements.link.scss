@@ -11,16 +11,22 @@ a {
     color: $color-link-hover; 
   }
   
-  &:visited { color: $color-link-visited; }
-}
-
-.content {
-  a {
-    text-decoration: underline;
-    text-decoration-color: $color-border;
+  &:visited { 
+    color: $color-link-visited; 
 
     @include attention () { 
-      text-decoration-color: $color-link-hover; 
+      color: $color-link-hover; 
     }
   }
 }
+
+// .content {
+//   a {
+//     text-decoration: underline;
+//     text-decoration-color: $color-border;
+
+//     @include attention () { 
+//       text-decoration-color: $color-link-hover; 
+//     }
+//   }
+// }

@@ -12,9 +12,9 @@ input, textarea, select {
 }
 
 button {
+  font-family: $font-family-sans-serif;
   color: $color-black;
   font-weight: $font-weight-bold;
-  font-family: $font-family-sans-serif;
   font-size: $font-size-base;
   transition: color $global-transition, background $global-transition;
   background: transparent;
