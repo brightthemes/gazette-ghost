@@ -65,12 +65,8 @@
 
 @mixin box-shadow($top: 0, $left: 0, $blur: 1em, $color:rgba($color-black,0.1), $inset: false) {
   @if $inset {
-    -webkit-box-shadow:inset $top $left $blur $color;
-    -moz-box-shadow:inset $top $left $blur $color;
-    box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $left $top $blur $color;
   } @else {
-    -webkit-box-shadow: $top $left $blur $color;
-    -moz-box-shadow: $top $left $blur $color;
-    box-shadow: $top $left $blur $color;
+    box-shadow: $left $top$blur $color;
   }
 }

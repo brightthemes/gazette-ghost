@@ -11,7 +11,7 @@ input, textarea, select {
   @include attention() { outline: none; }
 }
 
-button {
+button, .button {
   font-family: $font-family-sans-serif;
   color: $color-black;
   font-weight: $font-weight-bold;

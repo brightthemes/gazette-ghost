@@ -4,25 +4,68 @@
 {{#post}}
 {{!-- Post elements --}}
 <div class="wrapper container-fluid">
-  <div class="row {{post_class}}">
+  <div class="row main-content">
     <div class="col-lg-8">
-      <article>
-        {{!-- Social share icons--}}
-        {{> post-header}}
-        <div class="post-content">
-          {{!-- Post content --}}
-          {{content}}
+      <article class="{{post_class}}">
+
+        {{!-- Title --}}
+        <h1 class="post__title">{{title}}</h1>
+
+        {{!-- Post info --}}
+        <div class="post__info">
+          {{!-- Author --}}
+          {{#author}}
+            {{#if profile_image}}
+            <a class="lazyload post__info-author--img" data-src="{{img_url profile_image}}"
+              href="{{url}}" title="{{name}}" style="background-image: url({{img_url profile_image}})">
+            </a>
+            {{/if}}
+            <a class="post__info-author" href="{{url}}">{{name}}</a>
+          {{/author}}
+          <time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="YYYY MMM DD, hh:mm"}}</time>
+          {{tags limit="3" separator=" "}}  
         </div>
-        {{!-- Bottom share buttons --}}
-        {{> post-footer}}
+
+        <div class="post__body">
+          {{!-- Post image --}}        
+          {{#if feature_image}}
+            <img alt="{{title}}" class="lazyload post__image" data-src="{{img_url feature_image}}"/>
+          {{/if}}
+
+          {{!-- Post content --}}
+          <div class="post__content">
+            {{content}}
+          </div>
+
+          {{!-- Bottom share buttons --}}
+          <div class="post__footer">
+            <a class="button facebook" data-permalink="{{url}}" data-title="{{encode title}}" data-network="Facebook"
+              href="https://www.facebook.com/sharer/sharer.php?u={{url absolute='true'}}" target="_blank">
+              <i class="fa fa-lg fa-facebook"></i>
+            </a>
+            <a class="button twitter" data-permalink="{{url}}" data-title="{{encode title}}" data-network="Twitter"
+              href="http://twitter.com/share?text={{encode title}}&amp;url={{url absolute='true'}}" target="_blank">
+              <i class="fa fa-lg fa-twitter"></i>
+            </a>
+            <a class="button reddit" data-permalink="{{url}}" data-title="{{encode title}}" data-network="Reddit"
+              href="//www.reddit.com/submit?url={{url absolute='true'}}" target="_blank">
+              <i class="fa fa-lg fa-reddit-alien"></i>
+            </a>
+          </div>  
+        </div>
+
       </article>
+
       {{!-- Include Post author info --}}
       {{> author-box}}
+
       {{!-- Include Related Posts --}}
       {{> related-posts}}
+
       {{!-- Include Disqus Comments --}}
       {{> comments}}
     </div>
+
     {{!-- Include sidebar --}}
     <aside class="col-lg-4 sidebar">
       {{> sidebar}}

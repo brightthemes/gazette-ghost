@@ -3,6 +3,7 @@
 //===================================
 
 .navbar {
+  height: 80px;
   font-weight: $font-weight-bold;
   @include box-shadow($blur: 2em, $color: rgba($color-black, 0.2));
   
@@ -24,6 +25,8 @@
       position: fixed;
       width: 100%;
       top: 0;
+      z-index: 9;
+      @include box-shadow($blur: 2em, $color: rgba($color-black, 0.2));
     }
   }
 
@@ -61,6 +64,7 @@
     position: absolute;
     background-color: $color-white;
     order: 2;
+    z-index: 9;
 
     @include mq($from: sm) {
       display: block;

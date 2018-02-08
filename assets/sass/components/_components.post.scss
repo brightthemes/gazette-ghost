@@ -2,11 +2,135 @@
 // Components => Post page
 //===================================
 
-.post {
+.main-content {
   margin: $spacing-base 0;
   font-family: $font-family-serif;
 
   @include mq($from: md) {
     margin: $spacing-large 0;
+  }
+}
+
+.post {
+
+  &__info {
+    display: inline-block;
+    margin: 0 0 $spacing-base;
+    font-family: $font-family-sans-serif;
+    font-size: 1.2 * $font-size-base;
+    color: $color-dark;
+
+    @include mq($from: md) {
+      display: flex;
+      align-items: center;
+    }
+    
+    &-author {
+      margin-right: $spacing-small;
+
+      &--img {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-right: $spacing-small;
+        display: none;
+
+        @include mq($from: md) {
+          display: block;
+        }
+
+        @include cover-background();
+
+        &:before {
+          content: "";
+          position: absolute;
+          border-radius: 50%;
+          border: 3px solid rgba($color-secondary, 0.6);
+          width: 60px;
+          height: 60px;
+          background-color: transparent;
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          border-radius: 50%;
+          border: 3px solid rgba($color-brand,0.8);
+          top: 3px;
+          left: 3px;
+          width: 54px;
+          height: 54px;
+          background-color: transparent;
+        }
+      }
+    }
+
+    time { margin-right: $spacing-small; }
+  }
+
+  &__body {   
+    background-color: $color-white;
+    @include box-shadow($blur: 0.5em);
+  }
+
+  &__content {
+    padding: $spacing-base;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+
+  &__footer {
+    display: flex;
+    padding: $spacing-base;
+
+    @include mq($from: md) {
+      padding: $spacing-large;
+    }
+
+    a {
+      flex: 1;
+      text-align: center;
+      padding: $spacing-small;
+      margin-right: $spacing-base;
+
+      &:last-of-type { margin-right: 0; }
+
+      &.facebook {
+        color: $color-facebook;
+        border-color: $color-facebook;
+        transition: color $global-transition, background-color $global-transition;
+        @include box-shadow($top: 5px, $color: rgba($color-facebook, 0.2));
+
+        @include attention() {
+          color: $color-light;
+          background-color: $color-facebook;
+        }
+      }
+
+      &.twitter {
+        color: $color-twitter;
+        border-color: $color-twitter;
+        transition: color $global-transition, background-color $global-transition;
+        @include box-shadow($top: 5px, $color: rgba($color-twitter, 0.2));
+
+        @include attention() {
+          color: $color-light;
+          background-color: $color-twitter;
+        }
+      }
+
+      &.reddit {
+        color: $color-reddit;
+        border-color: $color-reddit;
+        transition: color $global-transition, background-color $global-transition;
+        @include box-shadow($top: 5px, $color: rgba($color-reddit, 0.2));
+
+        @include attention() {
+          color: $color-light;
+          background-color: $color-reddit;
+        }
+      }
+    }
   }
 }
