@@ -5,6 +5,9 @@
 // Header
 @import 'components.header';
 
+// Comments
+@import 'components.comments';
+
 // Top post
 @import 'components.top-post';
 
@@ -41,8 +44,8 @@
 // // Author
 // @import 'components.author';
 
-// // Author Box
-// @import 'components.author-box';
+// Author Box
+@import 'components.author-box';
 
 // // Error
 // @import 'components.error';
@@ -52,6 +55,9 @@
 
 // Read-next
 @import 'components.read-next';
+
+// Related posts
+@import 'components.related';
 
 // // Search
 @import 'components.search';

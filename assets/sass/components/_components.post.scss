@@ -2,16 +2,36 @@
 // Components => Post page
 //===================================
 
-.main-content {
+.split {
   margin: $spacing-base 0;
   font-family: $font-family-serif;
 
   @include mq($from: md) {
     margin: $spacing-large 0;
   }
+
+  .content {
+    @include mq($from: lg) {
+      flex: 1;
+    }
+  }
 }
 
 .post {
+  margin-bottom: $spacing-large;
+
+  &__title {
+    font-size: 1.8 * $font-size-base;
+
+    @include mq($from: md) { font-size: 2.2 * $font-size-base; }
+
+    @include mq($from: lg) { font-size: 2.6 * $font-size-base; }
+  }
+
+  &-section-title {
+    margin-bottom: $spacing-small;
+    @include title-special();
+  }
 
   &__info {
     display: inline-block;
@@ -30,48 +50,36 @@
 
       &--img {
         position: relative;
-        width: 60px;
-        height: 60px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         margin-right: $spacing-small;
         display: none;
+
+        @include box-shadow($blur: 0.25em);
 
         @include mq($from: md) {
           display: block;
         }
 
         @include cover-background();
-
-        &:before {
-          content: "";
-          position: absolute;
-          border-radius: 50%;
-          border: 3px solid rgba($color-secondary, 0.6);
-          width: 60px;
-          height: 60px;
-          background-color: transparent;
-        }
-
-        &:after {
-          content: "";
-          position: absolute;
-          border-radius: 50%;
-          border: 3px solid rgba($color-brand,0.8);
-          top: 3px;
-          left: 3px;
-          width: 54px;
-          height: 54px;
-          background-color: transparent;
-        }
       }
     }
 
     time { margin-right: $spacing-small; }
+
+    .tags a { margin: 0; }
   }
 
   &__body {   
     background-color: $color-white;
-    @include box-shadow($blur: 0.5em);
+    border-radius: $global-border-radius;
+    @include box-shadow($blur: 0.25em);
+  }
+
+  &__image {
+    border-top-left-radius: $global-border-radius;
+    border-top-right-radius: $global-border-radius;
   }
 
   &__content {

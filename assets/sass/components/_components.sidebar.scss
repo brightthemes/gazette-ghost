@@ -6,7 +6,8 @@
   font-family: $font-family-sans-serif;
 
   @include mq($from: lg) {
-    max-width: 320px;
+    flex: 0 0 320px;
+    min-width: 320px;
   }
 
   @include mq($from: xl) {
@@ -14,8 +15,6 @@
   }
 
   &__title {
-    position: relative;
-    padding-left: $spacing-base;
     font-size: 1.8 * $font-size-base;
     margin-bottom: $spacing-small;
 

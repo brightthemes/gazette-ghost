@@ -4,8 +4,8 @@
 {{#post}}
 {{!-- Post elements --}}
 <div class="wrapper container-fluid">
-  <div class="row main-content">
-    <div class="col-lg-8">
+  <div class="row split">
+    <div class="col-lg-9 content">
       <article class="{{post_class}}">
 
         {{!-- Title --}}
@@ -23,7 +23,7 @@
             <a class="post__info-author" href="{{url}}">{{name}}</a>
           {{/author}}
           <time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="YYYY MMM DD, hh:mm"}}</time>
-          {{tags limit="3" separator=" "}}  
+          <div class="tags">in {{tags limit="1"}}</div>  
         </div>
 
         <div class="post__body">
@@ -67,7 +67,7 @@
     </div>
 
     {{!-- Include sidebar --}}
-    <aside class="col-lg-4 sidebar">
+    <aside class="col-lg-3 sidebar">
       {{> sidebar}}
     </aside>
   </div>

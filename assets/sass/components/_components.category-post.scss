@@ -5,8 +5,6 @@
 .category__title {
   display: block;
   margin: 0 0 $spacing-small;
-  position: relative;
-  padding-left: $spacing-base;
   
   @include title-special();
 }

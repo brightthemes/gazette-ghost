@@ -42,6 +42,9 @@
 };
 
 @mixin title-special {
+  position: relative;
+  padding-left: $spacing-base;
+  
   &:before, 
   &:after {
     content: "";

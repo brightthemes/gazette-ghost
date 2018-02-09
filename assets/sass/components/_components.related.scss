@@ -1,0 +1,12 @@
+//===================================
+// Components => Related Posts
+//===================================
+
+.related-posts {
+  background-color: $color-white;
+  padding: $spacing-base;
+  border-radius: $global-border-radius;
+  margin-bottom: $spacing-large;
+
+  @include box-shadow($blur: 0.25em);
+}

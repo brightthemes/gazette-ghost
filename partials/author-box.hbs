@@ -1,42 +1,35 @@
 {{!-- Author Box --}}
 {{#author}}
-    <div class="author-box">
-        <p class="author-title">Author</p>
-        <div class="author-box">
-                {{#if profile_image}}
-                    <a class="lazyload author-box-image" href="{{url}}"
-                        data-src="{{img_url profile_image}}" style="background-image: url({{img_url profile_image}})">
-                    </a>
-                {{/if}}
-                <h4 class="author-name"><a href="{{url}}">{{name}}</a></h4>
-            {{#if bio}}
-                <p class="author-description">{{bio}}</p>
-            {{/if}}
-            <ul class="author-links clearfix">
-                {{#if location}}
-                    <li class="author-location">
-                        <i class="fa fa-lg fa-map-marker" aria-hidden="true"></i>{{location}}
-                    </li>
-                {{/if}}
-                {{#if website}}
-                    <li class="author-website">
-                        <i class="fa fa-lg fa-link" aria-hidden="true"></i>
-                        <a href="{{website}}" target="_blank">{{website}}</a>
-                    </li>
-                {{/if}}
-                {{#if twitter}}
-                    <li class="author-twitter">
-                        <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
-                        <a href="{{twitter_url}}" target="_blank">{{name}}</a>
-                    </li>
-                {{/if}}
-                {{#if facebook}}
-                    <li class="author-facebook">
-                        <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
-                        <a href="{{facebook_url}}" target="_blank">{{name}}</a>
-                    </li>
-                {{/if}}
-            </ul>
-        </div>
-    </div>
+<h3 class="post-section-title">Author</h3>
+<div class="author-box">
+  {{#if profile_image}}
+    <a class="lazyload author-box__img" href="{{url}}"
+      data-src="{{img_url profile_image}}">
+    </a>
+  {{/if}}
+  <div class="author-box__details">
+    <h4 class="author-box__name"><a href="{{url}}">{{name}}</a></h4>
+    {{#if bio}}
+      <p class="author-box__bio">{{bio}}</p>
+    {{/if}}
+    {{!-- <div class="author-box__info"> --}}
+      {{#if location}}
+        <i class="fa fa-lg fa-map-marker" aria-hidden="true"></i>
+        <a>{{location}}</a>
+      {{/if}}
+      {{#if website}}
+        <i class="fa fa-lg fa-link" aria-hidden="true"></i>
+        <a href="{{website}}" target="_blank">{{website}}</a>
+      {{/if}}
+      {{#if twitter}}
+        <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
+        <a href="{{twitter_url}}" target="_blank">{{name}}</a>
+      {{/if}}
+      {{#if facebook}}
+        <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
+        <a href="{{facebook_url}}" target="_blank">{{name}}</a>
+      {{/if}}
+    {{!-- </div> --}}
+  </div>
+</div>
 {{/author}}

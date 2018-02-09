@@ -1,11 +1,12 @@
 {{!-- Disqus comments --}}
-<div class="comment-section lazyload animated fadeIn" id="comments">
-    <p class="comment-title">Comments</p>
-    <div class="comment-panel" id="disqus_thread">
-        <button type="button" class="btn btn-default btn-comments" onclick="loadComments('{{@blog.url}}{{url}}', '{{comment_id}}')">
-            Load Comments
-        </button>
-    </div>
+<h3 class="post-section-title">Comments</h3>
+<div class="comments" id="comments">
+  <div class="comment-panel" id="disqus_thread">
+    <button type="button" class="btn btn-default btn-comments" 
+            onclick="loadComments('{{@blog.url}}{{url}}', '{{comment_id}}')">
+        Load Comments
+    </button>
+  </div>
 </div>
 <noscript>
     Please enable JavaScript to view the

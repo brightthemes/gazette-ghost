@@ -9,9 +9,7 @@
   flex-flow: wrap;
 
   &__title {
-    position: relative;
-    font-weight: $font-weight-extra-bold;
-    padding-left: $spacing-base;
+    font-weight: $font-weight-bold;
 
     @include title-special();
   }
