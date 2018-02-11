@@ -103,7 +103,8 @@
       margin: 0 auto;
       height: 1px;
       background-color: $color-light;
-      width: 25%;
+      width: 20%;
+      max-width: 50px;
       bottom: -$spacing-base;
     }
   }
