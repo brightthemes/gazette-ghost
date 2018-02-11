@@ -22,7 +22,7 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    margin: 0 auto;
+    margin: 0 auto $spacing-base;
 
     @include cover-background();
 
@@ -38,31 +38,16 @@
       position: absolute;
       border-radius: 50%;
       border: 5px solid rgba($color-brand, 0.8);
-      width: 80px;
-      height: 80px;
+      width: 90px;
+      height: 90px;
       background-color: transparent;
+      top: -5px;
+      left: -5px;
 
       @include mq($from: md) {
-        width: 120px;
-        height: 120px;
+        width: 130px;
+        height: 130px;
         border-width: 10px;
-      }
-    }
-
-    &:after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      border: 5px solid rgba($color-secondary,0.6);
-      top: 5px;
-      left: 5px;
-      width: 70px;
-      height: 70px;
-      background-color: transparent;
-
-      @include mq($from: md) {
-        width: 110px;
-        height: 110px;
       }
     }
   }
@@ -79,5 +64,7 @@
     text-align: center;
 
     @include mq($from: md) { text-align: left; }
+
+    a { margin-right: 0; }
   }
 }

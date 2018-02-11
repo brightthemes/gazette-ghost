@@ -5,8 +5,16 @@
 {{!-- Post elements --}}
 <div class="wrapper container-fluid">
   <div class="row split">
-    <div class="col-lg-9 content">
+    <div class="{{#if featured}}col-lg-12{{else}}col-lg-9{{/if}} content">
       <article class="{{post_class}}">
+
+        {{!-- Post date --}}
+        {{#if featured}}
+        <div class="post__info">
+          <div class="post-tag">{{tags limit="1"}}</div>  
+          <time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="YYYY MMM DD, hh:mm"}}</time>
+        </div>
+        {{/if}}
 
         {{!-- Title --}}
         <h1 class="post__title">{{title}}</h1>
@@ -17,13 +25,15 @@
           {{#author}}
             {{#if profile_image}}
             <a class="lazyload post__info-author--img" data-src="{{img_url profile_image}}"
-              href="{{url}}" title="{{name}}" style="background-image: url({{img_url profile_image}})">
+              href="{{url}}" title="{{name}}">
             </a>
             {{/if}}
             <a class="post__info-author" href="{{url}}">{{name}}</a>
-          {{/author}}
-          <time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="YYYY MMM DD, hh:mm"}}</time>
-          <div class="tags">in {{tags limit="1"}}</div>  
+          {{/author}}          
+          {{^if featured}}
+            <div class="post-tag">{{tags limit="1"}}</div>  
+            <time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="YYYY MMM DD, hh:mm"}}</time>
+          {{/if}}
         </div>
 
         <div class="post__body">
@@ -39,15 +49,15 @@
 
           {{!-- Bottom share buttons --}}
           <div class="post__footer">
-            <a class="button facebook" data-permalink="{{url}}" data-title="{{encode title}}" data-network="Facebook"
+            <a class="btn facebook" data-permalink="{{url}}" data-title="{{encode title}}" data-network="Facebook"
               href="https://www.facebook.com/sharer/sharer.php?u={{url absolute='true'}}" target="_blank">
               <i class="fa fa-lg fa-facebook"></i>
             </a>
-            <a class="button twitter" data-permalink="{{url}}" data-title="{{encode title}}" data-network="Twitter"
+            <a class="btn twitter" data-permalink="{{url}}" data-title="{{encode title}}" data-network="Twitter"
               href="http://twitter.com/share?text={{encode title}}&amp;url={{url absolute='true'}}" target="_blank">
               <i class="fa fa-lg fa-twitter"></i>
             </a>
-            <a class="button reddit" data-permalink="{{url}}" data-title="{{encode title}}" data-network="Reddit"
+            <a class="btn reddit" data-permalink="{{url}}" data-title="{{encode title}}" data-network="Reddit"
               href="//www.reddit.com/submit?url={{url absolute='true'}}" target="_blank">
               <i class="fa fa-lg fa-reddit-alien"></i>
             </a>
@@ -59,20 +69,25 @@
       {{!-- Include Post author info --}}
       {{> author-box}}
 
-      {{!-- Include Related Posts --}}
-      {{> related-posts}}
+      {{!-- Related Posts --}}
+      <h3 class="post-section-title" id="related-posts-title">Related posts</h3>
+      <div class="related-posts" id="related-posts" data-post_id="{{id}}">
+        {{!-- Related posts will be inserted with javascript --}}
+      </div>
 
       {{!-- Include Disqus Comments --}}
       {{> comments}}
     </div>
 
     {{!-- Include sidebar --}}
-    <aside class="col-lg-3 sidebar">
-      {{> sidebar}}
-    </aside>
+    {{^if featured}}
+      <aside class="col-lg-3 sidebar">
+        {{> sidebar}}
+      </aside>
+    {{/if}}
+
+    {{!-- Links to Previous/Next posts --}}
+    {{> read-next}}
   </div>
 </div>
-
-{{!-- Links to Previous/Next posts --}}
-{{> read-next}}
 {{/post}}

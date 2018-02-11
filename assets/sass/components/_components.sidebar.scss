@@ -26,7 +26,7 @@
   &__latest,
   &__category {
     background-color: $color-white;
-    margin-bottom: $spacing-base;
+    margin-bottom: $spacing-large;
     border-radius: $global-border-radius;
 
     @include box-shadow($blur: 0.25em, $color: rgba($color-black, 0.1));

@@ -1,7 +1,7 @@
 {{!-- Sidebar --}}
 
 {{!-- Sidebar featured posts --}}
-{{#get "posts" filter="featured:true+id:-{{comment_id}}" limit="5" include="author,tags" as |featured|}}
+{{#get "posts" filter="featured:true+id:-{{id}}" limit="5" include="author,tags" as |featured|}}
 <h3 class="sidebar__title">Featured posts</h3>
 <div class="sidebar__featured">
   {{#foreach featured}}
@@ -28,7 +28,7 @@
 </div>
 
 {{!-- Sidebar latest posts --}}
-{{#get "posts" filter="featured:false+id:-{{comment_id}}" limit="10" include="author,tags" as |latest|}}
+{{#get "posts" filter="featured:false+id:-{{id}}" limit="10" include="author,tags" as |latest|}}
 <h3 class="sidebar__title">Latest posts</h3>
 <div class="sidebar__latest">
   {{#foreach latest}}

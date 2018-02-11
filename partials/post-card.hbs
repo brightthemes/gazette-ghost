@@ -1,8 +1,10 @@
 {{!-- Post card --}}
 <div class="post-card">
+  {{#if feature_image}}
   <div class="post-card__image">
     <a class="lazyload" href="{{url}}" data-src="{{img_url feature_image}}"></a>
   </div>
+  {{/if}}
   <div class="post-card__content">
     <h4 class="post-card__content-title">
       <a href="{{url}}">{{{title}}}</a>

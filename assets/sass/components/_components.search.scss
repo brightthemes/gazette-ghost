@@ -59,6 +59,7 @@
   }
 
   &__input {
+    font-family: $font-family-sans-serif;
     color: $color-brand;
     font-weight: $font-weight-bold;
     border: none;
@@ -76,6 +77,10 @@
     font-size: 1.8 * $font-size-base;
     transition: color $global-transition;
     padding: $spacing-small 0;
+    margin: 0;
+    background-color: transparent;
+    box-shadow: none;
+    min-width: 0;
 
     &:hover {
       color: $color-brand;
@@ -101,9 +106,18 @@
     &-link {
       display: block;
       background-color: $color-white;
-      padding: $spacing-small $spacing-base;
+      padding: $spacing-base;
       margin: $spacing-base 0;
       border-radius: $global-border-radius;
+      @include box-shadow($blur: 0.25em);
+
+      @include attention() {
+        h4 { color: $color-brand; }
+      }
+
+      @include mq($from: md) {
+        padding: 1.5 * $spacing-base $spacing-large;
+      }
 
       h4, p { 
         margin: 0; 
@@ -112,6 +126,7 @@
 
       h4 {
         font-size: 1.2 * $font-size-base;
+        transition: color $global-transition;
 
         @include mq($from: md) {
           font-size: 1.4 * $font-size-base;

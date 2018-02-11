@@ -1,9 +1,10 @@
 {{!-- Disqus comments --}}
 <h3 class="post-section-title">Comments</h3>
-<div class="comments" id="comments">
-  <div class="comment-panel" id="disqus_thread">
-    <button type="button" class="btn btn-default btn-comments" 
-            onclick="loadComments('{{@blog.url}}{{url}}', '{{comment_id}}')">
+<div class="comment" id="comments">
+  <div class="comment__panel" id="disqus_thread">
+    <button class="btn" id="load-comments" 
+            data-url="{{url absolute='true'}}" 
+            data-comment_id="{{comment_id}}">
         Load Comments
     </button>
   </div>

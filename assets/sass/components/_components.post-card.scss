@@ -47,6 +47,23 @@
     }
   }
 
+  @include mq($from: xl) {
+    margin-bottom: $spacing-large;
+
+    &:nth-child(3n+1) {
+      padding-right: $spacing-base;
+    }
+
+    &:nth-child(3n+2) {
+      padding-left: $spacing-base;
+      padding-right: $spacing-base;
+    }
+
+    &:nth-child(3n+3) {
+      padding-left: $spacing-base;
+    }
+  } 
+
   &__image {
     width: 100%;
     background-color: rgba($color-brand, 0.5);

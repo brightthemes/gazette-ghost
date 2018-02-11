@@ -11,19 +11,4 @@ input, textarea, select {
   @include attention() { outline: none; }
 }
 
-button, .button {
-  font-family: $font-family-sans-serif;
-  color: $color-black;
-  font-weight: $font-weight-bold;
-  font-size: $font-size-base;
-  transition: color $global-transition, background $global-transition;
-  background: transparent;
-  text-transform: uppercase;
-  display: inline-block;
-  border: 2px solid $color-black;
-  border-radius: $global-border-radius;
-  padding: $spacing-tiny $spacing-small;
-  cursor: pointer;
-  
-  @include attention() { outline: none; }
-}
+// Buttons are defined in the components.

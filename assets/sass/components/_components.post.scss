@@ -20,6 +20,25 @@
 .post {
   margin-bottom: $spacing-large;
 
+  &.featured {
+    .post__title {
+      margin: 0 auto $spacing-small;
+      text-align: center;
+      
+      @include mq($from: md) {
+        max-width: 80%;
+      }
+    }
+
+    .post__info {
+      justify-content: center;
+
+      @include mq($from: md) {
+        margin-bottom: $spacing-large;
+      }
+    }
+  }
+
   &__title {
     font-size: 1.8 * $font-size-base;
 
@@ -39,6 +58,7 @@
     font-family: $font-family-sans-serif;
     font-size: 1.2 * $font-size-base;
     color: $color-dark;
+    // font-weight: $font-weight-bold;
 
     @include mq($from: md) {
       display: flex;
@@ -83,7 +103,7 @@
   }
 
   &__content {
-    padding: $spacing-base;
+    padding: $spacing-huge $spacing-base $spacing-base;
     margin: 0 auto;
     max-width: 600px;
   }
@@ -99,8 +119,11 @@
     a {
       flex: 1;
       text-align: center;
-      padding: $spacing-small;
-      margin-right: $spacing-base;
+      padding: $spacing-base;
+      margin: 0 $spacing-base 0 0;
+      background: transparent;
+      border: 2px solid;
+      min-width: 0;
 
       &:last-of-type { margin-right: 0; }
 

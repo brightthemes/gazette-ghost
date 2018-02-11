@@ -49,6 +49,23 @@
       padding-left: $spacing-small;
     }
   }
+
+  @include mq($from: xl) {
+    margin-bottom: $spacing-large;
+    
+    &:nth-child(3n+1) {
+      padding-right: $spacing-base;
+    }
+
+    &:nth-child(3n+2) {
+      padding-left: $spacing-base;
+      padding-right: $spacing-base;
+    }
+
+    &:nth-child(3n+3) {
+      padding-left: $spacing-base;
+    }
+  }
 }
 
 .category-post {
@@ -76,6 +93,12 @@
 
     .category-post__info {
       a, i, time { color: $color-light; } 
+
+      a {
+        @include attention() {
+          color: $color-brand;
+        }
+      }
     }
   }
 
@@ -97,6 +120,7 @@
     width: 100%;
     height: 100%;
     transition: transform $global-transition;
+    background-color: rgba($color-dark, 0.7);
 
     @include cover-background();
   }
@@ -119,6 +143,10 @@
 
       a, a:visited { 
         color: $color-light; 
+
+        @include attention() {
+          color: $color-brand;
+        }
       }
     }
   }
@@ -132,6 +160,12 @@
     a, i, time { 
       color: $color-dark; 
       font-size: 1.1 * $font-size-base;
+    }
+
+    a {
+      @include attention() {
+        color: $color-brand;
+      }
     }
 
     i { margin-left: $spacing-tiny; }
