@@ -1,20 +1,18 @@
 {{!< default}}
 
 {{!-- The first three articles form the header part --}}
-<div class="grid grid-1 grid-2 grid-3 grid-4">
-  {{#foreach posts to="3"}}
+{{!-- The big featured header --}} 
+  <div class="grid grid-1 grid-2 grid-3 grid-4">
+    {{#foreach posts to="3"}}
     <article class="grid-story">
-      <div class="lazyload grid-story__image" data-src="{{img_url feature_image}}" 
-          style="background-image: url({{img_url feature_image}})">
+      <div class="lazyload grid-story__image" data-src="{{img_url feature_image}}">
       </div>
       <a class="grid-story__trigger" href="{{url}}"></a>
       <div class="grid-story__gradient"></div>
-      {{!-- <div class="grid-story__logo"></div> --}}
-      {{!-- <span class="grid-story__date">{{date published_at format="MMMM DD, YYYY"}}</span> --}}
       <header class="grid-story__header">
-        {{!-- <div class="grid-story__header-tags">
+        <div class="grid-story__header-tags">
           {{tags limit="3" separator=""}}
-        </div> --}}
+        </div>
         <h2 class="grid-story__header-title">
           <a href="{{url}}">{{{title}}}</a>
         </h2>
@@ -23,19 +21,17 @@
         </div>
       </header>
     </article>
-  {{/foreach}}
-</div>
+    {{/foreach}}
+  </div>
 
 {{!-- The main content area on the homepage --}}
-<div class="content" role="main">
-  <section class="latest tag-latest">   
-    {{!-- Posts in tag --}}
-    <h2>Other news in {{tag.name}}</h2>
-    <ul class="latest-list clearfix">
-      {{#foreach posts from="4"}}
-        {{> latest-posts}}
-      {{/foreach}}
-    </ul>
+<div class="wrapper container-fluid">
+  {{!-- Posts in tag --}}
+  <h3 class="post-section-title">Other news in {{tag.name}}</h3>
+  <section class="section latest">
+    {{#foreach posts from="4"}} 
+      {{> post-card}} 
+    {{/foreach}}
   </section>
   {{pagination}}
 </div>

@@ -1,0 +1,52 @@
+//===================================
+// Components => Page
+//===================================
+
+.page {
+  margin-top: $spacing-large;
+  background-color: $color-white;
+  border-radius: $global-border-radius;
+  @include box-shadow($blur: 0.25em);
+
+  &-header {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 50vh;
+
+    &__img {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      @include cover-background();
+      @include overlay-dark();
+    }
+
+    &__title {
+      position: relative;
+      z-index: 1;
+      padding: $spacing-small;
+      max-width: 800px;
+      color: $color-light;
+      text-align: center;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    padding-top: $spacing-small;
+    margin-bottom: 0;
+
+    @include mq($from: md) {
+      padding-top: $spacing-base;
+    }
+  }
+
+  &__content {
+    padding: $spacing-huge $spacing-base $spacing-base;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+}

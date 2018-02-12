@@ -34,10 +34,6 @@
     border: none;
     background-color: $color-brand;
     padding: 0 $spacing-small;
-
-    @include attention() {
-      background-color: darken($color-brand, 5%);
-    }
   }
 
   &__title {

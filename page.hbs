@@ -2,29 +2,27 @@
 
 {{!-- Everything inside the #post tags pulls data from the page --}}
 {{#post}}
-    {{!-- {{> page-head}} --}}
-
-    <div class="content" role="main" id="content">
-        {{!-- All page component --}}
-        <div class="split clearfix">
-            <div class="col-md-9 page-main-area">
-                <div class="{{post_class}}">
-                    {{!-- Page content wrapper --}}
-                    <div class="page-wrapper">
-                        {{!-- Social share --}}
-                        {{!-- {{> social-share}} --}}
-                        <div class="page-content">
-                            {{!-- Content --}}
-                            {{content}}
-                        </div>
-                    </div>
-                </div>
-                {{!-- Disqus comments --}}
-                {{> comments}}
-            </div>
-            {{!-- Sidebar widgets --}}
-            {{> sidebar}}
-        </div>
+  {{#if feature_image}}
+  <div class="page-header">
+    <div class="page-header__img lazyload" data-src="{{img_url feature_image}}">
     </div>
+    <h2 class="page-header__title">{{title}}</h2>
+  </div>
+  {{/if}}
+  <div class="wrapper container-fluid">
+    <div class="{{post_class}}">
+      {{^if feature_image}}
+        <h2 class="page__title">{{title}}</h2>
+      {{/if}}
+      <div class="page__content">
+        {{!-- Content --}}
+        {{content}}
+      </div>
+      {{!-- Social share --}}
+      {{> social-share}}
+    </div>
+    {{!-- Disqus comments --}}
+    {{> comments}}
+  </div>
 {{/post}}
 

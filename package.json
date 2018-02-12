@@ -7,7 +7,7 @@
     "email": "bironthemes@gmail.com"
   },
   "config": {
-    "posts_per_page": 10
+    "posts_per_page": 9
   },
   "devDependencies": {
     "browser-sync": "^2.18.12",

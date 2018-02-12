@@ -1,0 +1,60 @@
+//===================================
+// Components => Social Share
+//===================================
+
+.social-share {
+  display: flex;
+  padding: $spacing-base;
+
+  @include mq($from: md) {
+    padding: $spacing-large;
+  }
+
+  a {
+    flex: 1;
+    text-align: center;
+    padding: $spacing-base;
+    margin: 0 $spacing-base 0 0;
+    background: transparent;
+    border: 2px solid;
+    min-width: 0;
+
+    &:last-of-type { margin-right: 0; }
+
+    &.facebook {
+      color: $color-facebook;
+      border-color: $color-facebook;
+      transition: color $global-transition, background-color $global-transition;
+      @include box-shadow($top: 5px, $color: rgba($color-facebook, 0.2));
+
+      @include attention() {
+        color: $color-light;
+        background-color: $color-facebook;
+      }
+    }
+
+    &.twitter {
+      color: $color-twitter;
+      border-color: $color-twitter;
+      transition: color $global-transition, background-color $global-transition;
+      @include box-shadow($top: 5px, $color: rgba($color-twitter, 0.2));
+
+      @include attention() {
+        color: $color-light;
+        background-color: $color-twitter;
+      }
+    }
+
+    &.reddit {
+      color: $color-reddit;
+      border-color: $color-reddit;
+      transition: color $global-transition, background-color $global-transition;
+      @include box-shadow($top: 5px, $color: rgba($color-reddit, 0.2));
+
+      @include attention() {
+        color: $color-light;
+        background-color: $color-reddit;
+      }
+    }
+  }
+}

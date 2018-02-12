@@ -2,85 +2,68 @@
 
 {{!-- Everything inside the #author tags pulls data from the author --}}
 {{#author}}
-    <section class="author">
-        {{#if cover_image}}
-            <div class="author-cover lazyload " data-src="{{cover_image}}" style="background: url({{cover_image}})">
-        {{else}}
-            <div class="author-cover lazyload no-image">
-        {{/if}}
-        </div>
-        <div class="author-header">
-            <div class="col-md-12 author-image-wrapper">
-            {{#if profile_image}}
-                <div class="lazyload author-image" data-src="{{img_url profile_image}}" style="background-image: url({{img_url profile_image}})">
-                    <span class="hidden">{{name}}'s Picture</span>
-                </div>
-            {{else}}
-                <div class="lazyload author-image no-image"><span class="hidden">{{name}}'s Picture</span></div>
-            {{/if}}
-            </div>
-            <div class="clearfix"></div>
-            <h1 class="author-title">{{name}}</h1>
-            {{#if bio}}
-                <h2 class="author-bio">{{bio}}</h2>
-            {{/if}}
-            <div class="author-meta">
-                {{#if location}}
-                    <span class="author-location"><i class="fa fa-globe" aria-hidden="true"></i> {{location}}</span>
-                {{/if}}
-                {{#if website}}
-                    <span class="author-link">
-                        <a href="{{website}}"><i class="fa fa-link" aria-hidden="true"></i> {{website}}</a>
-                    </span>
-                {{/if}}
-                <span class="author-stats">
-                    <i class="fa fa-signal" aria-hidden="true"></i>
-                    {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}
-                </span>
-            </div>
-            <div class="author-social">
-                {{#if twitter}}
-                <a class="author-social-link" href="{{twitter_url}}" target="_blank">
-                    <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
-                    <p>Twitter</p>
-                </a>
-                {{/if}}
+<div class="author">
+  <div class="author__cover lazyload " data-src="{{cover_image}}"></div>
+  <div class="author-data">
+    {{#if profile_image}}
+      <div class="author-image lazyload" data-src="{{profile_image}}">
+      </div>
+    {{/if}}
 
-                {{#if facebook}}
-                <a class="author-social-link" href="{{facebook_url}}" target="_blank">
-                    <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
-                    <p>Facebook</p>
-                </a>
-                {{/if}}
-            </div>
-            <div class="author-scroll-wrapper">
-                <a class="scroll-down animated bounce" href="#content">
-                    <i class="fa fa-angle-double-down fa-lg" aria-hidden="true"></i>
-                </a>
-            </div>
-        </div>
-    </section>
+    <h2 class="author__name">{{name}}</h2>
+
+    {{#if bio}}
+      <p class="author__bio">{{bio}}</p>
+    {{/if}}
+
+    <div class="author__meta">
+      {{#if location}}
+        <span class="author__meta-loc"><i class="fa fa-globe" aria-hidden="true"></i> {{location}}</span>
+      {{/if}}
+      {{#if website}}
+        <span class="author__meta-link">
+          <a href="{{website}}"><i class="fa fa-link" aria-hidden="true"></i> {{website}}</a>
+        </span>
+      {{/if}}
+      <span class="author__meta-stats">
+        <i class="fa fa-signal" aria-hidden="true"></i>
+        {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}
+      </span>
+    </div>
+    
+    <div class="author__social">
+      {{#if twitter}}
+      <a class="btn" href="{{twitter_url}}" target="_blank">
+        <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
+        <p>Twitter</p>
+      </a>
+      {{/if}}
+
+      {{#if facebook}}
+      <a class="btn" href="{{facebook_url}}" target="_blank">
+        <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
+        <p>Facebook</p>
+      </a>
+      {{/if}}
+    </div>
+    {{!-- <div class="author-scroll-wrapper">
+        <a class="scroll-down animated bounce" href="#content">
+            <i class="fa fa-angle-double-down fa-lg" aria-hidden="true"></i>
+        </a>
+    </div> --}}
+  </div>
+</div>
 {{/author}}
 
 {{!-- The main content/post by the author --}}
-<div class="content" role="main" id="content">
-    <section class="latest">
-        {{!-- Advert --}}
-        <div class="ad">
-            <div class="ad-unit ad-unit-top ad-unit-w-728 ad-unit-h-90 hidden-xs">
-                <a href="">
-                    <img src="http://res.cloudinary.com/bironthemes/gazette/gazette-w728-h90.png" alt="ad placeholder"/>
-                </a>
-            </div>
-        </div>
-        {{!-- Posts by author --}}
-        <h2>Posts by {{author.name}}</h2>
-        <ul class="latest-list clearfix">
-            {{#foreach posts}}
-                {{> latest-posts}}
-            {{/foreach}}
-        </ul>
-    </section>
-    {{pagination}}
+<div class="wrapper container-fluid">
+  {{!-- Posts by author --}}
+  <h3 class="post-section-title">Posts by {{author.name}}</h3>
+  <section class="section latest">
+    {{#foreach posts}} 
+      {{> post-card}} 
+    {{/foreach}}
+  </section>
+  {{pagination}}
 </div>
 

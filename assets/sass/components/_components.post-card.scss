@@ -27,6 +27,7 @@
 
   @include mq($from: lg) {
     flex-basis: 33.33%;
+    max-width: 33.33%;
 
     &:nth-child(2n+0),
     &:nth-child(2n+1) {
