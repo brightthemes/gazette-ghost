@@ -104,6 +104,7 @@ var callback = function(){
                         '</a>';
   var searchSlider = document.getElementById("search__form-slider");
 
+  // class
   var search = new GhostHunter(
     document.querySelector('#search-field')
   );
