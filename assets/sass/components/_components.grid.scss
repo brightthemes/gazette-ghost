@@ -254,7 +254,7 @@
         display: inline-block;
         font-size: 0.9 * $font-size-base;
         text-transform: uppercase;
-        padding: $spacing-tiny $spacing-small;
+        padding: $spacing-tiny 0.75 * $spacing-base;
         margin-right: $spacing-small;
         border: 1px solid $color-light;
         border-radius: $global-border-radius;
@@ -263,8 +263,8 @@
                     border-color $global-transition;
         
         @include attention() {
-          color: $color-dark;
-          background-color: $color-light;
+          border-color: $color-brand;
+          background-color: $color-brand;
         }
       }
     }
@@ -275,6 +275,18 @@
 
       @include mq($from: sm) {
         font-size: 1.6 * $font-size-base;
+      }
+
+      a {
+        @include attention() {
+          color: $color-brand;
+        }
+      }
+    }
+
+    &-info a:first-child {
+      @include attention() {
+        color: $color-brand;
       }
     }
 

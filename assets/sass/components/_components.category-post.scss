@@ -90,6 +90,8 @@
     flex-grow: 0;
     border-top: 3px solid $color-brand;
     border-radius: $global-border-radius;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 
     .category-post__info {
       a, i, time { color: $color-light; } 
@@ -133,8 +135,8 @@
     color: $color-light;
     background: linear-gradient(to bottom,
                                 transparent 0,
-                                rgba($color-dark,0.4) 20%,
-                                rgba($color-dark,0.8) 100%);
+                                rgba($color-dark,0.6) 20%,
+                                rgba($color-dark,0.9) 100%);
 
     &-title {
       font-size: 1.6 * $font-size-base;

@@ -10,11 +10,11 @@
   </div>
   {{/if}}
   <div class="wrapper container-fluid">
-    <div class="{{post_class}}">
+    <div class="{{post_class}} page-layout">
       {{^if feature_image}}
-        <h2 class="page__title">{{title}}</h2>
+        <h1 class="page-layout__title">{{title}}</h1>
       {{/if}}
-      <div class="page__content">
+      <div class="page-layout__content">
         {{!-- Content --}}
         {{content}}
       </div>

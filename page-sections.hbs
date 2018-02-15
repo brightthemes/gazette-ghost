@@ -2,18 +2,18 @@
 
 {{!-- Page header area --}}
 {{#post}}
-    {{!-- {{> page-head}} --}}
+
 {{/post}}
 
 {{!-- The main content area on the Categories/Sections page --}}
-<div class="content" role="main" id="content">
-    <div class="sections clearfix">
-    {{#get "tags" limit="9" include="count.posts" order="count.posts desc" as |category|}}
-        {{#foreach category}}
-            {{> category-posts}}
-        {{/foreach}}
-    {{/get}}
-    </div>
+<div class="wrapper container-fluid">
+  {{#get "tags" limit="9" include="count.posts" order="count.posts desc" as |category|}}
+    <section class="section category page">
+      {{#foreach category}}
+        {{> category-posts}}
+      {{/foreach}}
+    </section>
+  {{/get}}
 </div>
 
 

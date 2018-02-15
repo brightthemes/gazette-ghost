@@ -2,7 +2,7 @@
 // Tools => Helpers
 //===================================
 
-@mixin overlay {
+@mixin overlay($color1:rgba($color-dark, 0.5), $color2: rgba($color-dark, 0.8)) {
   &:after {
     content: "";
     position: absolute;
@@ -13,27 +13,10 @@
     width: 100%;
     height: 100%;
     border-radius: inherit;
-    @content;
+    background-image: linear-gradient(to bottom, $color1, $color2);
   }
 }
 
-@mixin overlay-dark {
-  @include overlay() {
-    background-image: linear-gradient(to bottom, rgba($color-dark, 0.5), rgba($color-dark, 0.8));
-  }
-}
-
-@mixin overlay-light {
-  @include overlay() {
-    background-image: linear-gradient(to bottom, rgba($color-light, 0.5), rgba($color-light, 0.8));
-  }
-}
-
-@mixin overlay-gradient {
-  @include overlay() {
-    background-image: linear-gradient(to bottom, rgba($color-secondary, 0.25) 20%, rgba($color-brand, 0.25) 40%, rgba($color-dark, 0.8));
-  }
-}
 
 @mixin cover-background {
   background-size: cover;

@@ -2,7 +2,7 @@
 // Components => Buttons
 //===================================
 
-button, .btn {
+button, a.btn, .btn {
   display: inline-flex;
   flex: 0 0 auto;
   overflow: hidden;
@@ -43,7 +43,7 @@ button, .btn {
 
   @include attention () {
     color: $color-white;
-    opacity: 0.8;
+    background-color: rgba($color-brand, 0.8);
   }
 
   &__gradient {

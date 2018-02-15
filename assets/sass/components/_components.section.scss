@@ -13,4 +13,8 @@
 
     @include title-special();
   }
+
+  &.category.page {
+    margin: $spacing-large 0 $spacing-base;
+  }
 }

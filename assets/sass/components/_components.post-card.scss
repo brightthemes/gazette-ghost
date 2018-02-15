@@ -69,7 +69,7 @@
     width: 100%;
     background-color: rgba($color-brand, 0.5);
     border-top: 3px solid $color-brand;
-    border-radius: inherit;
+    border-radius: 0;
 
     a {
       display: block;
@@ -77,8 +77,6 @@
       height: 15em;
       transition: filter $global-transition;
       border-radius: inherit;
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0; 
 
       @include cover-background();
 
@@ -98,7 +96,11 @@
     @include box-shadow($blur: 0.5em);
 
     @include mq($from: md) {
-     flex-grow: 1;
+      flex-grow: 1;
+    }
+
+    &.border-top {
+      border-top: 3px solid $color-brand;
     }
 
     &-info {

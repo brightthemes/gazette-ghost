@@ -5,7 +5,7 @@
     <a class="lazyload" href="{{url}}" data-src="{{img_url feature_image}}"></a>
   </div>
   {{/if}}
-  <div class="post-card__content">
+  <div class="post-card__content{{^if feature_image}} border-top{{/if}}">
     <h4 class="post-card__content-title">
       <a href="{{url}}">{{{title}}}</a>
     </h4>

@@ -110,7 +110,7 @@
 
     @include cover-background();
 
-    @include overlay-dark();
+    @include overlay();
     
     @include attention {
       hr {

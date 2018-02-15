@@ -109,6 +109,8 @@
 
   #menu--toggle:checked + .navbar__menu {
     display: block;
+    border-top: 1px solid $color-light;
+    @include box-shadow($top: $spacing-small);
   }
 }
 

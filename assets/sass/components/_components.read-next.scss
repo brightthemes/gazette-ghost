@@ -90,19 +90,7 @@
 
       @include cover-background();
 
-      &:after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: rgba($color-black, 0.4);
-        transition: background-color $global-transition;
-        z-index: 1;
-        border-radius: inherit;
-      }
+      @include overlay(rgba($color-dark, 0.6), rgba($color-dark, 0.7));
     }
 
     &-info {

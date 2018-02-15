@@ -2,7 +2,7 @@
 // Components => Page
 //===================================
 
-.page {
+.page-layout {
   margin-top: $spacing-large;
   background-color: $color-white;
   border-radius: $global-border-radius;
@@ -21,7 +21,7 @@
       width: 100%;
       height: 100%;
       @include cover-background();
-      @include overlay-dark();
+      @include overlay();
     }
 
     &__title {

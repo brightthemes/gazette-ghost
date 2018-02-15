@@ -65,7 +65,7 @@
     border-radius: inherit;
     height: 100%;
     @include cover-background();
-    @include overlay-dark();
+    @include overlay(rgba($color-dark, 0.6));
 
     @include mq($from: md) {
       padding: $spacing-large;
@@ -84,12 +84,6 @@
     background-color: $color-white;
     border-radius: inherit;
     @include cover-background;
-
-    &:after {
-      content: "";
-      position: relative;
-      background-image: linear-gradient(to bottom, rgba($color-dark, 0.5), rgba($color-dark, 0.8));
-    }
   }
 
   &__title { 
