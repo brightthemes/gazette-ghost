@@ -4,9 +4,9 @@
 {{#author}}
 <div class="author">
   <div class="author__cover lazyload " data-src="{{cover_image}}"></div>
-  <div class="author-data">
+  <div class="author-data wrapper">
     {{#if profile_image}}
-      <div class="author-image lazyload" data-src="{{profile_image}}">
+      <div class="author__img lazyload" data-src="{{profile_image}}">
       </div>
     {{/if}}
 
@@ -33,24 +33,19 @@
     
     <div class="author__social">
       {{#if twitter}}
-      <a class="btn" href="{{twitter_url}}" target="_blank">
-        <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
-        <p>Twitter</p>
+      <a class="btn btn__small" href="{{twitter_url}}" target="_blank">
+        <i class="fa fa-twitter" aria-hidden="true"></i>
+        Twitter
       </a>
       {{/if}}
 
       {{#if facebook}}
-      <a class="btn" href="{{facebook_url}}" target="_blank">
-        <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
-        <p>Facebook</p>
+      <a class="btn btn__small" href="{{facebook_url}}" target="_blank">
+        <i class="fa fa-facebook" aria-hidden="true"></i>
+        Facebook
       </a>
       {{/if}}
     </div>
-    {{!-- <div class="author-scroll-wrapper">
-        <a class="scroll-down animated bounce" href="#content">
-            <i class="fa fa-angle-double-down fa-lg" aria-hidden="true"></i>
-        </a>
-    </div> --}}
   </div>
 </div>
 {{/author}}
@@ -58,8 +53,8 @@
 {{!-- The main content/post by the author --}}
 <div class="wrapper container-fluid">
   {{!-- Posts by author --}}
-  <h3 class="post-section-title">Posts by {{author.name}}</h3>
-  <section class="section latest">
+  <h3 class="post-section-title author-posts" id="author-posts-title">Posts by {{author.name}}</h3>
+  <section class="section author-posts">
     {{#foreach posts}} 
       {{> post-card}} 
     {{/foreach}}

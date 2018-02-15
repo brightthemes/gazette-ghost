@@ -27,8 +27,8 @@
 {{!-- The main content area on the homepage --}}
 <div class="wrapper container-fluid">
   {{!-- Posts in tag --}}
-  <h3 class="post-section-title">Other news in {{tag.name}}</h3>
-  <section class="section latest">
+  <h3 class="post-section-title" id="tag-posts-title">Other news in {{tag.name}}</h3>
+  <section class="section categories">
     {{#foreach posts from="4"}} 
       {{> post-card}} 
     {{/foreach}}

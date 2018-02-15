@@ -30,6 +30,7 @@
 
   @include mq($from: lg) {
     flex-basis: 33.33%;
+    max-width: 33.33%;
 
     &:nth-child(2n+0),
     &:nth-child(2n+1) {
@@ -130,6 +131,7 @@
   &__header {
     position: absolute;
     z-index: 2;
+    width: 100%;
     bottom: 0;
     padding: $spacing-small $spacing-base;
     color: $color-light;

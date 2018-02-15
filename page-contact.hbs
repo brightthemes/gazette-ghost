@@ -2,7 +2,15 @@
 
 {{!-- Page header area --}}
 {{#post}}
-    {{!-- {{> page-head}} --}}
+  {{#if feature_image}}
+    <div class="page-header">
+      <div class="page-header__img lazyload" data-src="{{img_url feature_image}}">
+      </div>
+      <h1 class="page-header__title">{{title}}</h1>
+    </div>
+  {{else}}
+    <h1 class="page-layout__title">{{title}}</h1>
+  {{/if}}
 {{/post}}
 
 {{!-- The main content area on the Contact page --}}

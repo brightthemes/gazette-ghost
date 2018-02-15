@@ -78,6 +78,24 @@ var callback = function(){
       break;
   }
 
+  // Remove the "Other news" title if only 3 posts are in the tag
+  if (location.href.indexOf("/tag/") !== -1) {
+    var tagPostsTitle = document.getElementById("tag-posts-title");
+    var tagPostsCount = document.getElementsByClassName('post-card').length;
+    if (tagPostsCount === 0) {
+      tagPostsTitle.style.display = "none";
+    }
+  }
+
+  // Remove the "Posts by author" title if there are no posts
+  if (location.href.indexOf("/author/") !== -1) {
+    var authorPostsTitle = document.getElementById("author-posts-title");
+    var authorPostsCount = document.getElementsByClassName('post-card').length;
+    if (authorPostsCount === 0) {
+      authorPostsTitle.style.display = "none";
+    }
+  }
+
   // Blog search
   var infoTemplate = '<p class="search__result-amount">{{amount}} results found</p>';
   var resultTemplate =  '<a href="{{link}}" class="search__result-link">' +
@@ -86,7 +104,11 @@ var callback = function(){
                         '</a>';
   var searchSlider = document.getElementById("search__form-slider");
 
-  document.querySelector('#search-field').ghostHunter.init({
+  var search = new GhostHunter(
+    document.querySelector('#search-field')
+  );
+
+  search.init({
     results         : '#results',
     onKeyUp         : true,
     includepages    : true,
@@ -104,6 +126,7 @@ var callback = function(){
                         }, 500);
                       }
   });
+
 
   // load comments on button click
   var loadCommentsBtn = document.getElementById("load-comments");

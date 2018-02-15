@@ -20,6 +20,7 @@
     display: flex;
     background-color: $color-white;
     position: relative;
+    max-height: 50px;
 
     &--scrolled {
       position: fixed;
@@ -65,6 +66,8 @@
     background-color: $color-white;
     order: 2;
     z-index: 9;
+    max-height: 50px;
+    overflow: hidden;
 
     @include mq($from: sm) {
       display: block;
@@ -110,6 +113,7 @@
   #menu--toggle:checked + .navbar__menu {
     display: block;
     border-top: 1px solid $color-light;
+    max-height: none;
     @include box-shadow($top: $spacing-small);
   }
 }

@@ -69,6 +69,8 @@
     padding: 0;
     flex: 1 0;
     width: 80%;
+
+    &::-ms-clear { display: none; }
   }
 
   &__icon {
@@ -81,6 +83,7 @@
     background-color: transparent;
     box-shadow: none;
     min-width: 0;
+    cursor: pointer;
 
     &:hover {
       color: $color-brand;

@@ -1,14 +1,10 @@
 {{!-- Pagination --}}
 <nav class="pagination">
-	<a class="first-page" href="{{page_url 1}}"><i class="fa fa-angle-double-left fa-lg" aria-hidden="true"></i></a>
-    {{#if prev}}
-		<a class="pagination-dots hidden-xs"><i class="fa fa-ellipsis-h fa-lg" aria-hidden="true"></i></a>
-        <a class="previous-page " href="{{page_url prev}}">PREV</a>
-    {{/if}}
-    <a class="active-page">{{page}}</a>
-    {{#if next}}
-        <a class="next-page" href="{{page_url next}}">NEXT</a>
-    	<a class="pagination-dots hidden-xs"><i class="fa fa-ellipsis-h fa-lg" aria-hidden="true"></i></a>
-    {{/if}}
-    <a class="last-page " href="{{page_url pages}}"><i class="fa fa-angle-double-right fa-lg" aria-hidden="true"></i></a>
+  {{#if prev}}
+    <a class="pagination__newer btn btn__small" href="{{page_url prev}}">&larr; Newer Posts</a>
+  {{/if}}
+  <span class="pagination__number btn btn__small btn__dark">Page {{page}} of {{pages}}</span>
+  {{#if next}}
+    <a class="pagination__older btn btn__small" href="{{page_url next}}">Older Posts &rarr;</a>
+  {{/if}}
 </nav>

@@ -2,62 +2,61 @@
 
 {{!-- Page header area --}}
 {{#post}}
-    {{!-- {{> page-head}} --}}
+  {{#if feature_image}}
+    <div class="page-header">
+      <div class="page-header__img lazyload" data-src="{{img_url feature_image}}">
+      </div>
+      <h1 class="page-header__title">{{title}}</h1>
+    </div>
+  {{else}}
+    <h1 class="page-layout__title">{{title}}</h1>
+  {{/if}}
 {{/post}}
 
 {{!-- The main content area on the Team page --}}
-<div class="content" role="main" id="content">
-    <section class="latest">
-        <ul class="team-list clearfix">
-            {{#get "users"}}
-                {{#foreach users}}
-                    <li class="team-list-item col-xs-12 col-md-6 lazyload animated fadeIn">
-                        <div class="team-member-wrapper clearfix">
-                            <div class="col-md-6 team-member">
-                                {{#if feature_image}}
-                                    <a class="lazyload team-member-image" data-src="{{img_url feature_image}}"
-                                        href="{{url}}" style="background-image: url('{{img_url feature_image}}')">
-                                    </a>
-                                {{else}}
-                                    <a class="lazyload no-image" href="{{url}}"></a>
-                                {{/if}}
-                            </div>
-                            <div class="col-md-6 team-member-data">
-                                <div class="team-member-info">
-                                    <h3 class="team-member-name"><a href="{{url}}">{{name}}</a></h3>
-                                    <ul class="team-member-meta">
-                                        {{#if location}}
-                                            <li><p class="team-member-location">{{location}}</p></li>
-                                        {{/if}}
-                                        <li>
-                                            <p class="team-member-social">
-                                            {{#if facebook}}
-                                                <a href="{{facebook_url}}" target="_blank">
-                                                    <i class="fa fa-facebook"></i>
-                                                </a>
-                                            {{/if}}
-                                            {{#if twitter}}
-                                                <a href="{{twitter_url}}" target="_blank">
-                                                    <i class="fa fa-twitter"></i>
-                                                </a>
-                                            {{/if}}
-                                            {{#if website}}
-                                                <a href="{{website}}" target="_blank">
-                                                    <i class="fa fa-globe"></i>
-                                                </a>
-                                            {{/if}}
-                                        </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="team-member-bio">
-                                    {{#if bio}}<p>{{bio}}</p>{{/if}}
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                {{/foreach}}
-            {{/get}}
-        </ul>
-    </section>
+<div class="wrapper container-fluid">
+  <section class="row team page-wrap">
+    {{#get "users"}}
+      {{#foreach users}}
+      <div class="col-lg-6">
+        <div class="team-member">
+          {{#if profile_image}}
+            <a class="team-member__img lazyload" 
+              data-src="{{img_url profile_image}}"
+              href="{{url}}">
+            </a>
+          {{/if}}
+          <div class="team-member__info {{^if profile_image}}border-radius{{/if}}">
+            <h4 class="team-member__name"><a href="{{url}}">{{name}}</a></h4>
+            <div class="team-member__meta">
+              {{#if location}}
+                <p class="team-member__loc">{{location}}</p>
+              {{/if}}
+              {{#if facebook}}
+                <a href="{{facebook_url}}" target="_blank">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              {{/if}}
+              {{#if twitter}}
+                <a href="{{twitter_url}}" target="_blank">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              {{/if}}
+              {{#if website}}
+                <a href="{{website}}" target="_blank">
+                  <i class="fa fa-globe"></i>
+                </a>
+              {{/if}}
+            </div>
+            {{#if bio}}
+              <div class="team-member__bio">
+                {{bio}}
+              </div>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+      {{/foreach}}
+    {{/get}}
+  </section>
 </div>

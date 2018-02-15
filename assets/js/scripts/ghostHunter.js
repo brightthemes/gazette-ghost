@@ -1,3 +1,50 @@
+if (typeof Object.assign != 'function') {
+    Object.assign = function(target) {
+        'use strict';
+        if (target == null) {
+        throw new TypeError('Cannot convert undefined or null to object');
+        }
+
+        target = Object(target);
+        for (var index = 1; index < arguments.length; index++) {
+        var source = arguments[index];
+        if (source != null) {
+            for (var key in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key)) {
+                target[key] = source[key];
+            }
+            }
+        }
+        }
+        return target;
+    };
+}
+
+function closest(el, selector) {
+    var matchesFn;
+
+    // find vendor prefix
+    ['matches','webkitMatchesSelector','mozMatchesSelector','msMatchesSelector','oMatchesSelector'].some(function(fn) {
+        if (typeof document.body[fn] == 'function') {
+            matchesFn = fn;
+            return true;
+        }
+        return false;
+    })
+
+    var parent;
+
+    // traverse parents
+    while (el) {
+        parent = el.parentElement;
+        if (parent && parent[matchesFn](selector)) {
+            return parent;
+        }
+        el = parent;
+    }
+
+    return null;
+}
 
 var ghostHunterDefaults = {
 	resultsData			: false,
@@ -145,7 +192,8 @@ var pluginMethods	= {
 			});
         }
         
-        var form = target.closest("form");
+        // var form = target.closest("form");
+        var form = closest(target, "form");
 
         form.addEventListener("submit", function(e) {
             e.preventDefault();			
@@ -283,14 +331,14 @@ GhostHunter.prototype = {
 	}
 };
 
-Object.defineProperty(Element.prototype, "ghostHunter", {
-	get: function () {
-		Object.defineProperty(this, "ghostHunter", {
-			value: new GhostHunter(this)
-		});
+// Object.defineProperty(Element.prototype, "ghostHunter", {
+// 	get: function () {
+// 		Object.defineProperty(this, "ghostHunter", {
+// 			value: new GhostHunter(this)
+// 		});
 		
-		return this.ghostHunter;
-	},
-	configurable: true,
-	writeable: false
-});
+// 		return this.ghostHunter;
+// 	},
+// 	configurable: true,
+// 	writeable: false
+// });
