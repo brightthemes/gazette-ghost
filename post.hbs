@@ -26,11 +26,14 @@
             </a>
             {{/if}}
             <a class="post__info-author" href="{{url}}">{{name}}</a>
+            <div class="separator"></div>
           {{/author}}          
           {{^if featured}}
-            <div class="post__info-tag">{{tags limit="1"}}</div>  
+            <div class="post__info-tag">in {{tags limit="1"}}</div>  
+            <div class="separator"></div>
           {{/if}}
           <time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="YYYY MMM DD, hh:mm"}}</time>
+          <div class="separator"></div>
           {{reading_time}}
         </div>
 

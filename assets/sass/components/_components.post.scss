@@ -11,6 +11,8 @@
   }
 
   .content {
+    width: 100%;
+    
     @include mq($from: lg) {
       flex: 1;
     }
@@ -32,6 +34,7 @@
 
     .post__info {
       justify-content: center;
+      text-align: center;
 
       @include mq($from: md) {
         margin-bottom: $spacing-large;
@@ -55,7 +58,7 @@
 
       @include attention() {
         color: $color-white;
-        background-color: rgba($color-brand, 0.8);
+        background-color: $color-link-hover;
       }
     }
   }
@@ -74,7 +77,6 @@
   }
 
   &__info {
-    display: flex;
     margin: 0 0 $spacing-base;
     font-family: $font-family-sans-serif;
     color: $color-dark;
@@ -86,7 +88,19 @@
     }
     
     &-author {
-      margin-right: $spacing-small;
+      color: $color-dark;
+      
+      @include attention() {
+        color: $color-link-hover;
+      }
+
+      &:visited { 
+        color: $color-dark; 
+
+        @include attention() {
+          color: $color-link-hover;
+        }
+      }
 
       &--img {
         position: relative;
@@ -107,23 +121,16 @@
     }
 
     &-tag {
-      margin-right: $spacing-small;
+      display: inline;
 
       a {
-        padding: $spacing-tiny $spacing-small;
-        background-color: $color-brand;
-        color: $color-white;
-        transition: background-color $global-transition;
-        border-radius: $global-border-radius;
+        color: $color-dark;
 
         @include attention() {
-          color: $color-white;
-          background-color: rgba($color-brand, 0.8);
+          color: $color-link-hover;
         }
       }
     }
-
-    time { margin-right: $spacing-small; }
   }
 
   &__body {   
@@ -141,8 +148,12 @@
   }
 
   &__content {
-    padding: $spacing-huge $spacing-base $spacing-base;
+    padding: $spacing-large $spacing-base $spacing-base;
     margin: 0 auto;
     max-width: 600px;
+
+    @include mq($from: md) {
+      padding: $spacing-huge $spacing-base $spacing-base;
+    }
   }
 }

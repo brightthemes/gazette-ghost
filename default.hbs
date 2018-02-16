@@ -18,7 +18,8 @@
     <link rel="icon" href="{{asset '/favicon.ico'}}" type="image/x-icon">
 
     {{!-- Styles'n'Scripts --}}
-    <link rel="stylesheet" type="text/css" href="{{asset 'css/app.min.css'}}" />
+    {{> compiled/inline-css }}
+    {{!-- <link rel="stylesheet" type="text/css" href="{{asset 'css/app.min.css'}}" /> --}}
 
     {{!-- Ghost outputs important style and meta data with this tag --}}
     {{ghost_head}}

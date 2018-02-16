@@ -99,7 +99,7 @@
 
       a {
         @include attention() {
-          color: $color-brand;
+          color: $color-link-hover;
         }
       }
     }
@@ -149,7 +149,7 @@
         color: $color-light; 
 
         @include attention() {
-          color: $color-brand;
+          color: $color-link-hover;
         }
       }
     }
@@ -164,12 +164,6 @@
     a, i, time { 
       color: $color-dark; 
       font-size: 1.1 * $font-size-base;
-    }
-
-    a {
-      @include attention() {
-        color: $color-brand;
-      }
     }
 
     i { margin-left: $spacing-tiny; }

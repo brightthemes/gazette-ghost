@@ -71,14 +71,14 @@
       color: $color-dark;
 
       @include attention() {
-        color: $color-brand;
+        color: $color-link-hover;
       }
 
       &:visited {
         color: $color-dark;
 
         @include attention() {
-          color: $color-brand;
+          color: $color-link-hover;
         }
       }
     }

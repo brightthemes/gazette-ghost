@@ -32,10 +32,10 @@ $color-gray-dark:             #A9A9A9;
 $color-link:                    $color-brand;
 
 // Link hover color. 
-$color-link-hover:              darken($color-link, 10%);
+$color-link-hover:              lighten($color-link, 5%);
 
 // Link visited color. 
-$color-link-visited:            darken($color-link, 20%);
+$color-link-visited:            darken($color-link, 10%);
 
 // Globar border color 
 $color-border:                #cccccc;

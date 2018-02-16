@@ -43,7 +43,7 @@ a.btn, .btn {
 
   @include attention () {
     color: $color-white;
-    background-color: rgba($color-brand, 0.8);
+    background-color: $color-link-hover;
   }
 
   &__gradient {

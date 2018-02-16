@@ -109,7 +109,7 @@
 
       &:visited { color: $color-light; }
       
-      @include attention() { color: $color-brand; }
+      @include attention() { color: $color-link-hover; }
     }
   }
 }

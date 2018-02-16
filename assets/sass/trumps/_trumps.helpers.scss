@@ -9,3 +9,12 @@
 .invisible {
   visibility: hidden;
 }
+
+.separator {
+  background: $color-brand;
+  width: 5px;
+  height: 5px;
+  margin: 0 $spacing-small; 
+  vertical-align: center;
+  border-radius: 50%;
+}

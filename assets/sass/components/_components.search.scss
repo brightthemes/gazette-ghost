@@ -25,7 +25,7 @@
     transition: color $global-transition;
 
     @include attention() {
-      color: $color-brand;
+      color: $color-link-hover;
     }
   }
 
@@ -115,7 +115,7 @@
       @include box-shadow($blur: 0.25em);
 
       @include attention() {
-        h4 { color: $color-brand; }
+        h4 { color: $color-link-hover; }
       }
 
       @include mq($from: md) {

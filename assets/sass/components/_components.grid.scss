@@ -263,8 +263,8 @@
                     border-color $global-transition;
         
         @include attention() {
-          border-color: $color-brand;
-          background-color: $color-brand;
+          border-color: $color-link-hover;
+          background-color: $color-link-hover;
         }
       }
     }
@@ -279,14 +279,14 @@
 
       a {
         @include attention() {
-          color: $color-brand;
+          color: $color-link-hover;
         }
       }
     }
 
     &-info a:first-child {
       @include attention() {
-        color: $color-brand;
+        color: $color-link-hover;
       }
     }
 

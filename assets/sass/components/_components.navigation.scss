@@ -22,7 +22,7 @@
       width: 100%;
 
       @include attention() {
-        color: $color-brand;
+        color: $color-link-hover;
       }
     }
   }

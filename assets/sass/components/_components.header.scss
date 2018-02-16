@@ -85,7 +85,7 @@
       cursor: pointer;
       
       @include attention() {
-        color: $color-brand;
+        color: $color-link-hover;
       }
       
       i { font-size: 1.6 * $font-size-base; }
@@ -97,12 +97,14 @@
     align-items: center;
     display: flex;
     cursor: pointer;
+    height: 50px;
     padding-right: $spacing-tiny;
+    padding-bottom: 2px;
     transition: color $global-transition;
     order: 4;
 
     @include attention() {
-      color: $color-brand;
+      color: $color-link-hover;
     }
 
     @include mq($from: sm) {

@@ -4,9 +4,13 @@
 
 // Event DOM ready
 var callback = function(){
+  // ============================
   // trigger events on Dom ready.
+  // ============================
 
+  // ================
   // Lazy load images
+  // ================
   var lazyLoad = new LazyLoad({
     elements_selector: ".lazyload",
     class_loading: "loading",
@@ -24,7 +28,9 @@ var callback = function(){
     }
   });
   
+  // =====================
   // Scroll event listener
+  // =====================
   window.addEventListener("scroll", adjustNavbar, false);
 
   // Fix navbar after scrolling
@@ -48,7 +54,9 @@ var callback = function(){
     document.body.style.overflowY = "auto";
   };
 
-  // Detect how many featured posts are to be shown and adjust the class
+  // ===========================
+  // Adjust featured posts class
+  // ===========================
   var featuredPostCount = document.querySelectorAll(".grid-story").length;
   switch(featuredPostCount) {
     case 1:
@@ -78,7 +86,9 @@ var callback = function(){
       break;
   }
 
+  // ============================================================
   // Remove the "Other news" title if only 3 posts are in the tag
+  // ============================================================
   if (location.href.indexOf("/tag/") !== -1) {
     var tagPostsTitle = document.getElementById("tag-posts-title");
     var tagPostsCount = document.getElementsByClassName('post-card').length;
@@ -87,7 +97,9 @@ var callback = function(){
     }
   }
 
+  // ========================================================
   // Remove the "Posts by author" title if there are no posts
+  // ========================================================
   if (location.href.indexOf("/author/") !== -1) {
     var authorPostsTitle = document.getElementById("author-posts-title");
     var authorPostsCount = document.getElementsByClassName('post-card').length;
@@ -96,7 +108,9 @@ var callback = function(){
     }
   }
 
+  // ===========
   // Blog search
+  // ===========
   var infoTemplate = '<p class="search__result-amount">{{amount}} results found</p>';
   var resultTemplate =  '<a href="{{link}}" class="search__result-link">' +
                           '<h4>{{title}}</h4>' +
@@ -104,7 +118,6 @@ var callback = function(){
                         '</a>';
   var searchSlider = document.getElementById("search__form-slider");
 
-  // class
   var search = new GhostHunter(
     document.querySelector('#search-field')
   );
@@ -128,8 +141,9 @@ var callback = function(){
                       }
   });
 
-
-  // load comments on button click
+  // =============================
+  // Load comments on button click
+  // =============================
   var loadCommentsBtn = document.getElementById("load-comments");
     if ( loadCommentsBtn ) {
     loadCommentsBtn.onclick = function(){
@@ -139,12 +153,12 @@ var callback = function(){
     }
   }
 
-  // related posts
+  // =============
+  // Related posts
+  // =============
   var relatedPosts = document.getElementById("related-posts");
-  // getCurrentPosts(relatedPosts.dataset.post_id);
   if ( relatedPosts ) {
     addRelatedPosts(relatedPosts.dataset.post_id)
-    // getCurrentPostData(relatedPosts.dataset.post_id, getRelatedPosts);
   }
 };
 
@@ -157,7 +171,9 @@ if (
   document.addEventListener("DOMContentLoaded", callback);
 }
 
+// ===============================
 // Check if element is in viewport
+// ===============================
 function isInViewport(el) {
   var top = el.offsetTop;
   var left = el.offsetLeft;
@@ -178,6 +194,9 @@ function isInViewport(el) {
   );
 }
 
+// ==================
+// Add class function
+// ==================
 function addClass(selector, myClass) {
   // get all elements that match our selector
   elements = document.querySelectorAll(selector);
@@ -188,6 +207,9 @@ function addClass(selector, myClass) {
   }
 }
 
+// =====================
+// Remove class function
+// =====================
 function removeClass(selector, myClass) {  
   // get all elements that match our selector
   elements = document.querySelectorAll(selector);
@@ -198,7 +220,9 @@ function removeClass(selector, myClass) {
   }
 }
 
+// ==================================================
 // Helper function to get an element's exact position
+// ==================================================
 function getPosition(el) {
   var xPos = 0;
   var yPos = 0;
@@ -225,7 +249,9 @@ function getPosition(el) {
   };
 }
 
-// adjust navbar
+// =============
+// Sticky navbar
+// =============
 function adjustNavbar() {
   var navbarDefault = document.getElementById("navbar-default");
   var navbarSocial = document.getElementById("navbar-social");
@@ -238,7 +264,9 @@ function adjustNavbar() {
   }
 }
 
+// ===============
 // Disqus comments
+// ===============
 function loadComments(url, id) {
   /**
    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -258,7 +286,9 @@ function loadComments(url, id) {
   })();
 }
 
+// =================
 // Add related posts
+// =================
 function addRelatedPosts(id) {
   var apiOptions = {
     include: 'tags'
@@ -267,7 +297,9 @@ function addRelatedPosts(id) {
   getGhostData(url, findRelatedPosts);
 }
 
-// get Ghost data
+// ==============
+// Get Ghost data
+// ==============
 function getGhostData(url, callback) {
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.onreadystatechange = function() { 
@@ -278,7 +310,9 @@ function getGhostData(url, callback) {
   xmlHttp.send(null);
 }
 
-// 
+// ==================
+// Find related posts
+// ==================
 function findRelatedPosts(postData) {
   var tags = JSON.parse(postData).posts[0].tags;
   var postId = JSON.parse(postData).posts[0].id;
@@ -303,6 +337,9 @@ function findRelatedPosts(postData) {
   }
 }
 
+// ==================
+// Show related posts
+// ==================
 function showRelatedPosts(posts) {
   var relatedPosts = JSON.parse(posts).posts;
   var relatedTitle = document.getElementById("related-posts-title");
