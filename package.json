@@ -1,0 +1,43 @@
+{
+  "name": "gazette",
+  "version": "2.2.0",
+  "description": "Magazine/News Ghost Theme",
+  "author": {
+    "name": "Biron Themes",
+    "email": "bironthemes@gmail.com"
+  },
+  "config": {
+    "posts_per_page": 9
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.12",
+    "cssnano": "^3.10.0",
+    "fs": "0.0.1-security",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "path": "^0.12.7",
+    "pixrem": "^4.0.1",
+    "postcss-color-rgba-fallback": "^3.0.0",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-discard-comments": "^2.0.4",
+    "postcss-opacity": "^4.0.0",
+    "postcss-pseudoelements": "^5.0.0",
+    "postcss-vmin": "^3.0.0",
+    "postcss-will-change": "^2.0.0",
+    "postcss-zindex": "^2.2.0"
+  },
+  "dependencies": {
+    "fitvids": "^2.0.0",
+    "font-awesome": "^4.7.0",
+    "lunr": "^2.1.5",
+    "vanilla-lazyload": "^8.6.0"
+  }
+}

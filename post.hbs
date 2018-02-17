@@ -1,0 +1,81 @@
+{{!< default}}
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+{{!-- Post elements --}}
+<div class="wrapper container-fluid">
+  <div class="row split">
+    <div class="{{#if featured}}col-lg-12{{else}}col-lg-9{{/if}} content">
+      <article class="{{post_class}}">
+
+        {{!-- Post date --}}
+        {{#if featured}}
+          <div class="post__tag">{{tags limit="1"}}</div>
+        {{/if}}
+
+        {{!-- Title --}}
+        <h1 class="post__title">{{title}}</h1>
+
+        {{!-- Post info --}}
+        <div class="post__info">
+          {{!-- Author --}}
+          {{#author}}
+            {{#if profile_image}}
+            <a class="lazyload post__info-author--img" data-src="{{img_url profile_image}}"
+              href="{{url}}" title="{{name}}">
+            </a>
+            {{/if}}
+            <a class="post__info-author" href="{{url}}">{{name}}</a>
+            <div class="separator"></div>
+          {{/author}}          
+          {{^if featured}}
+            <div class="post__info-tag">in {{tags limit="1"}}</div>  
+            <div class="separator"></div>
+          {{/if}}
+          <time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="YYYY MMM DD, hh:mm"}}</time>
+          <div class="separator"></div>
+          {{reading_time}}
+        </div>
+
+        <div class="post__body">
+          {{!-- Post image --}}        
+          {{#if feature_image}}
+            <img alt="{{title}}" class="lazyload post__image" data-src="{{img_url feature_image}}"/>
+          {{/if}}
+
+          {{!-- Post content --}}
+          <div class="post__content">
+            {{content}}
+          </div>
+
+          {{!-- Bottom share buttons --}}
+          {{> social-share}}
+        </div>
+
+      </article>
+
+      {{!-- Include Post author info --}}
+      {{> author-box}}
+
+      {{!-- Related Posts --}}
+      <h3 class="post-section-title" id="related-posts-title">Related posts</h3>
+      <div class="related-posts row" id="related-posts" data-post_id="{{id}}">
+        {{!-- Related posts will be inserted with javascript --}}
+      </div>
+
+      {{!-- Include Disqus Comments --}}
+      {{> comments}}
+    </div>
+
+    {{!-- Include sidebar --}}
+    {{^if featured}}
+      <aside class="col-lg-3 sidebar">
+        {{> sidebar}}
+      </aside>
+    {{/if}}
+
+    {{!-- Links to Previous/Next posts --}}
+    {{> read-next}}
+  </div>
+</div>
+{{/post}}

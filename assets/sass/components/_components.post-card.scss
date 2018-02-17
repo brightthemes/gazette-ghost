@@ -1,0 +1,127 @@
+//===================================
+// Components => Post Card
+//===================================
+
+.post-card {
+  margin-bottom: $spacing-base;
+  padding: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex-flow: column wrap;
+  border-radius: $global-border-radius;
+
+  @include mq($from: md) {
+    flex-basis: 50%;
+    max-width: 50%;
+
+    &:nth-child(odd) {
+      padding-right: $spacing-small;
+    }
+
+    &:nth-child(even) {
+      padding-left: $spacing-small;
+    }
+  }
+
+  @include mq($from: lg) {
+    flex-basis: 33.33%;
+    max-width: 33.33%;
+
+    &:nth-child(2n+0),
+    &:nth-child(2n+1) {
+      padding: 0;
+    }
+    
+    &:nth-child(3n+1) {
+      padding-right: $spacing-small;
+    }
+
+    &:nth-child(3n+2) {
+      padding-left: $spacing-small;
+      padding-right: $spacing-small;
+    }
+
+    &:nth-child(3n+3) {
+      padding-left: $spacing-small;
+    }
+  }
+
+  @include mq($from: xl) {
+    margin-bottom: $spacing-large;
+
+    &:nth-child(3n+1) {
+      padding-right: $spacing-base;
+    }
+
+    &:nth-child(3n+2) {
+      padding-left: $spacing-base;
+      padding-right: $spacing-base;
+    }
+
+    &:nth-child(3n+3) {
+      padding-left: $spacing-base;
+    }
+  } 
+
+  &__image {
+    width: 100%;
+    background-color: rgba($color-brand, 0.5);
+    border-top: 3px solid $color-brand;
+    border-radius: 0;
+
+    a {
+      display: block;
+      height: 100%;
+      height: 15em;
+      transition: filter $global-transition;
+      border-radius: inherit;
+
+      @include cover-background();
+
+      @include attention() {
+        filter: hue-rotate(260deg);
+      }
+    }
+  }
+
+  &__content {
+    padding: $spacing-base;
+    background-color: $color-white;
+    border-radius: inherit;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+
+    @include box-shadow($blur: 0.5em);
+
+    @include mq($from: md) {
+      flex-grow: 1;
+    }
+
+    &.border-top {
+      border-top: 3px solid $color-brand;
+    }
+
+    &-info {
+      margin-bottom: $spacing-base;
+
+      a, i, time { 
+        color: $color-dark; 
+        font-size: 1.1 * $font-size-base;
+      }
+
+      i { margin-left: $spacing-tiny; }
+    }
+  }
+
+  &__tag {
+    display: flex;
+    margin-bottom: $spacing-small;
+  }
+
+  &__excerpt {
+    font-family: $font-family-serif;
+    margin-bottom: $spacing-small;
+  }
+}

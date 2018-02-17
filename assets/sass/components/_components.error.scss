@@ -1,0 +1,48 @@
+//===================================
+// Components => 404 Page
+//===================================
+
+.error {
+  padding: $spacing-base;
+
+  @include mq($from: md) {
+    padding: 2 * $spacing-huge $spacing-huge;
+  }
+
+  &__subtitle,
+  &__text,
+  &__links {
+    text-align: center;
+
+    @include mq($from: md) {
+      text-align: left;
+    }
+  }
+  
+  &__title {
+    text-align: center;
+    margin-bottom: 0;
+
+    @include mq($from: sm) {
+      line-height: 1;
+      font-size: 8rem;
+    }
+
+    @include mq($from: md) {
+      font-size: 10rem;
+      text-align: right
+    }
+
+    @include mq($from: lg) {
+      font-size: 12rem;
+    }
+  }
+
+  &__links {
+    @include mq($from: md) {
+      margin: 0 -$spacing-small;
+    }
+    
+    i { margin-right: $spacing-small; }
+  }
+}

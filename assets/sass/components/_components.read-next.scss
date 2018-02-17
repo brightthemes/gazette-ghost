@@ -1,0 +1,124 @@
+//===================================
+// Components => Previous/Next posts
+//===================================
+
+.read-next {
+  display: flex;
+  flex: 0 1 auto;
+  flex-flow: row wrap;
+  width: 100%;
+  font-family: $font-family-sans-serif;
+  padding: $spacing-base 0;
+  width: 100%;
+
+  @include mq($from: lg) {
+    padding: $spacing-base;
+  }
+
+  &__story {
+    position: relative;
+    text-align: center;
+    min-height: 20rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-base;
+    border-radius: $global-border-radius;
+    background-color: rgba($color-dark, 0.6);
+    transition: box-shadow $global-transition;
+
+    @include box-shadow($color: rgba($color-black, 0.3));
+    
+    @include mq($from: md) {
+      flex: 1;
+    }
+
+    @include attention() {
+      @include box-shadow($top: 5px, $color: rgba($color-dark, 0.5));
+    }
+
+    &.prev {
+      margin-bottom: $spacing-base;
+
+      @include mq($from: md) {
+        margin-bottom: 0;
+        margin-right: $spacing-small;
+      }
+
+      @include mq($from: lg) {
+        margin-bottom: 0;
+        margin-right: $spacing-base;
+      }
+
+      .read-next__story-info:before {
+        content: "Previous post";
+      }
+
+      &:only-of-type {
+        margin-right: 0;
+      }
+    }
+
+    &.next {
+      @include mq($from: md) {
+        margin-left: $spacing-small;
+      }
+
+      @include mq($from: lg) {
+        margin-left: $spacing-base;
+      }
+
+      .read-next__story-info:before {
+        content: "Next post";
+      }
+
+      &:only-of-type {
+        margin-left: 0;
+      }
+    }
+
+    &-image {
+      position: absolute;
+      border-radius: inherit;
+
+      @include full-cover();
+      @include cover-background();
+      @include overlay(to bottom, rgba($color-dark, 0.6), rgba($color-dark, 0.7));
+    }
+
+    &-info {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+
+      h3 { color: $color-light; }
+
+      &:before {
+        content: "";
+        padding: $spacing-small $spacing-base;
+        text-transform: uppercase;
+        font-size: $font-size-base;
+        color: $color-light;
+        border: 1px solid $color-light;
+        border-radius: $global-border-radius;
+        transition: background-color $global-transition,
+                    color $global-transition;
+      }
+    }
+
+    &-title { 
+      margin: 0;
+      margin-top: $spacing-small;
+
+      a, a:visited { 
+        color: $color-light; 
+        transition: color $global-transition;
+
+        @include attention() {
+          color: $color-link-hover;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+//===================================
+// Components => Lazyload
+//===================================
+
+.lazyload {
+  // transform: scale(0.9);
+  opacity: 0.2;
+  transition: all $global-transition;
+}
+
+.lazyload.loaded {
+  opacity: 1;
+  // transform: scale(1);
+}

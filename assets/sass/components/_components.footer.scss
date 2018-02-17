@@ -1,0 +1,56 @@
+//===================================
+// Components => Footer
+//===================================
+
+.footer {
+  &__top {
+    background-color: rgba($color-dark, 0.9); 
+    padding: $spacing-base 0;
+
+    @include mq($from: md) {
+      padding: $spacing-huge 0;
+    }
+  }
+
+  &__social,
+  &__nav {
+    padding: $spacing-base 0;
+  }
+
+  &__nav {
+    .nav__item {
+      display: inline-block;
+      
+      a {
+        color: $color-light;
+        text-transform: uppercase;
+        font-weight: $font-weight-bold;
+        margin: 0 $spacing-tiny;
+        padding: 0;
+        font-size: $font-size-base; 
+        transition: color $global-transition;
+
+        @include attention () {
+          color: $color-brand;
+        }
+      }
+      
+      &.nav--current {
+        &:after { content: none; }
+      }
+    }
+  }
+
+  &__bottom {
+    padding: $spacing-base 0;
+    background-color: $color-dark;
+    color: $color-light;
+    text-align: center;
+    font-size: 0.9 * $font-size-base;
+
+    a {
+      color: $color-light;
+      font-weight: $font-weight-bold;
+    }
+  }
+}

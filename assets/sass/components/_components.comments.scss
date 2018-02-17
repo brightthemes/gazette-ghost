@@ -1,0 +1,20 @@
+//===================================
+// Components => Comments
+//===================================
+
+.comment {
+  background-color: $color-white;
+  padding: $spacing-base;
+  border-radius: $global-border-radius;
+  margin-bottom: $spacing-large;
+
+  @include mq($from: md) {
+    padding: $spacing-large;
+  }
+
+  @include box-shadow($blur: 0.25em);
+
+  &__panel {
+    text-align: center;
+  }
+}

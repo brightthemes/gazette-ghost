@@ -1,0 +1,53 @@
+{{!< default}} 
+
+{{!-- The big featured header --}} 
+{{#get "posts" limit="4" include="author,tags" 
+                filter="featured:true" as |featured| }} 
+  <div class="grid grid-1 grid-2 grid-3 grid-4">
+    {{#foreach featured}}
+    <article class="grid-story">
+      <a href="{{url}}" class="lazyload grid-story__image" 
+        data-src="{{img_url feature_image}}">
+      </a>
+      <div class="grid-story__gradient"></div>
+      <header class="grid-story__header">
+        <div class="grid-story__header-tags">
+          {{tags limit="3" separator=""}}
+        </div>
+        <h2 class="grid-story__header-title">
+          <a href="{{url}}">{{{title}}}</a>
+        </h2>
+        <div class="grid-story__header-info">
+          {{> post-info}}
+        </div>
+      </header>
+    </article>
+    {{/foreach}}
+  </div>
+{{/get}} 
+  
+{{!-- The main content area on the homepage --}}
+<div class="wrapper container-fluid">
+
+  {{!-- Latest posts --}} 
+  {{#get "posts" filter="featured:false" order="published_at desc" 
+                 limit="9" include="author,tags" as |latest|}}
+  <h3 class="section__title">Latest news</h3>
+  <section class="section latest">
+    {{#foreach latest}} 
+      {{> post-card}} 
+    {{/foreach}}
+  </section>
+  {{/get}} 
+  
+  {{!-- Posts by category --}} 
+  {{#get "tags" limit="6" include="count.posts" 
+                order="count.posts desc" as |category|}}
+  <section class="section category">
+    {{#foreach category}} 
+      {{> category-posts}} 
+    {{/foreach}}
+  </section>
+  {{/get}}
+
+</div>

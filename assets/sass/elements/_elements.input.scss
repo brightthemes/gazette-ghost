@@ -1,0 +1,14 @@
+//===================================
+// Input and Buttons
+//===================================
+
+input, textarea, select { 
+  padding: 0 $spacing-small;
+  border-radius: $global-border-radius;
+  border: 2px solid $color-gray-light;
+  height: 30px;
+  
+  @include attention() { outline: none; }
+}
+
+// Buttons are defined in the components.

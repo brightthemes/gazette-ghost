@@ -1,0 +1,30 @@
+{{!-- Site header --}}
+<header class="navbar">
+  <div class="navbar__social" id="navbar-social">
+    {{!-- Site Media Links --}} 
+    {{> social-media}}
+  </div>
+
+  {{!-- Default navigation --}}
+  <div id="navbar-default" class="navbar__default center-xs middle-xs">
+    <div class="navbar__brand">
+      <a href="{{@blog.url}}" class="navbar__brand--{{#if @blog.logo}}logo{{else}}text{{/if}}">
+        {{#if @blog.logo}}
+          <img data-src="{{@blog.logo}}" class="lazyload" alt="{{@blog.title}}" /> 
+        {{else}} 
+          {{@blog.title}} 
+        {{/if}}
+      </a>
+    </div>
+    <label for="menu--toggle" class="navbar--toggle">&equiv;</label>
+    <input type="checkbox" id="menu--toggle" class="hidden"/>
+    <div class="navbar__menu">
+      {{navigation}}
+    </div>
+    <div class="navbar__search">
+      <a class="navbar__search--open" id="search-open">
+        <i class="fa fa-search fa-lg fa-rotate-90"></i>
+      </a>
+    </div>
+  </div>
+</header>

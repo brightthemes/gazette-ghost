@@ -1,0 +1,31 @@
+//===================================
+// Settings => Typography
+//===================================
+
+// Font settings
+$font-family-serif:       'Domine', Georgia, serif;
+$font-family-sans-serif:	'Roboto', Tahoma, Arial, sans-serif;
+$font-family-monospace: 	Menlo, Monaco, Consolas, "Courier New", monospace;
+
+$font-size-base: 					1rem  !default;
+
+$font-weight-thin:        100;
+$font-weight-regular: 		400;
+$font-weight-bold: 				700;
+$font-weight-extra-bold:  900;
+
+// Line height and spacing
+$line-height-base: 				1.6   !default;
+
+$spacing-base:						1em   !default;
+
+$spacing-factor-tiny:     0.25  !default;
+$spacing-factor-small:    0.5   !default;
+$spacing-factor-large:    2     !default;
+$spacing-factor-huge:     4     !default;
+
+$spacing-tiny:            $spacing-base * $spacing-factor-tiny;
+$spacing-small:           $spacing-base * $spacing-factor-small;
+$spacing-large:           $spacing-base * $spacing-factor-large;
+$spacing-huge:            $spacing-base * $spacing-factor-huge;
+

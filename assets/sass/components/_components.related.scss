@@ -1,0 +1,101 @@
+//===================================
+// Components => Related Posts
+//===================================
+
+.related-posts {
+  margin-bottom: $spacing-large;
+  display: flex;
+  text-align: center;
+  // justify-content: center;
+  flex-wrap: wrap;
+
+}
+
+.related-post {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-basis: 100%;
+  flex-direction: column;
+  border-radius: $global-border-radius;
+  transition: box-shadow $global-transition;
+  background-color: rgba($color-dark, 0.7);
+  @include box-shadow($color: rgba($color-dark, 0.3));
+
+  @include attention() {
+    @include box-shadow($top: 5px, $color: rgba($color-dark, 0.5));
+  }
+
+  &-col {
+    display: flex;
+    width: 100%;
+    padding: 0 $spacing-base;
+    margin-bottom: $spacing-base;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mq($from: md) {
+      margin-bottom: $spacing-large;
+
+      &:last-child,
+      &:nth-last-child(2):nth-child(odd) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__content {
+    padding: $spacing-base;
+    border-radius: inherit;
+    height: 100%;
+    @include cover-background();
+    @include overlay(to bottom, rgba($color-dark, 0.6));
+
+    @include mq($from: md) {
+      padding: $spacing-large;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    display: block;
+    background-color: $color-white;
+    border-radius: inherit;
+    @include full-cover();
+    @include cover-background();
+  }
+
+  &__title { 
+    font-size: 1.2 * $font-size-base;
+    margin-bottom: $spacing-large;
+
+    &:after {
+      position: relative;
+      content: "";
+      display: block;
+      margin: 0 auto;
+      height: 1px;
+      background-color: $color-light;
+      width: 20%;
+      max-width: 50px;
+      bottom: -$spacing-base;
+    }
+  }
+
+  &__author, &__title {
+    position: relative;
+    z-index: 1;
+    color: $color-light; 
+
+    a { 
+      color: $color-light; 
+      transition: color $global-transition;
+
+      &:visited { color: $color-light; }
+      
+      @include attention() { color: $color-link-hover; }
+    }
+  }
+}

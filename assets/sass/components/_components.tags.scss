@@ -1,0 +1,36 @@
+//===================================
+// Components => Tags
+//===================================
+
+.tag-cloud a,
+.tags a {
+  display: inline-block;
+  margin-right: $spacing-tiny;
+  margin-bottom: $spacing-small;
+  padding: $spacing-tiny $spacing-small;
+  border-radius: $global-border-radius;
+  background-color: $color-brand;
+  color: $color-white;
+  // text-transform: uppercase;
+  // font-weight: $font-weight-bold;
+  font-size: 0.9 * $font-size-base;
+  transition: color $global-transition,
+              background-color $global-transition;
+
+  @include box-shadow($blur: 0.25em);
+
+  @include attention() {
+    color: $color-white;
+    background-color: rgba($color-brand, 0.8);
+  }
+
+  &:visited {
+    @include attention() {
+      color: $color-white;
+    }
+  }
+
+  @include mq($from: md) {
+    font-size: $font-size-base;
+  }
+}

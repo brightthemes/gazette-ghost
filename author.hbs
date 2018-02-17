@@ -1,0 +1,64 @@
+{{!< default}}
+
+{{!-- Everything inside the #author tags pulls data from the author --}}
+{{#author}}
+<div class="author">
+  <div class="author__cover lazyload " data-src="{{cover_image}}"></div>
+  <div class="author-data wrapper">
+    {{#if profile_image}}
+      <div class="author__img lazyload" data-src="{{profile_image}}">
+      </div>
+    {{/if}}
+
+    <h2 class="author__name">{{name}}</h2>
+
+    {{#if bio}}
+      <p class="author__bio">{{bio}}</p>
+    {{/if}}
+
+    <div class="author__meta">
+      {{#if location}}
+        <span class="author__meta-loc"><i class="fa fa-globe" aria-hidden="true"></i> {{location}}</span>
+      {{/if}}
+      {{#if website}}
+        <span class="author__meta-link">
+          <a href="{{website}}"><i class="fa fa-link" aria-hidden="true"></i> {{website}}</a>
+        </span>
+      {{/if}}
+      <span class="author__meta-stats">
+        <i class="fa fa-signal" aria-hidden="true"></i>
+        {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}
+      </span>
+    </div>
+    
+    <div class="author__social">
+      {{#if twitter}}
+      <a class="btn btn__small" href="{{twitter_url}}" target="_blank">
+        <i class="fa fa-twitter" aria-hidden="true"></i>
+        Twitter
+      </a>
+      {{/if}}
+
+      {{#if facebook}}
+      <a class="btn btn__small" href="{{facebook_url}}" target="_blank">
+        <i class="fa fa-facebook" aria-hidden="true"></i>
+        Facebook
+      </a>
+      {{/if}}
+    </div>
+  </div>
+</div>
+{{/author}}
+
+{{!-- The main content/post by the author --}}
+<div class="wrapper container-fluid">
+  {{!-- Posts by author --}}
+  <h3 class="post-section-title author-posts" id="author-posts-title">Posts by {{author.name}}</h3>
+  <section class="section author-posts">
+    {{#foreach posts}} 
+      {{> post-card}} 
+    {{/foreach}}
+  </section>
+  {{pagination}}
+</div>
+

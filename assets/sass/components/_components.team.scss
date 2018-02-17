@@ -1,0 +1,86 @@
+//===================================
+// Components => Team
+//===================================
+
+.team {
+  &>div {
+    display: flex;
+    width: 100%;
+  }
+  
+  &-member {
+    display: flex;
+    margin-bottom: $spacing-base;
+    flex-direction: column;
+    width: 100%;
+    border-radius: $global-border-radius;
+    @include box-shadow();
+
+    @include mq($from: sm) {
+      flex-direction: row;
+    }
+
+    @include mq($from: lg) {
+      margin: $spacing-base 0;
+    }
+
+    &__img,
+    &__info {
+      flex: 1;
+      border-radius: inherit;
+    }
+
+    &__img {
+      position: relative;
+      min-height: 150px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      @include cover-background();
+      @include overlay($direction: to bottom right, $color1: rgba($color-brand,0.5), $color2: rgba($color-secondary, 0.5));
+
+      @include mq($from: sm) {
+        border-radius: $global-border-radius;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    &__info {
+      background-color: $color-white;
+      padding: $spacing-base;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+
+      @include mq($from: sm) {
+        border-radius: $global-border-radius;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      &.border-radius {
+        border-radius: $global-border-radius;
+      }
+    }
+
+    &__name, 
+    &__loc {
+      margin-bottom: $spacing-tiny;
+    }
+
+    &__meta a {
+      color: $color-dark;
+
+      @include attention() {
+        color: $color-link-hover;
+      }
+
+      &:visited {
+        color: $color-dark;
+
+        @include attention() {
+          color: $color-link-hover;
+        }
+      }
+    }
+  }
+}

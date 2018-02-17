@@ -1,0 +1,62 @@
+{{!-- Sidebar --}}
+
+{{!-- Sidebar featured posts --}}
+{{#get "posts" filter="featured:true+id:-{{id}}" limit="5" include="author,tags" as |featured|}}
+<h3 class="sidebar__title">Featured posts</h3>
+<div class="sidebar__featured">
+  {{#foreach featured}}
+  <article class="sidebar__story">
+    <h4 class="sidebar__story-title">
+      <a href="{{url}}">{{{title}}}</a>
+    </h4>
+    <div class="sidebar__story-info">
+      {{author}}
+      <i class="fa fa-clock-o"></i>
+      <time datetime="{{date format="YYYY-MM-DD"}}">
+        {{date published_at timeago="true"}}
+      </time>
+    </div>
+  </article>
+  {{/foreach}}
+</div>
+{{/get}}
+
+{{!-- Tag Cloud --}}
+<h3 class="sidebar__title">Tag cloud</h3>
+<div class="sidebar__tag-cloud tag-cloud">
+  {{> tag-cloud}}
+</div>
+
+{{!-- Sidebar latest posts --}}
+{{#get "posts" filter="featured:false+id:-{{id}}" limit="10" include="author,tags" as |latest|}}
+<h3 class="sidebar__title">Latest posts</h3>
+<div class="sidebar__latest">
+  {{#foreach latest}}
+  <article class="sidebar__story">
+    <h4 class="sidebar__story-title">
+      <a href="{{url}}">{{{title}}}</a>
+    </h4>
+    <div class="sidebar__story-info">
+      {{author}}
+      <i class="fa fa-clock-o"></i>
+      <time datetime="{{date format="YYYY-MM-DD"}}">
+        {{date published_at timeago="true"}}
+      </time>
+    </div>
+  </article>
+  {{/foreach}}
+</div>
+{{/get}}
+
+{{!-- Sidebar Top categories --}}
+{{#get "tags" limit="10" include="count.posts" order="count.posts desc"}}
+<h3 class="sidebar__title">Top categories</h3>
+<div class="sidebar__category">
+  {{#foreach tags}}
+  <a href="{{url}}">
+    <div class="sidebar__category-name">{{name}}</div>
+    <div class="sidebar__category-count">{{count.posts}}</div>
+  </a>
+  {{/foreach}}
+</div>
+{{/get}}

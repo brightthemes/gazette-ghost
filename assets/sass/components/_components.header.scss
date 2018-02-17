@@ -1,0 +1,122 @@
+//===================================
+// Components => Header
+//===================================
+
+.navbar {
+  height: 80px;
+  font-weight: $font-weight-bold;
+  @include box-shadow($blur: 2em, $color: rgba($color-black, 0.2));
+  
+  a { color: $color-dark; }
+
+  &__social {
+    width: 100%;
+    text-align: right;
+    height: 30px;
+    background-color: $color-black;
+  }
+
+  &__default {
+    display: flex;
+    background-color: $color-white;
+    position: relative;
+    max-height: 50px;
+
+    &--scrolled {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 9;
+      @include box-shadow($blur: 2em, $color: rgba($color-black, 0.2));
+    }
+  }
+
+  &__brand {
+    flex-grow: 1;
+    text-align: left;
+    order: 1;
+
+    @include mq($from: sm) {
+      flex-grow: 0;
+    }
+
+    &--text {
+      font-size: 1.6 * $font-size-base;
+      padding: 10px;
+    } 
+
+    &--logo  {
+      padding: 0;
+      display: flex;
+      
+      img {
+        max-height: 50px;
+        margin: 0;
+        padding: $spacing-tiny;
+      }
+    }
+  }
+
+  &__menu {
+    display: none; 
+    left: 0;
+    right: 0;
+    top: 100%;
+    position: absolute;
+    background-color: $color-white;
+    order: 2;
+    z-index: 9;
+    max-height: 50px;
+    overflow: hidden;
+
+    @include mq($from: sm) {
+      display: block;
+      position: relative;
+      flex: 1 0;
+    }
+  }
+
+  &__search {
+    order: 3;
+
+    a {
+      padding: 15.5px 10px;
+      transition: color $global-transition;
+      cursor: pointer;
+      
+      @include attention() {
+        color: $color-link-hover;
+      }
+      
+      i { font-size: 1.6 * $font-size-base; }
+    }
+  }
+
+  &--toggle {
+    font-size: 2 * $font-size-base;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    height: 50px;
+    padding-right: $spacing-tiny;
+    padding-bottom: 2px;
+    transition: color $global-transition;
+    order: 4;
+
+    @include attention() {
+      color: $color-link-hover;
+    }
+
+    @include mq($from: sm) {
+      display: none;
+    }
+  }
+
+  #menu--toggle:checked + .navbar__menu {
+    display: block;
+    border-top: 1px solid $color-light;
+    max-height: none;
+    @include box-shadow($top: $spacing-small);
+  }
+}
+

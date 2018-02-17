@@ -1,0 +1,21 @@
+//===================================
+// Trumps => Helpers
+//===================================
+
+.hidden {
+  display: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.separator {
+  display: inline-block;
+  background: $color-brand;
+  width: 5px;
+  height: 5px;
+  margin: 0 $spacing-small; 
+  vertical-align: middle;
+  border-radius: 50%;
+}

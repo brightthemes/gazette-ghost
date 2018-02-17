@@ -1,0 +1,15 @@
+//===================================
+// Lists
+//===================================
+
+ul, ol {
+  margin: $spacing-base 0;
+  padding-left: $spacing-base;
+
+  li { line-height: $line-height-base; }
+
+  ul, ol {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

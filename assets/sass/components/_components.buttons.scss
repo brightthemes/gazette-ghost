@@ -1,0 +1,65 @@
+//===================================
+// Components => Buttons
+//===================================
+
+a.btn, .btn {
+  display: inline-flex;
+  flex: 0 0 auto;
+  overflow: hidden;
+
+  margin: $spacing-small $spacing-small;
+  padding: $spacing-base $spacing-large;
+
+  cursor: pointer;
+  user-select: none;
+  transition: all $global-transition;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  text-transform: none;
+  text-transform: capitalize;
+
+  background-color: $color-brand;
+  color: $color-white;
+  border: 0 none;
+  border-radius: $global-border-radius;
+
+  font-family: $font-family-sans-serif;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-base;
+
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
+
+  justify-content: center;
+  align-items: center;
+  min-width: 100px;
+
+  @include box-shadow($top: 0.25em, $blur: 0.5em, $color: rgba($color-dark,0.2));
+
+  &:visited { color: $color-white; }
+
+  @include attention () {
+    color: $color-white;
+    background-color: $color-link-hover;
+  }
+
+  &__gradient {
+    background-image: linear-gradient(to right, $color-brand, $color-secondary);
+  }
+
+  &__dark {
+    background-color: $color-dark;
+  }
+
+  &__small {
+    padding: $spacing-small $spacing-base;
+  }
+
+  &__large {
+    font-size: 1.2 * $font-size-base;
+    padding: $spacing-base $spacing-large;
+  }
+}

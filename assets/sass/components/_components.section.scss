@@ -1,0 +1,20 @@
+//===================================
+// Components => Section
+//===================================
+
+.section {
+  margin: 0 0 $spacing-base;
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+
+  &__title {
+    font-weight: $font-weight-bold;
+
+    @include title-special();
+  }
+
+  &.categories-page {
+    margin: $spacing-large 0 $spacing-base;
+  }
+}

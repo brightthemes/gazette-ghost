@@ -1,0 +1,38 @@
+//===================================
+// Blockquote
+//===================================
+
+blockquote {
+  margin: $spacing-large 0;
+  font-size: $font-size-base * 1.25;
+  line-height: $line-height-base;
+  padding: $spacing-base;
+  font-style: italic;
+  text-align: center;
+  color: rgba($color-dark, 0.6);
+  border-top: 1px solid $color-border;
+  border-bottom: 1px solid $color-border;
+  border-left: none;
+  position: relative;
+
+  &:after {
+    color: rgba($color-brand, 0.7);
+    font-family: FontAwesome;
+    content: '\f10e';
+    font-size: 2rem;
+    position: absolute;
+    background: $color-white;
+    top: -0.8em;
+    padding: 0 0.5em 0 0.25em;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  &+ figcaption cite {
+    display: block;
+    font-size: inherit;
+    text-align: right;
+  }
+
+  p { margin: 0; }
+}

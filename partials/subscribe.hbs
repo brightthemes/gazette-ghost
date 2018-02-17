@@ -1,0 +1,31 @@
+{{!-- Email subscribe form --}} 
+{{#if @labs.subscribers}}
+<div class="subscribe">
+  <div class="wrapper container-fluid">
+    <div class="row center-xs">
+      <div class="col-md-6 subscribe__left">
+        <div class="subscribe__envelope">
+          <div class="subscribe__paper"></div>
+        </div>
+      </div>
+      <div class="col-md-6 subscribe__right">
+        <div class="subscribe__formular">
+          <h3 class="subscribe__title">Subscribe to our newsletter</h3>
+          {{subscribe_form 
+            form_class="subscribe__form" 
+            input_class="subscribe__input" 
+            button_class="btn subscribe__btn" 
+            placeholder="Your email address" 
+          }}
+          <div class="subscribe__rss">
+            Or subscribe
+            <a target="_blank" 
+              href="http://cloud.feedly.com/#subscription/feed/{{@blog.url}}/rss/">
+              via RSS</a> with Feedly!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{/if}}

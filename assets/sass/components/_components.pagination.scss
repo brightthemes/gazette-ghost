@@ -1,0 +1,17 @@
+//===================================
+// Components => Pagination
+//===================================
+
+.pagination {
+  margin-bottom: $spacing-large;
+  text-align: center;
+
+  &__number {
+    cursor: unset;
+    text-transform: none;
+
+    @include attention() {
+      background-color: $color-black;
+    }
+  }
+}

@@ -1,0 +1,64 @@
+//===================================
+// Components => Contact Page
+//===================================
+
+.contact {
+  &__map {
+    width: 100%;
+    height: 400px;
+  }
+
+  &__info,
+  &__form {
+    padding: $spacing-base;
+
+    @include mq($from: md) {
+      padding: $spacing-large;
+    }
+
+    @include mq($from: lg) {
+      padding: $spacing-huge;
+    }
+  }
+
+  &__info { background-color: $color-brand; }
+
+  &__form {
+    form { 
+      display: flex;
+      flex-direction: column;
+
+      input:not(.btn) {
+        max-width: 300px;
+        margin-bottom: $spacing-base;
+        height: 40px;
+        background-color: white;
+        border-color: transparent;
+        transition: box-shadow $global-transition;
+        @include box-shadow($blur: 0.25em);
+
+        @include attention() {
+          @include box-shadow($top: 0.25em);
+        }
+      }
+
+      textarea {
+        height: 120px;
+        max-width: 600px;
+        margin-bottom: $spacing-base;
+        padding: $spacing-small;
+        resize: none;
+        background-color: white;
+        border-color: transparent;
+        @include box-shadow($blur: 0.25em);
+      }
+
+      .btn {
+        max-width: 300px;
+        margin: 0;
+        margin-bottom: $spacing-base;
+        line-height: 0;
+      }
+    }
+  }
+}

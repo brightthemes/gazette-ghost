@@ -1,0 +1,28 @@
+{{!< default}}
+
+{{!-- Everything inside the #post tags pulls data from the page --}}
+{{#post}}
+  {{#if feature_image}}
+  <div class="page-header">
+    <div class="page-header__img lazyload" data-src="{{img_url feature_image}}">
+    </div>
+    <h1 class="page-header__title">{{title}}</h1>
+  </div>
+  {{/if}}
+  <div class="wrapper container-fluid">
+    <div class="{{post_class}} page-layout">
+      {{^if feature_image}}
+        <h1 class="page-layout__title">{{title}}</h1>
+      {{/if}}
+      <div class="page-layout__content">
+        {{!-- Content --}}
+        {{content}}
+      </div>
+      {{!-- Social share --}}
+      {{> social-share}}
+    </div>
+    {{!-- Disqus comments --}}
+    {{> comments}}
+  </div>
+{{/post}}
+

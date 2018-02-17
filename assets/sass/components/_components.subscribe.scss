@@ -1,0 +1,129 @@
+//===================================
+// Components => Subscribe
+//===================================
+.subscribe {
+  background-color: $color-gray-light;
+  padding: $spacing-large 0;
+
+  &__left {
+    position: relative; 
+    right: $spacing-large; 
+  }
+
+  &__right { padding: $spacing-small 0; }
+
+  &__formular {
+    max-width: 320px;
+  }
+
+  &__input {
+    border-color: $color-white;
+
+    height: 40px;
+    width: 240px;
+    margin: 0 0 $spacing-base;
+  }
+
+  &__btn {
+    height: 40px;
+    width: 240px;
+    margin: 0 0 $spacing-base;
+
+    cursor: pointer;
+    color: $color-white;
+    border: none;
+    background-color: $color-brand;
+    padding: 0 $spacing-small;
+  }
+
+  &__title {
+    font-size: 1.6 * $font-size-base;
+  }
+
+  &__envelope {
+    position: relative;
+    margin: 70px 0 10px;
+    width: 214px;
+    height: 131px;
+    background: darken($color-brand,15%);
+    border-radius: 0 0 5px 5px;
+    float: right;
+    display: none;
+
+    @include mq($from: md) {
+      display: block;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: 0 solid transparent;
+        border-width: 66px 108px;
+        border-bottom-color: darken($color-brand,15%);
+        top: -100%;
+        left: 0px;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: 0 solid transparent;
+        border-width: 66px 108px;
+        border-right-color: $color-brand;
+        border-left-color: $color-brand;
+        border-bottom-color: lighten($color-brand,6%);
+        top: 0;
+        left: 0;
+        border-radius: 0 0 5px 5px;
+        transform: rotate(360deg);
+        box-shadow: 0 1px 1px $color-gray;
+    }
+  }
+
+  &__paper {
+      background: $color-white;
+      width: 191px;
+      height: 120px;
+      margin: 0 auto;
+      border-radius: 5px;
+      position: absolute;
+      left: 12px;
+      top: -40px;
+      box-shadow: 0 1px 1px $color-gray;
+
+      &:before {
+          content: '';
+          position: absolute;
+          left: 24px;
+          background: $color-gray;
+          height: 8px;
+          border-radius: 5px;
+          top: 28px;
+          width: 68px;
+      }
+
+      &:after {
+          content: '';
+          position: absolute;
+          left: 24px;
+          background: lighten($color-gray,20%);
+          height: 8px;
+          border-radius: 5px;
+          right: 24px;
+          top: 56px;
+          box-shadow: 0 16px 0 lighten($color-gray,20%),
+                      0 32px 0 lighten($color-gray,20%),
+                      0 48px 0 lighten($color-gray,20%),
+                      0 80px 0 lighten($color-gray,20%);
+      }
+  }
+
+  @include mq($from: md) {
+    padding: 1.5 * $spacing-huge 0;
+  }
+
+}

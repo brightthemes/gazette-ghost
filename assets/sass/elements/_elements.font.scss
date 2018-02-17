@@ -1,0 +1,39 @@
+//===================================
+// Font
+//===================================
+
+// @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:100,400,700,900|Montserrat:400,700');
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/assets/fonts/RobotoCondensed-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/assets/fonts/RobotoCondensed-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Domine';
+  src: url('/assets/fonts/Domine-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/assets/fonts/fontawesome-webfont.eot?v=#{$fa-version}');
+  src: url('/assets/fonts/fontawesome-webfont.eot?#iefix&v=#{$fa-version}') format('embedded-opentype'),
+    url('/assets/fonts/fontawesome-webfont.woff2?v=#{$fa-version}') format('woff2'),
+    url('/assets/fonts/fontawesome-webfont.woff?v=#{$fa-version}') format('woff'),
+    url('/assets/fonts/fontawesome-webfont.ttf?v=#{$fa-version}') format('truetype'),
+    url('/assets/fonts/fontawesome-webfont.svg?v=#{$fa-version}#fontawesomeregular') format('svg');
+//  src: url('/assets/fonts/FontAwesome.otf') format('opentype'); // used when developing fonts
+  font-weight: normal;
+  font-style: normal;
+}

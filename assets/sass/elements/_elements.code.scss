@@ -1,0 +1,32 @@
+//===================================
+// Code Blocks
+//===================================
+
+pre,
+code {
+  font-family: $font-family-monospace;
+  background-color: darken($color-background, 5%);
+  // white-space: pre;
+}
+
+// Code block
+pre {
+  overflow: auto;
+  margin-top: 0;
+  margin: $spacing-base 0;
+  padding: $spacing-base;
+  font-size: $font-size-base;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+
+  code {
+    word-wrap: normal;
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap;
+  }
+}
+
+// Inline code
+p code {
+  padding: $spacing-small $spacing-tiny;
+}

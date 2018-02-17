@@ -1,0 +1,26 @@
+{{!-- Links to Previous/Next posts --}}
+<div class="read-next">
+  {{!-- Prevoius Post --}}
+  {{#prev_post}}
+    <div class="read-next__story prev">
+      <div class="read-next__story-image lazyload" 
+        data-src="{{img_url feature_image}}">
+      </div>
+      <div class="read-next__story-info">
+        <h3 class="read-next__story-title"><a href="{{url}}">{{title}}</a></h3>
+      </div>
+    </div>
+  {{/prev_post}}
+
+  {{!-- Next Post --}}
+  {{#next_post}}
+    <div class="read-next__story next"> 
+      <div class="read-next__story-image lazyload" 
+        data-src="{{img_url feature_image}}">
+      </div>
+      <div class="read-next__story-info">
+        <h3 class="read-next__story-title"><a href="{{url}}">{{title}}</a></h3>
+      </div>
+    </div>
+  {{/next_post}}
+</div>

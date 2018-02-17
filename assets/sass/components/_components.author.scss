@@ -1,0 +1,102 @@
+//===================================
+// Components => Author
+//===================================
+
+.author {
+  min-height: 50vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &__cover {
+    position: absolute;
+    @include full-cover();
+    @include cover-background();
+    @include overlay();
+  }
+
+  &__img {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto $spacing-base;
+    @include cover-background();
+
+    @include mq($from: md) {
+      width: 120px;
+      height: 120px;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      width: 90px;
+      height: 90px;
+      top: -5px;
+      left: -5px;
+      border: 5px solid rgba($color-brand, 0.5);
+      background-color: transparent;
+
+      @include mq($from: md) {
+        width: 130px;
+        height: 130px;
+        border-width: 10px;
+      }
+    }
+  }
+
+  &__name {
+    color: $color-light;
+    margin-bottom: $spacing-tiny;
+  }
+
+  &__bio {
+    text-align: center;
+    max-width: 500px;
+  }
+
+  &__meta {
+    margin-bottom: $spacing-small;
+
+    span { 
+      margin-right: $spacing-small; 
+      display: block;
+      text-align: center;
+
+      @include mq($from: sm) {
+        display: inline;
+      }
+
+      a { color: $color-light; }
+    }
+  }
+
+  &__social {
+    text-align: center;
+
+    a i {
+      margin-right: $spacing-tiny;
+    }
+  }
+
+  &-data {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    color: $color-light;
+    padding: $spacing-base;
+
+    @include mq($from: md) {
+      padding: $spacing-large;
+    }
+  }
+}
+
+.post-section-title.author-posts {
+  margin-top: $spacing-small;
+}

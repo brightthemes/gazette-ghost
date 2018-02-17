@@ -1,0 +1,27 @@
+{{!< default}}
+
+{{!-- Page header area --}}
+{{#post}}
+  {{#if feature_image}}
+    <div class="page-header">
+      <div class="page-header__img lazyload" data-src="{{img_url feature_image}}">
+      </div>
+      <h1 class="page-header__title">{{title}}</h1>
+    </div>
+  {{else}}
+    <h1 class="page-layout__title">{{title}}</h1>
+  {{/if}}
+{{/post}}
+
+{{!-- The main content area on the Categories/Sections page --}}
+<div class="wrapper container-fluid">
+  {{#get "tags" limit="9" include="count.posts" order="count.posts desc" as |category|}}
+    <section class="section categories-page">
+      {{#foreach category}}
+        {{> category-posts}}
+      {{/foreach}}
+    </section>
+  {{/get}}
+</div>
+
+
