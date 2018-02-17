@@ -6,9 +6,9 @@
   <div class="grid grid-1 grid-2 grid-3 grid-4">
     {{#foreach featured}}
     <article class="grid-story">
-      <div class="lazyload grid-story__image" data-src="{{img_url feature_image}}">
-      </div>
-      <a class="grid-story__trigger" href="{{url}}"></a>
+      <a href="{{url}}" class="lazyload grid-story__image" 
+        data-src="{{img_url feature_image}}">
+      </a>
       <div class="grid-story__gradient"></div>
       <header class="grid-story__header">
         <div class="grid-story__header-tags">

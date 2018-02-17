@@ -103,78 +103,13 @@
   }
 }
 
-// @supports (display: grid) {
-//   .grid{
-//     display: grid;
-//     grid-gap: $spacing-small;
-//     grid-auto-flow: dense;
-
-//     &-4 {
-//       @include mq($from: md) {   
-//         grid-template-rows: repeat(2, 1fr);
-//         grid-template-columns: repeat(3, 1fr);
-
-//         .grid-story:nth-child(1) {
-//           grid-column-end: span 3;
-//         }
-//       }
-  
-//       @include mq($from: xl) { 
-//         grid-template-rows: repeat(2, 1fr);
-//         grid-template-columns: repeat(4, 1fr);
-
-//         .grid-story:nth-child(1) {
-//           grid-row-end: span 2;
-//           grid-column-end: span 2;
-//         }
-
-//         .grid-story:nth-child(2) {
-//           grid-column-end: span 2;
-//         }
-//       }
-//     }
-
-//     &-3 {
-//       @include mq($from: md) {   
-//         grid-template-rows: repeat(2, 1fr);
-//         grid-template-columns: repeat(2, 1fr);
-
-//         .grid-story:nth-child(1) {
-//           grid-column-end: span 2;
-//         }
-//       }
-  
-//       @include mq($from: xl) { 
-//         grid-template-rows: repeat(2, 1fr);
-//         grid-template-columns: repeat(3, 1fr);
-
-//         .grid-story:nth-child(1) {
-//           grid-row-end: span 2;
-//           grid-column-end: span 2;
-//         }
-//       }
-//     }
-
-//     &-2 {
-//       @include mq($from: md) {   
-//         grid-template-rows: repeat(2, 1fr);
-//         grid-template-columns: repeat(2, 1fr);
-
-//         .grid-story:nth-child(1),
-//         .grid-story:nth-child(2) {
-//           grid-row-end: span 2;
-//         }
-//       }
-//     }
-//   }
-// }
-
 .grid-story {
   min-height: 16rem;
   position: relative;
   margin-bottom: $spacing-base;
   flex-basis: 100%;
   border-radius: $global-border-radius;
+  @include box-shadow();
 
   &:last-child { margin-bottom: 0; }
 
@@ -190,28 +125,24 @@
     }
   }
 
-  &__image, 
-  &__trigger,
+  &__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    z-index: 1;
+    filter: grayscale(0.6);
+    transition: filter $global-transition;
+
+    @include overlay($color1: rgba($color-dark, 0.3), $color2: rgba($color-dark, 0.7));
+    @include cover-background();
+  }
+
   &__gradient {
     position: absolute;
     width: 100%;
     height: 100%;
     border-radius: inherit;
-  }
-
-  &__image {
-    z-index: 1;
-    filter: grayscale(0.6);
-    transition: filter $global-transition;
-
-    @include cover-background();
-  }
-
-  &__trigger {
-    z-index: 3;
-  }
-
-  &__gradient {
     z-index: 2;
     opacity: 0.8;
     background: linear-gradient(135deg,$color-brand 0, 
@@ -227,10 +158,6 @@
     bottom: 0;
     padding: $spacing-base;
     border-radius: inherit;
-    background: linear-gradient(to bottom,
-                                transparent 0,
-                                rgba($color-dark,0.4) 20%,
-                                rgba($color-dark,0.8) 100%);
 
     @include mq($from: xl) {
       padding: $spacing-large;
@@ -293,6 +220,82 @@
     i { 
       color: $color-light; 
       margin-left: $spacing-tiny;
+    }
+  }
+}
+
+// ==============
+// If grid layout is supported
+// ==============
+
+@supports (display: grid) {
+  .grid {
+    display: grid;
+    grid-gap: $spacing-base;
+    grid-auto-flow: dense;
+
+    &-story { margin: 0!important; }
+
+    &-4 {
+      @include mq($from: md) {   
+        &.grid-story {
+          margin: 0;
+        }
+
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+
+        .grid-story:nth-child(1) {
+          grid-column-end: span 3;
+        }
+      }
+  
+      @include mq($from: xl) { 
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+
+        .grid-story:nth-child(1) {
+          grid-row-end: span 2;
+          grid-column-end: span 2;
+        }
+
+        .grid-story:nth-child(2) {
+          grid-column-end: span 2;
+        }
+      }
+    }
+
+    &-3 {
+      @include mq($from: md) {   
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+
+        .grid-story:nth-child(1) {
+          grid-column-end: span 2;
+        }
+      }
+  
+      @include mq($from: xl) { 
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+
+        .grid-story:nth-child(1) {
+          grid-row-end: span 2;
+          grid-column-end: span 2;
+        }
+      }
+    }
+
+    &-2 {
+      @include mq($from: md) {   
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+
+        .grid-story:nth-child(1),
+        .grid-story:nth-child(2) {
+          grid-row-end: span 2;
+        }
+      }
     }
   }
 }
