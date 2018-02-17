@@ -83,6 +83,7 @@ gulp.task('sass', function () {
     .pipe(plumber({ errorHandler: onError }))
     .pipe(sass())
     .pipe(postcss(processors))
+    .pipe(replace('@charset "UTF-8";', ''))
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(dest + 'css'));
 });
