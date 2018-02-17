@@ -11,10 +11,11 @@
 }
 
 .separator {
+  display: inline-block;
   background: $color-brand;
   width: 5px;
   height: 5px;
   margin: 0 $spacing-small; 
-  vertical-align: center;
+  vertical-align: middle;
   border-radius: 50%;
 }

@@ -10,7 +10,7 @@
     <div class="navbar__brand">
       <a href="{{@blog.url}}" class="navbar__brand--{{#if @blog.logo}}logo{{else}}text{{/if}}">
         {{#if @blog.logo}}
-          <img src="{{@blog.logo}}" class="lazyload" alt="{{@blog.title}}" /> 
+          <img data-src="{{@blog.logo}}" class="lazyload" alt="{{@blog.title}}" /> 
         {{else}} 
           {{@blog.title}} 
         {{/if}}

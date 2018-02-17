@@ -351,6 +351,7 @@ function showRelatedPosts(posts) {
       var postImage = 'style="background-image: url(' + relatedPosts[i].feature_image + ')"';
     }
     relatedPostsWrapper.innerHTML += 
+    '<div class="col-md-6 related-post-col">' +
       '<div class="related-post">' +
         '<div class="related-post__image lazyload" ' + postImage + '></div>' +
         '<div class="related-post__content">' +
@@ -365,6 +366,7 @@ function showRelatedPosts(posts) {
             '</a>' +
           '</h6>' +
         '</div>' +
-      '</div>';
+      '</div>' +
+    '</div>';
   }
 }

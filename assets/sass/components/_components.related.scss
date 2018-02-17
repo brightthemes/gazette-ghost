@@ -6,7 +6,7 @@
   margin-bottom: $spacing-large;
   display: flex;
   text-align: center;
-  justify-content: center;
+  // justify-content: center;
   flex-wrap: wrap;
 
 }
@@ -16,7 +16,6 @@
   flex: 1;
   display: flex;
   flex-basis: 100%;
-  margin-bottom: $spacing-base;
   flex-direction: column;
   border-radius: $global-border-radius;
   transition: box-shadow $global-transition;
@@ -27,36 +26,23 @@
     @include box-shadow($top: 5px, $color: rgba($color-dark, 0.5));
   }
 
-  &:last-child {
-    margin-bottom: 0;
-  }
+  &-col {
+    display: flex;
+    width: 100%;
+    padding: 0 $spacing-base;
+    margin-bottom: $spacing-base;
 
-  @include mq($from: md) {
-    flex-basis: 45%;
-
-    &:nth-child(odd) {
-      margin-right: $spacing-small;
-    }
-
-    &:nth-child(even) {
-      margin-left: $spacing-small;
-    }
-
-    &:nth-child(5),
-    &:nth-child(6) {
+    &:last-child {
       margin-bottom: 0;
     }
-  }
 
-  @include mq($from: lg) {
-    margin-bottom: $spacing-large;
+    @include mq($from: md) {
+      margin-bottom: $spacing-large;
 
-    &:nth-child(odd) {
-      margin-right: $spacing-base;
-    }
-
-    &:nth-child(even) {
-      margin-left: $spacing-base;
+      &:last-child,
+      &:nth-last-child(2):nth-child(odd) {
+        margin-bottom: 0;
+      }
     }
   }
 
