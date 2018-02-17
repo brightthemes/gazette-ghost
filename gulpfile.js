@@ -47,6 +47,7 @@ gulp.task('scripts', function() {
     .src([
       npm_src   + 'lunr/lunr.js',
       npm_src   + 'vanilla-lazyload/dist/lazyload.js',
+      npm_src   + 'fitvids/fitvids.js',
       asset_src + 'js/scripts/ghostHunter.js',
       asset_src + 'js/scripts/script.js'
     ])
@@ -55,8 +56,8 @@ gulp.task('scripts', function() {
     .pipe(uglify())
     .pipe(gulp.dest(dest + 'js'))
     .pipe(notify({
-      title: 'Hello',
-      message: 'CSS successfully compiled!'
+      title: 'Javascript',
+      message: 'JS compiled and minified!'
     }));
 });
 
@@ -91,7 +92,7 @@ gulp.task('inlinecss', function() {
   .pipe(replace('@@compiled_css', fs.readFileSync('assets/css/app.min.css')))
   .pipe(gulp.dest('partials/compiled'))
   .pipe(notify({
-    title: 'Hello',
+    title: 'CSS',
     message: 'CSS compiled and inlined!'
   }));
 });

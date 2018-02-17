@@ -2,11 +2,14 @@
 // Website scripts
 //*****************
 
-// Event DOM ready
+// ============================
+// trigger events on Dom ready.
+// ============================
 var callback = function(){
-  // ============================
-  // trigger events on Dom ready.
-  // ============================
+  // =======
+  // fitvids
+  // =======
+  fitvids();
 
   // ================
   // Lazy load images

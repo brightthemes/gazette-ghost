@@ -1,6 +1,6 @@
 {
   "name": "gazette",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Magazine/News Ghost Theme",
   "author": {
     "name": "Biron Themes",
@@ -35,6 +35,7 @@
     "postcss-zindex": "^2.2.0"
   },
   "dependencies": {
+    "fitvids": "^2.0.0",
     "font-awesome": "^4.7.0",
     "lunr": "^2.1.5",
     "vanilla-lazyload": "^8.6.0"
