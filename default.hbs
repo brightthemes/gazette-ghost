@@ -44,15 +44,14 @@
     {{ghost_foot}}
 
     {{!-- Main theme scripts --}}
-    <script type="text/javascript" async src="{{asset 'js/app.min.js'}}"></script>
+    <script async src="{{asset 'js/app.min.js'}}"></script>
 
     {{!-- Disqus comments --}}
-    <script type="text/javascript" async>
+    <script async>
         var disqus_shortname = 'bironthemes'; // Replace 'bironthemes' with your disqus account shortname
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var s = document.createElement('script'); s.async = true;
-            s.type = 'text/javascript';
             s.src = '//' + disqus_shortname + '.disqus.com/count.js';
             (document.getElementsByTagName('BODY')[0]).appendChild(s);
         }());
