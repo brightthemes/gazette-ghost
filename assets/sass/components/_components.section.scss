@@ -8,8 +8,12 @@
   flex-direction: row;
   flex-flow: wrap;
 
+  &.latest { margin: 0; }
+
   &__title {
     font-weight: $font-weight-bold;
+    width: 100%;
+    margin: $spacing-small 0;
 
     @include title-special();
   }

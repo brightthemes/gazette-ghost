@@ -16,11 +16,11 @@
     flex-basis: 50%;
     max-width: 50%;
 
-    &:nth-child(odd) {
+    &:nth-of-type(odd) {
       padding-right: $spacing-small;
     }
 
-    &:nth-child(even) {
+    &:nth-of-type(even) {
       padding-left: $spacing-small;
     }
   }
@@ -29,21 +29,21 @@
     flex-basis: 33.33%;
     max-width: 33.33%;
 
-    &:nth-child(2n+0),
-    &:nth-child(2n+1) {
+    &:nth-of-type(2n+0),
+    &:nth-of-type(2n+1) {
       padding: 0;
     }
     
-    &:nth-child(3n+1) {
+    &:nth-of-type(3n+1) {
       padding-right: $spacing-small;
     }
 
-    &:nth-child(3n+2) {
+    &:nth-of-type(3n+2) {
       padding-left: $spacing-small;
       padding-right: $spacing-small;
     }
 
-    &:nth-child(3n+3) {
+    &:nth-of-type(3n+3) {
       padding-left: $spacing-small;
     }
   }
@@ -51,16 +51,16 @@
   @include mq($from: xl) {
     margin-bottom: $spacing-large;
 
-    &:nth-child(3n+1) {
+    &:nth-of-type(3n+1) {
       padding-right: $spacing-base;
     }
 
-    &:nth-child(3n+2) {
+    &:nth-of-type(3n+2) {
       padding-left: $spacing-base;
       padding-right: $spacing-base;
     }
 
-    &:nth-child(3n+3) {
+    &:nth-of-type(3n+3) {
       padding-left: $spacing-base;
     }
   } 

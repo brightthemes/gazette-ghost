@@ -14,6 +14,13 @@
     max-width: 340px;
   }
 
+  &__section { 
+    background-color: $color-white;
+    border-radius: $global-border-radius;
+
+    @include box-shadow($blur: 0.25em, $color: rgba($color-black, 0.1));
+  }
+
   &__title {
     font-size: 1.8 * $font-size-base;
     margin-bottom: $spacing-small;
@@ -25,11 +32,7 @@
   &__tag-cloud,
   &__latest,
   &__category {
-    background-color: $color-white;
     margin-bottom: $spacing-large;
-    border-radius: $global-border-radius;
-
-    @include box-shadow($blur: 0.25em, $color: rgba($color-black, 0.1));
   }
 
   &__story {

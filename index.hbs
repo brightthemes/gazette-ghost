@@ -26,21 +26,21 @@
   </div>
 {{/get}} 
   
-{{!-- The main content area on the homepage --}}
+{{!-- Latest posts --}}
 <div class="wrapper container-fluid">
-
-  {{!-- Latest posts --}} 
   {{#get "posts" filter="featured:false" order="published_at desc" 
                  limit="9" include="author,tags" as |latest|}}
-  <h3 class="section__title">Latest news</h3>
   <section class="section latest">
+    <h3 class="section__title">Latest news</h3>
     {{#foreach latest}} 
       {{> post-card}} 
     {{/foreach}}
   </section>
   {{/get}} 
-  
-  {{!-- Posts by category --}} 
+</div>
+
+{{!-- Posts by category --}} 
+<div class="wrapper container-fluid">
   {{#get "tags" limit="6" include="count.posts" 
                 order="count.posts desc" as |category|}}
   <section class="section category">
@@ -49,5 +49,4 @@
     {{/foreach}}
   </section>
   {{/get}}
-
 </div>
