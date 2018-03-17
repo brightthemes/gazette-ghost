@@ -109,6 +109,9 @@
   margin-bottom: $spacing-base;
   flex-basis: 100%;
   border-radius: $global-border-radius;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-end;
   @include box-shadow();
 
   &:last-child { margin-bottom: 0; }
@@ -152,7 +155,8 @@
   }
 
   &__header {
-    position: absolute;
+    // position: absolute;
+    position: relative;
     width: 100%;
     z-index: 4;
     bottom: 0;
@@ -175,13 +179,12 @@
     }
 
     &-tags {
-      margin-bottom: $spacing-small;
-
       a {
         display: inline-block;
         font-size: 0.9 * $font-size-base;
         text-transform: uppercase;
         padding: $spacing-tiny 0.75 * $spacing-base;
+        margin-bottom: $spacing-small;
         margin-right: $spacing-small;
         border: 1px solid $color-light;
         border-radius: $global-border-radius;

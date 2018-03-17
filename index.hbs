@@ -12,7 +12,10 @@
       <div class="grid-story__gradient"></div>
       <header class="grid-story__header">
         <div class="grid-story__header-tags">
-          {{tags limit="3" separator=""}}
+          {{!-- {{tags limit="3" separator=""}} --}}
+          {{#primary_tag}}
+            <a href="{{url}}">{{name}}</a>
+          {{/primary_tag}}
         </div>
         <h2 class="grid-story__header-title">
           <a href="{{url}}">{{{title}}}</a>
