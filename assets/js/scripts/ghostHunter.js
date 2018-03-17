@@ -99,7 +99,6 @@ var grabAndIndex = function(){
         // Success!
         var data = JSON.parse(request.responseText);
         var idxSrc = data.posts;
-        console.log("ghostHunter: indexing all posts")
 		me.index = lunr(function () {
 			this.field('title', {boost: 10})
             this.field('description')

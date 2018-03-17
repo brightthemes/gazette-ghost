@@ -109,6 +109,7 @@
   margin-bottom: $spacing-base;
   flex-basis: 100%;
   border-radius: $global-border-radius;
+  overflow: hidden;
   @include box-shadow();
 
   &:last-child { margin-bottom: 0; }
@@ -123,6 +124,10 @@
     .grid-story__image {
       filter: grayscale(0);
     }
+  }
+
+  @include mq($from: md) {
+    min-height: 18rem;
   }
 
   &__image {
@@ -175,13 +180,12 @@
     }
 
     &-tags {
-      margin-bottom: $spacing-small;
-
       a {
         display: inline-block;
         font-size: 0.9 * $font-size-base;
         text-transform: uppercase;
         padding: $spacing-tiny 0.75 * $spacing-base;
+        margin-bottom: $spacing-small;
         margin-right: $spacing-small;
         border: 1px solid $color-light;
         border-radius: $global-border-radius;

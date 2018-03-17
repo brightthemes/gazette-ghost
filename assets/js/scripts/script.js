@@ -6,6 +6,7 @@
 // trigger events on Dom ready.
 // ============================
 var callback = function(){
+
   // =======
   // fitvids
   // =======
@@ -163,6 +164,15 @@ var callback = function(){
   if ( relatedPosts ) {
     addRelatedPosts(relatedPosts.dataset.post_id)
   }
+
+  // ==========================
+  // Disqus commen count script
+  // ==========================
+  (function() {
+    var s = document.createElement('script'); s.async = true;
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
 };
 
 if (
