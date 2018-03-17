@@ -109,9 +109,7 @@
   margin-bottom: $spacing-base;
   flex-basis: 100%;
   border-radius: $global-border-radius;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: flex-end;
+  overflow: hidden;
   @include box-shadow();
 
   &:last-child { margin-bottom: 0; }
@@ -126,6 +124,10 @@
     .grid-story__image {
       filter: grayscale(0);
     }
+  }
+
+  @include mq($from: md) {
+    min-height: 18rem;
   }
 
   &__image {
@@ -155,8 +157,7 @@
   }
 
   &__header {
-    // position: absolute;
-    position: relative;
+    position: absolute;
     width: 100%;
     z-index: 4;
     bottom: 0;
