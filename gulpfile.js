@@ -21,7 +21,7 @@ var notify = require('gulp-notify');
 var gutil = require('gulp-util');
 var replace = require('gulp-replace');
 var fs = require('fs');
- 
+
 // Define base folders
 var asset_src = 'assets/';
 var npm_src   = 'node_modules/';
@@ -66,7 +66,7 @@ gulp.task('sass', function () {
   var processors = [
     removeComments,
     cssnext({
-      browsers:'> 1%, last 10 version, Firefox >= 30, ie >= 10', 
+      browsers:'> 1%, last 10 version, Firefox >= 30, ie >= 10',
       warnForDuplicates: false
     }),
     zindex,
@@ -99,15 +99,15 @@ gulp.task('inlinecss', function() {
 });
 
 // Browsersync init and reload
-gulp.task('browsersync', function (callback) {  
+gulp.task('browsersync', function (callback) {
   browserSync.init({
-    port: 3372,
-    proxy: 'http://localhost:2372/'
+    port: 3568,
+    proxy: 'http://localhost:2368/'
   });
   callback();
 });
 
-gulp.task('browsersync:reload', function (callback) {  
+gulp.task('browsersync:reload', function (callback) {
   browserSync.reload();
   callback();
 });
