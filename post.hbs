@@ -27,9 +27,9 @@
             {{/if}}
             <a class="post__info-author" href="{{url}}">{{name}}</a>
             <div class="separator"></div>
-          {{/author}}          
+          {{/author}}
           {{^if featured}}
-            <div class="post__info-tag">in {{tags limit="1"}}</div>  
+            <div class="post__info-tag">in {{tags limit="1"}}</div>
             <div class="separator"></div>
           {{/if}}
           <time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="YYYY MMM DD, hh:mm"}}</time>
@@ -38,7 +38,7 @@
         </div>
 
         <div class="post__body">
-          {{!-- Post image --}}        
+          {{!-- Post image --}}
           {{#if feature_image}}
             <img alt="{{title}}" class="lazyload post__image" data-src="{{img_url feature_image}}"/>
           {{/if}}

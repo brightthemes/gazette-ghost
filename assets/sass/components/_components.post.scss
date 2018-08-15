@@ -12,7 +12,7 @@
 
   .content {
     width: 100%;
-    
+
     @include mq($from: lg) {
       flex: 1;
     }
@@ -26,7 +26,7 @@
     .post__title {
       margin: 0 auto $spacing-small;
       text-align: center;
-      
+
       @include mq($from: md) {
         max-width: 80%;
       }
@@ -86,16 +86,16 @@
       align-items: center;
       font-size: 1.2 * $font-size-base;
     }
-    
+
     &-author {
       color: $color-dark;
-      
+
       @include attention() {
         color: $color-link-hover;
       }
 
-      &:visited { 
-        color: $color-dark; 
+      &:visited {
+        color: $color-dark;
 
         @include attention() {
           color: $color-link-hover;
@@ -133,9 +133,10 @@
     }
   }
 
-  &__body {   
+  &__body {
     background-color: $color-white;
     border-radius: $global-border-radius;
+    overflow: hidden;
     @include box-shadow($blur: 0.25em);
   }
 
@@ -147,13 +148,59 @@
     object-fit: cover;
   }
 
-  &__content {
+  &__content, .kg-markdown-card {
     padding: $spacing-large $spacing-base $spacing-base;
     margin: 0 auto;
     max-width: 600px;
 
     @include mq($from: md) {
       padding: $spacing-huge $spacing-base $spacing-base;
+    }
+  }
+
+  // Koenig editor styles
+  .kg-embed-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: $spacing-base 0 $spacing-large;
+    min-width: 100%;
+
+    figcaption {
+      margin: $spacing-small 0 0;
+      color: rgba($color-dark, 0.6);
+    }
+
+    .fluid-width-video-wrapper {
+      margin: 0;
+    }
+  }
+
+  .kg-image-card {
+    margin: 0 0 $spacing-base;
+    figcaption {
+      margin: -$spacing-base 0 $spacing-base;
+      color: rgba($color-dark, 0.6);
+    }
+
+    .kg-image-wide, .kg-image-full {
+      max-width: calc(100% + #{$spacing-large});
+      margin-left: -$spacing-base;
+      margin-right: -$spacing-base;
+    }
+
+    @include mq($from: md) {
+      .kg-image-wide {
+        max-width: calc(100% + 2*#{$spacing-huge});
+        margin-left: -$spacing-huge;
+        margin-right: -$spacing-huge;
+      }
+
+      .kg-image-full {
+        max-width: calc(100% + 4*#{$spacing-huge});
+        margin-left: -2*$spacing-huge;
+        margin-right: -2*$spacing-huge;
+      }
     }
   }
 }
