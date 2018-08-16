@@ -1,12 +1,12 @@
-{{!< default}} 
+{{!< default}}
 
-{{!-- The big featured header --}} 
-{{#get "posts" limit="4" include="author,tags" 
-                filter="featured:true" as |featured| }} 
+{{!-- The big featured header --}}
+{{#get "posts" limit="4" include="authors,tags"
+                filter="featured:true" as |featured| }}
   <div class="grid grid-1 grid-2 grid-3 grid-4">
     {{#foreach featured}}
     <article class="grid-story">
-      <a href="{{url}}" class="lazyload grid-story__image" 
+      <a href="{{url}}" class="lazyload grid-story__image"
         data-src="{{img_url feature_image}}">
       </a>
       <div class="grid-story__gradient"></div>
@@ -27,28 +27,28 @@
     </article>
     {{/foreach}}
   </div>
-{{/get}} 
-  
+{{/get}}
+
 {{!-- Latest posts --}}
 <div class="wrapper container-fluid">
-  {{#get "posts" filter="featured:false" order="published_at desc" 
-                 limit="9" include="author,tags" as |latest|}}
+  {{#get "posts" filter="featured:false" order="published_at desc"
+                 limit="9" include="authors,tags" as |latest|}}
   <section class="section latest">
     <h3 class="section__title">Latest news</h3>
-    {{#foreach latest}} 
-      {{> post-card}} 
+    {{#foreach latest}}
+      {{> post-card}}
     {{/foreach}}
   </section>
-  {{/get}} 
+  {{/get}}
 </div>
 
-{{!-- Posts by category --}} 
+{{!-- Posts by category --}}
 <div class="wrapper container-fluid">
-  {{#get "tags" limit="6" include="count.posts" 
+  {{#get "tags" limit="6" include="count.posts"
                 order="count.posts desc" as |category|}}
   <section class="section category">
-    {{#foreach category}} 
-      {{> category-posts}} 
+    {{#foreach category}}
+      {{> category-posts}}
     {{/foreach}}
   </section>
   {{/get}}

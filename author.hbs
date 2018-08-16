@@ -30,7 +30,7 @@
         {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}
       </span>
     </div>
-    
+
     <div class="author__social">
       {{#if twitter}}
       <a class="btn btn__small" href="{{twitter_url}}" target="_blank">
@@ -53,10 +53,10 @@
 {{!-- The main content/post by the author --}}
 <div class="wrapper container-fluid">
   {{!-- Posts by author --}}
-  <h3 class="post-section-title author-posts" id="author-posts-title">Posts by {{author.name}}</h3>
+  <h3 class="post-section-title author-posts" id="author-posts-title">Posts by {{primary_author.name}}</h3>
   <section class="section author-posts">
-    {{#foreach posts}} 
-      {{> post-card}} 
+    {{#foreach posts}}
+      {{> post-card}}
     {{/foreach}}
   </section>
   {{pagination}}

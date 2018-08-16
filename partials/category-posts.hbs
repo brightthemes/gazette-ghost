@@ -1,11 +1,11 @@
 {{!-- Category posts --}}
 <div class="category-posts">
 <h3 class="category__title"><a href="{{url}}">{{name}}</a></h3>
-{{#get "posts" filter="tags:{{slug}}" limit="5" include="author,tags" as |article|}}
+{{#get "posts" filter="tags:{{slug}}" limit="5" include="authors,tags" as |article|}}
   {{#foreach article}}
   <article class="category-post">
     {{#if @first}}
-      <a class="category-post__image lazyload" 
+      <a class="category-post__image lazyload"
          href="{{url}}" data-src="{{img_url feature_image}}"></a>
     {{/if}}
     {{#if @first}}<div class="category-post__header">{{/if}}
@@ -15,7 +15,7 @@
       <h4 class="category-post__title"><a href="{{url}}">{{{title}}}</a></h4>
       {{/if}}
       <div class="category-post__info">
-        {{author}}
+        {{authors}}
         <i class="fa fa-clock-o"></i>
         <time datetime="{{date format="YYYY-MM-DD"}}" class="timeago">
         {{date published_at timeago="true"}}

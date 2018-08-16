@@ -148,7 +148,7 @@
     object-fit: cover;
   }
 
-  &__content, .kg-markdown-card {
+  &__content {
     padding: $spacing-large $spacing-base $spacing-base;
     margin: 0 auto;
     max-width: 600px;
@@ -181,26 +181,31 @@
     figcaption {
       margin: -$spacing-base 0 $spacing-base;
       color: rgba($color-dark, 0.6);
+      text-align: center;
+    }
+  }
+
+  .kg-image-wide, .kg-image-full,
+  .kg-width-wide, .kg-width-full {
+    max-width: calc(100% + #{$spacing-large});
+    margin-left: -$spacing-base;
+    margin-right: -$spacing-base;
+  }
+
+
+  @include mq($from: md) {
+    .kg-image-wide,
+    .kg-width-wide {
+      max-width: calc(100% + 2*#{$spacing-huge});
+      margin-left: -$spacing-huge;
+      margin-right: -$spacing-huge;
     }
 
-    .kg-image-wide, .kg-image-full {
-      max-width: calc(100% + #{$spacing-large});
-      margin-left: -$spacing-base;
-      margin-right: -$spacing-base;
-    }
-
-    @include mq($from: md) {
-      .kg-image-wide {
-        max-width: calc(100% + 2*#{$spacing-huge});
-        margin-left: -$spacing-huge;
-        margin-right: -$spacing-huge;
-      }
-
-      .kg-image-full {
-        max-width: calc(100% + 4*#{$spacing-huge});
-        margin-left: -2*$spacing-huge;
-        margin-right: -2*$spacing-huge;
-      }
+    .kg-image-full,
+    .kg-width-full {
+      max-width: calc(100% + 4*#{$spacing-huge});
+      margin-left: -2*$spacing-huge;
+      margin-right: -2*$spacing-huge;
     }
   }
 }

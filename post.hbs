@@ -19,7 +19,7 @@
         {{!-- Post info --}}
         <div class="post__info">
           {{!-- Author --}}
-          {{#author}}
+          {{#authors}}
             {{#if profile_image}}
             <a class="lazyload post__info-author--img" data-src="{{img_url profile_image}}"
               href="{{url}}" title="{{name}}">
@@ -27,7 +27,7 @@
             {{/if}}
             <a class="post__info-author" href="{{url}}">{{name}}</a>
             <div class="separator"></div>
-          {{/author}}
+          {{/authors}}
           {{^if featured}}
             <div class="post__info-tag">in {{tags limit="1"}}</div>
             <div class="separator"></div>
