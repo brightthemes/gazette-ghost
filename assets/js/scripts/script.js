@@ -18,7 +18,7 @@ var callback = function(){
   var lazyLoad = new LazyLoad({
     elements_selector: ".lazyload",
     class_loading: "loading",
-    class_loaded: "loaded",    
+    class_loaded: "loaded",
     callback_enter: function() {
       addClass('.lazyload', 'loading');
     },
@@ -31,7 +31,7 @@ var callback = function(){
       addClass('.lazyload', 'loaded');
     }
   });
-  
+
   // =====================
   // Scroll event listener
   // =====================
@@ -83,7 +83,7 @@ var callback = function(){
       removeClass('.grid', 'grid-2');
       removeClass('.grid', 'grid-3');
       break;
-    default: 
+    default:
       removeClass('.grid', 'grid-1');
       removeClass('.grid', 'grid-2');
       removeClass('.grid', 'grid-3');
@@ -137,10 +137,10 @@ var callback = function(){
                         searchSlider.style.transition= 'width 0.5s ease';
                         searchSlider.style.width = '100%';
                       },
-    onComplete      : function() { 
-                        setTimeout(function(){ 
+    onComplete      : function() {
+                        setTimeout(function(){
                           searchSlider.style.transition= 'width 0s ease';
-                          searchSlider.style.width = '0%'; 
+                          searchSlider.style.width = '0%';
                         }, 500);
                       }
   });
@@ -173,6 +173,18 @@ var callback = function(){
     s.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('BODY')[0]).appendChild(s);
   }());
+
+  // =============
+  // Image Gallery
+  // =============
+  var images = document.querySelectorAll('.kg-gallery-image img');
+  images.forEach(function (image) {
+      var container = image.closest('.kg-gallery-image');
+      var width = image.attributes.width.value;
+      var height = image.attributes.height.value;
+      var ratio = width / height;
+      container.style.flex = ratio + ' 1 0%';
+  })
 };
 
 if (
@@ -223,7 +235,7 @@ function addClass(selector, myClass) {
 // =====================
 // Remove class function
 // =====================
-function removeClass(selector, myClass) {  
+function removeClass(selector, myClass) {
   // get all elements that match our selector
   elements = document.querySelectorAll(selector);
 
@@ -239,13 +251,13 @@ function removeClass(selector, myClass) {
 function getPosition(el) {
   var xPos = 0;
   var yPos = 0;
- 
+
   while (el) {
     if (el.tagName == "BODY") {
       // deal with browser quirks with body/window/document and page scroll
       var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
       var yScroll = el.scrollTop || document.documentElement.scrollTop;
- 
+
       xPos += (el.offsetLeft - xScroll + el.clientLeft);
       yPos += (el.offsetTop - yScroll + el.clientTop);
     } else {
@@ -253,7 +265,7 @@ function getPosition(el) {
       xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
       yPos += (el.offsetTop - el.scrollTop + el.clientTop);
     }
- 
+
     el = el.offsetParent;
   }
   return {
@@ -315,11 +327,11 @@ function addRelatedPosts(id) {
 // ==============
 function getGhostData(url, callback) {
   var xmlHttp = new XMLHttpRequest();
-  xmlHttp.onreadystatechange = function() { 
+  xmlHttp.onreadystatechange = function() {
     if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
       callback(xmlHttp.responseText);
   }
-  xmlHttp.open("GET", url, true); // true for asynchronous 
+  xmlHttp.open("GET", url, true); // true for asynchronous
   xmlHttp.send(null);
 }
 
@@ -337,11 +349,11 @@ function findRelatedPosts(postData) {
     var include = 'author, tags';
 
     var apiOptions = {
-      limit: 6, 
+      limit: 6,
       filter: filter,
       include: include
     };
-    
+
     var url = ghost.url.api('posts', apiOptions);
     getGhostData(url, showRelatedPosts);
   } else {
@@ -363,7 +375,7 @@ function showRelatedPosts(posts) {
     if (relatedPosts[i].feature_image) {
       var postImage = 'style="background-image: url(' + relatedPosts[i].feature_image + ')"';
     }
-    relatedPostsWrapper.innerHTML += 
+    relatedPostsWrapper.innerHTML +=
     '<div class="col-md-6 related-post-col">' +
       '<div class="related-post">' +
         '<div class="related-post__image lazyload" ' + postImage + '></div>' +
