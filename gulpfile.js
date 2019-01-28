@@ -1,33 +1,32 @@
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var rename = require('gulp-rename');
-var uglify = require('gulp-uglify');
-var postcss = require('gulp-postcss');
-var cssnext = require('postcss-cssnext');
-var colorRgbaFallback = require('postcss-color-rgba-fallback');
-var opacity = require('postcss-opacity');
-var pseudoelements = require('postcss-pseudoelements');
-var vmin = require('postcss-vmin');
-var pixrem = require('pixrem');
-var willChange = require('postcss-will-change');
-var sass = require('gulp-sass');
-var path = require('path');
-var cssnano = require('cssnano');
-var zindex = require('postcss-zindex');
-var removeComments = require('postcss-discard-comments');
-var browserSync = require('browser-sync').create();
-var plumber = require('gulp-plumber');
-var notify = require('gulp-notify');
-var gutil = require('gulp-util');
-var replace = require('gulp-replace');
-var fs = require('fs');
+const gulp = require('gulp');
+const concat = require('gulp-concat');
+const rename = require('gulp-rename');
+const uglify = require('gulp-uglify');
+const postcss = require('gulp-postcss');
+const cssnext = require('postcss-cssnext');
+const colorRgbaFallback = require('postcss-color-rgba-fallback');
+const opacity = require('postcss-opacity');
+const pseudoelements = require('postcss-pseudoelements');
+const vmin = require('postcss-vmin');
+const willChange = require('postcss-will-change');
+const sass = require('gulp-sass');
+const cssnano = require('cssnano');
+const zindex = require('postcss-zindex');
+const removeComments = require('postcss-discard-comments');
+const browserSync = require('browser-sync').create();
+const plumber = require('gulp-plumber');
+const notify = require('gulp-notify');
+const gutil = require('gulp-util');
+const replace = require('gulp-replace');
+const fs = require('fs');
+const babel = require('gulp-babel');
 
 // Define base folders
-var asset_src = 'assets/';
-var npm_src   = 'node_modules/';
-var dest      = 'assets/';
+const asset_src = 'assets/';
+const npm_src   = 'node_modules/';
+const dest      = 'assets/';
 
-var onError = function( err ) {
+const onError = function( err ) {
   console.log('An error occurred:', gutil.colors.magenta(err.message));
   gutil.beep();
   this.emit('end');
@@ -45,12 +44,16 @@ gulp.task('fonts', function() {
 gulp.task('scripts', function() {
   return gulp
     .src([
-      npm_src   + 'lunr/lunr.js',
+      npm_src   + 'moment/moment.js',
       npm_src   + 'vanilla-lazyload/dist/lazyload.js',
       npm_src   + 'fitvids/fitvids.js',
-      asset_src + 'js/scripts/ghostHunter.js',
+      npm_src   + 'ghost-search/dist/ghost-search.js',
+      asset_src + 'js/scripts/ghostAPI.js',
       asset_src + 'js/scripts/script.js'
     ])
+    .pipe(babel({
+      presets: ['es2015']
+    }))
     .pipe(concat('app.js'))
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
@@ -63,7 +66,7 @@ gulp.task('scripts', function() {
 
 // Build styles from sass
 gulp.task('sass', function () {
-  var processors = [
+  const processors = [
     removeComments,
     cssnext({
       browsers:'> 1%, last 10 version, Firefox >= 30, ie >= 10',

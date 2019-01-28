@@ -43,7 +43,7 @@ var callback = function(){
   // Search related actions
   var searchOpen = document.getElementById('search-open');
   var searchClose = document.getElementById('search-close');
-  var searchField = document.getElementById('search-field');
+  var searchField = document.getElementById('ghost-search-field');
   var searchView = document.getElementById("search");
   var searchStyle = searchView.style;
 
@@ -122,27 +122,65 @@ var callback = function(){
                         '</a>';
   var searchSlider = document.getElementById("search__form-slider");
 
-  var search = new GhostHunter(
-    document.querySelector('#search-field')
-  );
+  // var search = new GhostHunter(
+  //   document.querySelector('#search-field')
+  // );
 
-  search.init({
-    results         : '#results',
-    onKeyUp         : true,
-    includepages    : true,
-    onPageLoad      : true,
-    info_template   : infoTemplate,
-    result_template : resultTemplate,
-    before          : function() {
-                        searchSlider.style.transition= 'width 0.5s ease';
-                        searchSlider.style.width = '100%';
-                      },
-    onComplete      : function() {
-                        setTimeout(function(){
-                          searchSlider.style.transition= 'width 0s ease';
-                          searchSlider.style.width = '0%';
-                        }, 500);
-                      }
+  // search.init({
+  //   results         : '#results',
+  //   onKeyUp         : true,
+  //   includepages    : true,
+  //   onPageLoad      : true,
+  //   info_template   : infoTemplate,
+  //   result_template : resultTemplate,
+  //   before          : function() {
+  //                       searchSlider.style.transition= 'width 0.5s ease';
+  //                       searchSlider.style.width = '100%';
+  //                     },
+  //   onComplete      : function() {
+  //                       setTimeout(function(){
+  //                         searchSlider.style.transition= 'width 0s ease';
+  //                         searchSlider.style.width = '0%';
+  //                       }, 500);
+  //                     }
+  // });
+
+  var ghostSearch = new GhostSearch({
+    key: '42695d4e682a4757b736928a19',
+    host: 'http://localhost:3568',
+    button: '#search-button',
+    template: function(result) {
+      let url = [location.protocol, '//', location.host].join('') + '/sub-path/';
+      console.log(result);
+      return '<a href="' + url + '/' + result.slug + '" class="search__result-link">' +
+                '<h4>' + result.title + '</h4>' +
+                '<p>' + moment(result.published_at).format("MMM Do YYYY") + '</p>' +
+              '</a>';
+    },
+    trigger: 'focus',
+    api: {
+      resource: 'posts',
+      parameters: {
+          limit: 'all',
+          fields: ['title', 'slug', 'published_at'],
+          filter: '',
+          include: '',
+          order: '',
+          formats: '',
+      },
+    },
+    on: {
+      beforeDisplay : function() {
+                      searchSlider.style.transition= 'width 0.5s ease';
+                      searchSlider.style.width = '100%';
+                    },
+      afterDisplay  : function() {
+                      setTimeout(function(){
+                        searchSlider.style.transition= 'width 0s ease';
+                        searchSlider.style.width = '0%';
+                      }, 500);
+                    }
+    }
   });
 
   // =============================
@@ -155,14 +193,6 @@ var callback = function(){
       var comment_id = loadCommentsBtn.dataset.comment_id;
       loadComments(url, comment_id);
     }
-  }
-
-  // =============
-  // Related posts
-  // =============
-  var relatedPosts = document.getElementById("related-posts");
-  if ( relatedPosts ) {
-    addRelatedPosts(relatedPosts.dataset.post_id)
   }
 
   // ==========================
@@ -311,87 +341,15 @@ function loadComments(url, id) {
   })();
 }
 
-// =================
-// Add related posts
-// =================
-function addRelatedPosts(id) {
-  var apiOptions = {
-    include: 'tags'
-  }
-  var url = ghost.url.api('posts/' + id, apiOptions);
-  getGhostData(url, findRelatedPosts);
-}
-
 // ==============
 // Get Ghost data
 // ==============
-function getGhostData(url, callback) {
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.onreadystatechange = function() {
-    if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-      callback(xmlHttp.responseText);
-  }
-  xmlHttp.open("GET", url, true); // true for asynchronous
-  xmlHttp.send(null);
-}
-
-// ==================
-// Find related posts
-// ==================
-function findRelatedPosts(postData) {
-  var tags = JSON.parse(postData).posts[0].tags;
-  var postId = JSON.parse(postData).posts[0].id;
-  var relatedTitle = document.getElementById("related-posts-title");
-  var relatedPostsWrapper  = document.getElementById("related-posts");
-  if (tags.length > 0) {
-    tags = '[' + tags.map(function(obj) { return obj.slug; }).join(', ') + ']';
-    var filter = 'id:-' + postId + '+tags:' + tags;
-    var include = 'author, tags';
-
-    var apiOptions = {
-      limit: 6,
-      filter: filter,
-      include: include
-    };
-
-    var url = ghost.url.api('posts', apiOptions);
-    getGhostData(url, showRelatedPosts);
-  } else {
-    relatedTitle.style.display = "none";
-    relatedPostsWrapper.style.display = "none";
-  }
-}
-
-// ==================
-// Show related posts
-// ==================
-function showRelatedPosts(posts) {
-  var relatedPosts = JSON.parse(posts).posts;
-  var relatedTitle = document.getElementById("related-posts-title");
-  var relatedPostsWrapper  = document.getElementById("related-posts");
-
-  for (var i = relatedPosts.length - 1; i >= 0; i--) {
-    var postImage = '';
-    if (relatedPosts[i].feature_image) {
-      var postImage = 'style="background-image: url(' + relatedPosts[i].feature_image + ')"';
-    }
-    relatedPostsWrapper.innerHTML +=
-    '<div class="col-md-6 related-post-col">' +
-      '<div class="related-post">' +
-        '<div class="related-post__image lazyload" ' + postImage + '></div>' +
-        '<div class="related-post__content">' +
-          '<h4 class="related-post__title">' +
-            '<a href="' + relatedPosts[i].url + '">' +
-              relatedPosts[i].title +
-            '</a>' +
-          '</h4>' +
-          '<h6 class="related-post__author">' +
-            '<a href="/author/' + relatedPosts[i].author.slug + '/">' +
-              relatedPosts[i].author.name +
-            '</a>' +
-          '</h6>' +
-        '</div>' +
-      '</div>' +
-    '</div>';
-  }
-}
+// function getGhostData(url, callback) {
+//   var xmlHttp = new XMLHttpRequest();
+//   xmlHttp.onreadystatechange = function() {
+//     if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+//       callback(xmlHttp.responseText);
+//   }
+//   xmlHttp.open("GET", url, true); // true for asynchronous
+//   xmlHttp.send(null);
+// }

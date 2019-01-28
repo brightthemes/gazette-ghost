@@ -88,6 +88,11 @@
     &:hover {
       color: $color-brand;
     }
+
+    &:focus {
+      outline: 0;
+      border: none;
+    }
   }
 
   &__result {
@@ -122,8 +127,8 @@
         padding: 1.5 * $spacing-base $spacing-large;
       }
 
-      h4, p { 
-        margin: 0; 
+      h4, p {
+        margin: 0;
         color: $color-dark;
       }
 
