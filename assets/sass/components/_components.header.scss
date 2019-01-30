@@ -6,7 +6,7 @@
   height: 80px;
   font-weight: $font-weight-bold;
   @include box-shadow($blur: 2em, $color: rgba($color-black, 0.2));
-  
+
   a { color: $color-dark; }
 
   &__social {
@@ -43,12 +43,12 @@
     &--text {
       font-size: 1.6 * $font-size-base;
       padding: 10px;
-    } 
+    }
 
     &--logo  {
       padding: 0;
       display: flex;
-      
+
       img {
         max-height: 50px;
         margin: 0;
@@ -58,7 +58,7 @@
   }
 
   &__menu {
-    display: none; 
+    display: none;
     left: 0;
     right: 0;
     top: 100%;
@@ -83,11 +83,11 @@
       padding: 15.5px 10px;
       transition: color $global-transition;
       cursor: pointer;
-      
+
       @include attention() {
         color: $color-link-hover;
       }
-      
+
       i { font-size: 1.6 * $font-size-base; }
     }
   }

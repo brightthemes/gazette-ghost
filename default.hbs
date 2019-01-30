@@ -44,10 +44,17 @@
     {{!-- Main theme scripts --}}
     <script async src="{{asset 'js/app.min.js'}}"></script>
 
-    {{!-- Disqus comments --}}
+    {{!-- Settings --}}
+
     <script>
-        // Replace 'bironthemes' with your disqus account shortname
-        var disqus_shortname = 'biron-demo';
+      /* Ghost Search */
+      //var ghost_key = 'xxxxxxxxxx'; // Settings > Integrations > New Custom Integration. Copy Key.
+      //var ghost_host = 'https://yoursite.domain', // Replace it with your domain.
+      var ghost_host = 'http://localhost:3568';
+      var ghost_key = '42695d4e682a4757b736928a19';
+
+      /* Disqus */
+      var disqus_shortname = 'biron-demo'; // Replace 'biron-demo' with your disqus account shortname
     </script>
 
 </body>

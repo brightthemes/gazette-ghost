@@ -44,7 +44,7 @@ gulp.task('fonts', function() {
 gulp.task('scripts', function() {
   return gulp
     .src([
-      npm_src   + 'moment/moment.js',
+      npm_src   + 'moment/min/moment.min.js',
       npm_src   + 'vanilla-lazyload/dist/lazyload.js',
       npm_src   + 'fitvids/fitvids.js',
       npm_src   + 'ghost-search/dist/ghost-search.js',
@@ -52,7 +52,13 @@ gulp.task('scripts', function() {
       asset_src + 'js/scripts/script.js'
     ])
     .pipe(babel({
-      presets: ['es2015']
+      'presets': [
+        [
+          '@babel/preset-env', {
+            'modules': false
+          }
+        ]
+      ]
     }))
     .pipe(concat('app.js'))
     .pipe(rename({suffix: '.min'}))
@@ -110,26 +116,38 @@ gulp.task('browsersync', function (callback) {
   callback();
 });
 
-gulp.task('browsersync:reload', function (callback) {
+gulp.task('reload', function (callback) {
   browserSync.reload();
   callback();
 });
 
 // Watch for changes in files
-gulp.task('watch', function() {
-  // Watch .js files
-  gulp.watch(asset_src + 'js/scripts/*.js', ['scripts']);
-  // Watch .scss files
-  gulp.watch(asset_src + 'sass/*/*.scss', ['sass']);
-  // Watch app.min.css
-  gulp.watch(asset_src + 'css/app.min.css', ['inlinecss']);
-  // Watch app.min.css
-  gulp.watch(asset_src + 'css/app.min.css', ['browsersync:reload']);
-  // Watch app.min.js
-  gulp.watch(asset_src + 'js/app.min.js', ['browsersync:reload']);
-  // Watch .hbs files
-  gulp.watch('**/*.hbs', ['browsersync:reload']);
+
+gulp.task('watch:scripts', function () {
+  gulp.watch(asset_src + 'js/scripts/*.js', gulp.series('scripts', 'reload'));
 });
 
-// Default Task
-gulp.task('default', ['sass','inlinecss', 'scripts', 'fonts', 'watch', 'browsersync']);
+gulp.task('watch:sass', function () {
+  gulp.watch(asset_src + 'sass/*/*.scss', gulp.series('sass', 'inlinecss', 'reload'));
+});
+
+gulp.task('watch:hbs', function () {
+  gulp.watch('**/*.hbs', gulp.series('reload'));
+});
+
+gulp.task('watch',
+  gulp.parallel('watch:scripts', 'watch:sass', 'watch:hbs')
+);
+
+// // Default Task
+gulp.task('default',
+  gulp.series(
+    gulp.parallel(
+      'scripts',
+      'sass'
+    ),
+    'inlinecss',
+    'browsersync',
+    'watch'
+  ),
+);

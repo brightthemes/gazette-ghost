@@ -115,43 +115,14 @@ var callback = function(){
   // ===========
   // Blog search
   // ===========
-  var infoTemplate = '<p class="search__result-amount">{{amount}} results found</p>';
-  var resultTemplate =  '<a href="{{link}}" class="search__result-link">' +
-                          '<h4>{{title}}</h4>' +
-                          '<p>{{pubDate}}</p>' +
-                        '</a>';
   var searchSlider = document.getElementById("search__form-slider");
 
-  // var search = new GhostHunter(
-  //   document.querySelector('#search-field')
-  // );
-
-  // search.init({
-  //   results         : '#results',
-  //   onKeyUp         : true,
-  //   includepages    : true,
-  //   onPageLoad      : true,
-  //   info_template   : infoTemplate,
-  //   result_template : resultTemplate,
-  //   before          : function() {
-  //                       searchSlider.style.transition= 'width 0.5s ease';
-  //                       searchSlider.style.width = '100%';
-  //                     },
-  //   onComplete      : function() {
-  //                       setTimeout(function(){
-  //                         searchSlider.style.transition= 'width 0s ease';
-  //                         searchSlider.style.width = '0%';
-  //                       }, 500);
-  //                     }
-  // });
-
-  var ghostSearch = new GhostSearch({
-    key: '42695d4e682a4757b736928a19',
-    host: 'http://localhost:3568',
+  let ghostSearch = new GhostSearch({
+    key: ghost_key,
+    host: ghost_host,
     button: '#search-button',
     template: function(result) {
-      let url = [location.protocol, '//', location.host].join('') + '/sub-path/';
-      console.log(result);
+      let url = [location.protocol, '//', location.host].join('');
       return '<a href="' + url + '/' + result.slug + '" class="search__result-link">' +
                 '<h4>' + result.title + '</h4>' +
                 '<p>' + moment(result.published_at).format("MMM Do YYYY") + '</p>' +
@@ -341,15 +312,3 @@ function loadComments(url, id) {
   })();
 }
 
-// ==============
-// Get Ghost data
-// ==============
-// function getGhostData(url, callback) {
-//   var xmlHttp = new XMLHttpRequest();
-//   xmlHttp.onreadystatechange = function() {
-//     if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-//       callback(xmlHttp.responseText);
-//   }
-//   xmlHttp.open("GET", url, true); // true for asynchronous
-//   xmlHttp.send(null);
-// }
