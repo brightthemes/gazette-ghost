@@ -63,11 +63,7 @@ gulp.task('scripts', function() {
     .pipe(concat('app.js'))
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
-    .pipe(gulp.dest(dest + 'js'))
-    .pipe(notify({
-      title: 'Javascript',
-      message: 'JS compiled and minified!'
-    }));
+    .pipe(gulp.dest(dest + 'js'));
 });
 
 // Build styles from sass
@@ -100,11 +96,7 @@ gulp.task('sass', function () {
 gulp.task('inlinecss', function() {
   return gulp.src(['partials/inline-css.hbs'])
   .pipe(replace('@@compiled_css', fs.readFileSync('assets/css/app.min.css')))
-  .pipe(gulp.dest('partials/compiled'))
-  .pipe(notify({
-    title: 'CSS',
-    message: 'CSS compiled and inlined!'
-  }));
+  .pipe(gulp.dest('partials/compiled'));
 });
 
 // Browsersync init and reload

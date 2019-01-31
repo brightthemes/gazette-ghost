@@ -61,34 +61,34 @@ var callback = function(){
   // ===========================
   // Adjust featured posts class
   // ===========================
-  var featuredPostCount = document.querySelectorAll(".grid-story").length;
-  switch(featuredPostCount) {
-    case 1:
-      removeClass('.grid', 'grid-2');
-      removeClass('.grid', 'grid-3');
-      removeClass('.grid', 'grid-4');
-      break;
-    case 2:
-      removeClass('.grid', 'grid-1');
-      removeClass('.grid', 'grid-3');
-      removeClass('.grid', 'grid-4');
-      break;
-    case 3:
-      removeClass('.grid', 'grid-1');
-      removeClass('.grid', 'grid-2');
-      removeClass('.grid', 'grid-4');
-      break;
-    case 4:
-      removeClass('.grid', 'grid-1');
-      removeClass('.grid', 'grid-2');
-      removeClass('.grid', 'grid-3');
-      break;
-    default:
-      removeClass('.grid', 'grid-1');
-      removeClass('.grid', 'grid-2');
-      removeClass('.grid', 'grid-3');
-      break;
-  }
+  // var featuredPostCount = document.querySelectorAll(".grid-story").length;
+  // switch(featuredPostCount) {
+  //   case 1:
+  //     removeClass('.grid', 'grid-2');
+  //     removeClass('.grid', 'grid-3');
+  //     removeClass('.grid', 'grid-4');
+  //     break;
+  //   case 2:
+  //     removeClass('.grid', 'grid-1');
+  //     removeClass('.grid', 'grid-3');
+  //     removeClass('.grid', 'grid-4');
+  //     break;
+  //   case 3:
+  //     removeClass('.grid', 'grid-1');
+  //     removeClass('.grid', 'grid-2');
+  //     removeClass('.grid', 'grid-4');
+  //     break;
+  //   case 4:
+  //     removeClass('.grid', 'grid-1');
+  //     removeClass('.grid', 'grid-2');
+  //     removeClass('.grid', 'grid-3');
+  //     break;
+  //   default:
+  //     removeClass('.grid', 'grid-1');
+  //     removeClass('.grid', 'grid-2');
+  //     removeClass('.grid', 'grid-3');
+  //     break;
+  // }
 
   // ============================================================
   // Remove the "Other news" title if only 3 posts are in the tag
@@ -169,11 +169,11 @@ var callback = function(){
   // ==========================
   // Disqus commen count script
   // ==========================
-  (function() {
-    var s = document.createElement('script'); s.async = true;
-    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-    (document.getElementsByTagName('BODY')[0]).appendChild(s);
-  }());
+  // (function() {
+  //   var s = document.createElement('script'); s.async = true;
+  //   s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  //   (document.getElementsByTagName('BODY')[0]).appendChild(s);
+  // }());
 
   // =============
   // Image Gallery

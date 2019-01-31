@@ -6,8 +6,8 @@
   padding: $spacing-large 0;
 
   &__left {
-    position: relative; 
-    right: $spacing-large; 
+    position: relative;
+    right: $spacing-large;
   }
 
   &__right { padding: $spacing-small 0; }
@@ -32,8 +32,10 @@
     cursor: pointer;
     color: $color-white;
     border: none;
-    background-color: $color-brand;
+    background-color: darken($color-brand, 10%);
     padding: 0 $spacing-small;
+
+    span { color: $color-white; }
   }
 
   &__title {
@@ -83,6 +85,8 @@
         box-shadow: 0 1px 1px $color-gray;
     }
   }
+
+  &__rss a { color: $color-black; }
 
   &__paper {
       background: $color-white;

@@ -2,7 +2,7 @@
 <div class="post-card">
   {{#if feature_image}}
   <div class="post-card__image">
-    <a class="lazyload" href="{{url}}" data-src="{{img_url feature_image}}"></a>
+    <a class="lazyload" href="{{url}}" data-src="{{img_url feature_image}}" title="{{{title}}}" aria-label="{{{title}}}"></a>
   </div>
   {{/if}}
   <div class="post-card__content{{^if feature_image}} border-top{{/if}}">

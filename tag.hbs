@@ -1,8 +1,8 @@
 {{!< default}}
 
 {{!-- The first three articles form the header part --}}
-{{!-- The big featured header --}} 
-  <div class="grid grid-1 grid-2 grid-3 grid-4">
+{{!-- The big featured header --}}
+  <div class="grid grid-{{#foreach posts to="3"}}{{#if @last}}{{@number}}{{/if}}{{/foreach}}">
     {{#foreach posts to="3"}}
     <article class="grid-story">
       <div class="lazyload grid-story__image" data-src="{{img_url feature_image}}">
@@ -29,8 +29,8 @@
   {{!-- Posts in tag --}}
   <h3 class="post-section-title" id="tag-posts-title">Other news in {{tag.name}}</h3>
   <section class="section categories">
-    {{#foreach posts from="4"}} 
-      {{> post-card}} 
+    {{#foreach posts from="4"}}
+      {{> post-card}}
     {{/foreach}}
   </section>
   {{pagination}}

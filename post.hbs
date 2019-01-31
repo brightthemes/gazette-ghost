@@ -1,7 +1,6 @@
 {{!< default}}
 
 {{!-- Everything inside the #post tags pulls data from the post --}}
-{{!-- {{#post}} --}}
 {{!-- Post elements --}}
 <div class="wrapper container-fluid">
   <div class="row split">
@@ -86,15 +85,14 @@
 
     {{!-- Include sidebar --}}
     {{#post}}
-    {{^if featured}}
-      <aside class="col-lg-3 sidebar">
-        {{> sidebar}}
-      </aside>
-    {{/if}}
+      {{^if featured}}
+        <aside class="col-lg-3 sidebar">
+          {{> sidebar}}
+        </aside>
+      {{/if}}
 
-    {{!-- Links to Previous/Next posts --}}
-    {{> read-next}}
+      {{!-- Links to Previous/Next posts --}}
+      {{> read-next}}
     {{/post}}
   </div>
 </div>
-{{!-- {{/post}} --}}
