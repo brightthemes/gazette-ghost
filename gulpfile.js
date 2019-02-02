@@ -15,7 +15,6 @@ const zindex = require('postcss-zindex');
 const removeComments = require('postcss-discard-comments');
 const browserSync = require('browser-sync').create();
 const plumber = require('gulp-plumber');
-const notify = require('gulp-notify');
 const gutil = require('gulp-util');
 const replace = require('gulp-replace');
 const fs = require('fs');
@@ -114,7 +113,6 @@ gulp.task('reload', function (callback) {
 });
 
 // Watch for changes in files
-
 gulp.task('watch:scripts', function () {
   gulp.watch(asset_src + 'js/scripts/*.js', gulp.series('scripts', 'reload'));
 });
@@ -135,6 +133,7 @@ gulp.task('watch',
 gulp.task('default',
   gulp.series(
     gulp.parallel(
+      'fonts',
       'scripts',
       'sass'
     ),
