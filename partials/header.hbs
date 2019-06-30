@@ -8,11 +8,11 @@
   {{!-- Default navigation --}}
   <div id="navbar-default" class="navbar__default center-xs middle-xs">
     <div class="navbar__brand">
-      <a href="{{@blog.url}}" class="navbar__brand--{{#if @blog.logo}}logo{{else}}text{{/if}}">
-        {{#if @blog.logo}}
-          <img data-src="{{@blog.logo}}" class="lazyload" alt="{{@blog.title}}" /> 
+      <a href="{{@site.url}}" class="navbar__brand--{{#if @site.logo}}logo{{else}}text{{/if}}">
+        {{#if @site.logo}}
+          <img data-src="{{@site.logo}}" class="lazyload" alt="{{@site.title}}" /> 
         {{else}} 
-          {{@blog.title}} 
+          {{@site.title}} 
         {{/if}}
       </a>
     </div>

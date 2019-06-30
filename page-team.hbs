@@ -16,12 +16,12 @@
 {{!-- The main content area on the Team page --}}
 <div class="wrapper container-fluid">
   <section class="row team page-wrap">
-    {{#get "users"}}
-      {{#foreach users}}
+    {{#get "authors"}}
+      {{#foreach authors}}
       <div class="col-lg-6">
         <div class="team-member">
           {{#if profile_image}}
-            <a class="team-member__img lazyload" 
+            <a class="team-member__img lazyload"
               data-src="{{img_url profile_image}}"
               href="{{url}}">
             </a>
