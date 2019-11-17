@@ -1,0 +1,23 @@
+{{!-- Related Posts --}}
+{{#get "posts" include="tags,authors" limit="4" filter="id:-{{id}}+tag:{{primary_tag.slug}}" as |related|}}
+  <div class="related-posts row">
+    {{#foreach related}}
+    <div class="col-md-6 related-post-col">
+      <div class="related-post">
+        <div class="related-post__image lazyload" style="background-image: url('{{img_url feature_image}}'">
+        </div>
+        <div class="related-post__content">
+          <h4 class="related-post__title"><a href="{{url}}">{{title}}</a></h4>
+          <h6 class="related-post__author">
+          {{#primary_author}}
+            <a href="{{url}}">
+              {{name}}
+            </a>
+          {{/primary_author}}
+          </h6>
+        </div>
+      </div>
+    </div>
+    {{/foreach}}
+  </div>
+{{/get}}

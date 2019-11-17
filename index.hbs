@@ -1,7 +1,7 @@
 {{!< default}} 
 
 {{!-- The big featured header --}} 
-{{#get "posts" limit="4" include="author,tags" 
+{{#get "posts" limit="4" include="authors,tags" 
                 filter="featured:true" as |featured| }} 
   <div class="grid grid-1 grid-2 grid-3 grid-4">
     {{#foreach featured}}
@@ -32,7 +32,7 @@
 {{!-- Latest posts --}}
 <div class="wrapper container-fluid">
   {{#get "posts" filter="featured:false" order="published_at desc" 
-                 limit="9" include="author,tags" as |latest|}}
+                 limit="9" include="authors,tags" as |latest|}}
   <section class="section latest">
     <h3 class="section__title">Latest news</h3>
     {{#foreach latest}} 

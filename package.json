@@ -1,24 +1,45 @@
 {
   "name": "gazette",
-  "version": "2.2.2",
   "description": "Magazine/News Ghost Theme",
+  "demo": "https://gazette.bironthemes.com",
+  "version": "3.0.0",
+  "engines": {
+    "ghost": ">=3.0.0",
+    "ghost-api": "v3"
+  },
+  "scripts": {
+    "start": "gulp",
+    "test": "gscan ."
+  },
   "author": {
     "name": "Biron Themes",
-    "email": "bironthemes@gmail.com"
+    "email": "bironthemes@gmail.com",
+    "url": "https://bironthemes.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://norberthunyadi@bitbucket.org/birondev/gazette-ghost-v1.git"
-  },
-  "private": true,
-  "config": {
-    "posts_per_page": 9
+  "keywords": [
+    "ghost",
+    "theme",
+    "ghost-theme"
+  ],
+  "gpm": {
+    "type": "theme",
+    "categories": [
+      "Minimal",
+      "Magazine",
+      "Personal Blog"
+    ]
   },
   "devDependencies": {
-    "browser-sync": "^2.18.12",
-    "cssnano": "^3.10.0",
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "browser-sync": "^2.26.7",
+    "cssnano": "^4.1.10",
     "fs": "0.0.1-security",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-notify": "^3.2.0",
     "gulp-plumber": "^1.2.0",
@@ -40,9 +61,34 @@
     "postcss-zindex": "^2.2.0"
   },
   "dependencies": {
+    "@tryghost/content-api": "^1.3.4",
     "fitvids": "^2.0.0",
     "font-awesome": "^4.7.0",
-    "lunr": "^2.1.5",
+    "ghost-search": "^1.1.0",
+    "moment": "^2.24.0",
     "vanilla-lazyload": "^8.6.0"
+  },
+  "config": {
+    "posts_per_page": 9,
+    "image_sizes": {
+      "xxs": {
+        "width": 30
+      },
+      "xs": {
+        "width": 100
+      },
+      "s": {
+        "width": 300
+      },
+      "m": {
+        "width": 600
+      },
+      "l": {
+        "width": 1000
+      },
+      "xl": {
+        "width": 2000
+      }
+    }
   }
 }

@@ -1,7 +1,7 @@
 {{!-- Sidebar --}}
 
 {{!-- Sidebar featured posts --}}
-{{#get "posts" filter="featured:true+id:-{{id}}" limit="5" include="author,tags" as |featured|}}
+{{#get "posts" filter="featured:true+id:-{{id}}" limit="5" include="authors,tags" as |featured|}}
 <div class="sidebar__featured">
   <h3 class="sidebar__title">Featured posts</h3>
   <div class="sidebar__section">
@@ -11,7 +11,7 @@
         <a href="{{url}}">{{{title}}}</a>
       </h4>
       <div class="sidebar__story-info">
-        {{author}}
+        {{#primary_author}}{{name}}{{/primary_author}}
         <i class="fa fa-clock-o"></i>
         <time datetime="{{date format="YYYY-MM-DD"}}">
           {{date published_at timeago="true"}}
@@ -30,7 +30,7 @@
 </div>
 
 {{!-- Sidebar latest posts --}}
-{{#get "posts" filter="featured:false+id:-{{id}}" limit="10" include="author,tags" as |latest|}}
+{{#get "posts" filter="featured:false+id:-{{id}}" limit="10" include="authors,tags" as |latest|}}
 <div class="sidebar__latest">
   <h3 class="sidebar__title">Latest posts</h3>
   <div class="sidebar__section">
@@ -40,7 +40,7 @@
         <a href="{{url}}">{{{title}}}</a>
       </h4>
       <div class="sidebar__story-info">
-        {{author}}
+        {{#primary_author}}{{name}}{{/primary_author}}
         <i class="fa fa-clock-o"></i>
         <time datetime="{{date format="YYYY-MM-DD"}}">
           {{date published_at timeago="true"}}

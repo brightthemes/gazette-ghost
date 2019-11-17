@@ -19,7 +19,7 @@
         {{!-- Post info --}}
         <div class="post__info">
           {{!-- Author --}}
-          {{#author}}
+          {{#primary_author}}
             {{#if profile_image}}
             <a class="lazyload post__info-author--img" data-src="{{img_url profile_image}}"
               href="{{url}}" title="{{name}}">
@@ -27,7 +27,7 @@
             {{/if}}
             <a class="post__info-author" href="{{url}}">{{name}}</a>
             <div class="separator"></div>
-          {{/author}}          
+          {{/primary_author}}          
           {{^if featured}}
             <div class="post__info-tag">in {{tags limit="1"}}</div>  
             <div class="separator"></div>
@@ -59,9 +59,7 @@
 
       {{!-- Related Posts --}}
       <h3 class="post-section-title" id="related-posts-title">Related posts</h3>
-      <div class="related-posts row" id="related-posts" data-post_id="{{id}}">
-        {{!-- Related posts will be inserted with javascript --}}
-      </div>
+      {{> related-posts}}
 
       {{!-- Include Disqus Comments --}}
       {{> comments}}
