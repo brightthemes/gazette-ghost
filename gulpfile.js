@@ -48,8 +48,8 @@ gulp.task('scripts', function() {
       npm_src   + 'vanilla-lazyload/dist/lazyload.js',
       npm_src   + 'moment/moment.js',
       npm_src   + 'fitvids/dist/fitvids.js',
-      npm_src   + 'ghost-search/dist/ghost-search.js',
       npm_src   + '@tryghost/content-api/umd/content-api.min.js',
+      npm_src   + 'ghost-search/dist/ghost-search.js',
       asset_src + 'js/scripts/script.js'
     ])
     .pipe(babel({
