@@ -111,8 +111,8 @@ gulp.task('inlinecss', function() {
 // Browsersync init and reload
 gulp.task('browsersync', function (callback) {
   browserSync.init({
-    port: 3369,
-    proxy: 'http://localhost:2369/'
+    port: 3368,
+    proxy: 'http://localhost:2368/'
   });
   callback();
 });

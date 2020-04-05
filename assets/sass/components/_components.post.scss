@@ -151,6 +151,8 @@
     padding: $spacing-large $spacing-base $spacing-base;
     margin: 0 auto;
     max-width: 600px;
+    display: flex;
+    flex-direction: column;
 
     @include mq($from: md) {
       padding: $spacing-huge $spacing-base $spacing-base;
@@ -179,6 +181,7 @@
 
 .kg-image-card,
 .kg-gallery-card {
+  align-self: center;
   margin: 0 0 $spacing-base;
   figcaption {
     // margin-bottom: $spacing-base;

@@ -22,6 +22,8 @@
     padding: $spacing-huge $spacing-base $spacing-base;
     margin: 0 auto;
     max-width: 600px;
+    display: flex;
+    flex-direction: column;
   }
 }
 

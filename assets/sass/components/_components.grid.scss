@@ -215,6 +215,10 @@
       }
     }
 
+    &-info {
+      color: $color-light; 
+    }
+
     &-info a:first-child {
       @include attention() {
         color: $color-link-hover;
