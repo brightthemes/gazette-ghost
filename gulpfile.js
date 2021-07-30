@@ -9,7 +9,7 @@ const opacity = require('postcss-opacity');
 const pseudoelements = require('postcss-pseudoelements');
 const vmin = require('postcss-vmin');
 const willChange = require('postcss-will-change');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const cssnano = require('cssnano');
 const zindex = require('postcss-zindex');
 const removeComments = require('postcss-discard-comments');
@@ -44,8 +44,7 @@ gulp.task('fonts', function() {
 gulp.task('scripts', function() {
   return gulp
     .src([
-      // npm_src   + 'lunr/lunr.js',
-      npm_src   + 'vanilla-lazyload/dist/lazyload.js',
+      npm_src   + 'lazysizes/lazysizes.min.js',
       npm_src   + 'moment/moment.js',
       npm_src   + 'fitvids/dist/fitvids.js',
       npm_src   + '@tryghost/content-api/umd/content-api.min.js',

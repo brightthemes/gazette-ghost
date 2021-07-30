@@ -12,26 +12,6 @@ var callback = function(){
   // =======
   fitvids();
 
-  // ================
-  // Lazy load images
-  // ================
-  var lazyLoad = new LazyLoad({
-    elements_selector: ".lazyload",
-    class_loading: "loading",
-    class_loaded: "loaded",    
-    callback_enter: function() {
-      addClass('.lazyload', 'loading');
-    },
-    callback_load: function() {
-      removeClass('.lazyload', 'loading');
-      addClass('.lazyload', 'loaded');
-    },
-    callback_set: function() {
-      removeClass('.lazyload', 'loading');
-      addClass('.lazyload', 'loaded');
-    }
-  });
-  
   // =====================
   // Scroll event listener
   // =====================
@@ -129,7 +109,7 @@ var callback = function(){
   let ghostSearch = new GhostSearch({
     key: ghost_key,
     url: ghost_host,
-    version: 'v3',
+    version: 'v4',
     // button: '#search-button',
     template: function(result) {
       let url = [location.protocol, '//', location.host].join('');

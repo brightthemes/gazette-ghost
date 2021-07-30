@@ -70,19 +70,25 @@
     background-color: rgba($color-brand, 0.5);
     border-top: 3px solid $color-brand;
     border-radius: 0;
+    display: block;
+    height: 100%;
+    height: 13em;
+    transition: filter $global-transition;
+    border-radius: inherit;
 
-    a {
+    @include cover-background();
+
+    @include attention() {
+      filter: hue-rotate(260deg);
+    }
+
+    img {
       display: block;
+      margin: 0;
+      width: 100%;
       height: 100%;
-      height: 15em;
-      transition: filter $global-transition;
-      border-radius: inherit;
-
-      @include cover-background();
-
-      @include attention() {
-        filter: hue-rotate(260deg);
-      }
+      object-fit: cover;
+      object-position: center;
     }
   }
 

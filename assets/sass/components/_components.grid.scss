@@ -138,6 +138,7 @@
     z-index: 1;
     filter: grayscale(0.6);
     transition: filter $global-transition;
+    object-fit: cover;
 
     @include overlay($color1: rgba($color-dark, 0.3), $color2: rgba($color-dark, 0.7));
     @include cover-background();

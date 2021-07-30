@@ -5,8 +5,8 @@
   {{#foreach article}}
   <article class="category-post">
     {{#if @first}}
-      <a class="category-post__image lazyload" 
-         href="{{url}}" data-src="{{img_url feature_image}}"></a>
+      <img class="category-post__image lazyload" 
+         data-src="{{img_url feature_image}}"></img>
     {{/if}}
     {{#if @first}}<div class="category-post__header">{{/if}}
       {{#if @first}}

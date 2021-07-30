@@ -124,6 +124,7 @@
     height: 100%;
     transition: transform $global-transition;
     background-color: rgba($color-dark, 0.7);
+    object-fit: cover;
 
     @include cover-background();
   }

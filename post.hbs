@@ -21,9 +21,8 @@
           {{!-- Author --}}
           {{#primary_author}}
             {{#if profile_image}}
-            <a class="lazyload post__info-author--img" data-src="{{img_url profile_image}}"
-              href="{{url}}" title="{{name}}">
-            </a>
+            <img class="lazyload post__info-author--img" data-src="{{img_url profile_image}}"
+              title="{{name}}"/>
             {{/if}}
             <a class="post__info-author" href="{{url}}">{{name}}</a>
             <div class="separator"></div>

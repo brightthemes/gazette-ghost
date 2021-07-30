@@ -81,6 +81,7 @@
     &-image {
       position: absolute;
       border-radius: inherit;
+      object-fit: cover;
 
       @include full-cover();
       @include cover-background();
