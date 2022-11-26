@@ -2,10 +2,9 @@
   "name": "gazette",
   "description": "Magazine/News Ghost Theme",
   "demo": "https://gazette.bironthemes.com",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "engines": {
-    "ghost": ">=4.0.0",
-    "ghost-api": "v4"
+    "ghost": ">=5.0.0"
   },
   "scripts": {
     "start": "gulp",
@@ -45,14 +44,14 @@
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^5.0.0",
     "gulp-uglify": "^3.0.2",
-    "gulp-util": "^3.0.8",
+    "gulp-util": "^1.0.0",
     "path": "^0.12.7",
     "pixrem": "^5.0.0",
     "postcss-color-rgba-fallback": "^4.0.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-discard-comments": "^5.0.1",
     "postcss-opacity": "^5.0.0",
-    "postcss-pseudoelements": "^5.0.0",
+    "postcss-pseudoelements": "^2.1.1",
     "postcss-vmin": "^3.0.0",
     "postcss-will-change": "^4.0.1",
     "postcss-zindex": "^5.0.1",
@@ -68,6 +67,7 @@
     "moment": "^2.29.1"
   },
   "config": {
+    "card_assets": true,
     "posts_per_page": 9,
     "image_sizes": {
       "xxs": {

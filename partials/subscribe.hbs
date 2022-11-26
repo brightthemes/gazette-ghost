@@ -1,5 +1,5 @@
 {{!-- Email subscribe form --}} 
-{{#if @labs.subscribers}}
+{{#unless @member}}
 <div class="subscribe">
   <div class="wrapper container-fluid">
     <div class="row center-xs">
@@ -28,4 +28,4 @@
     </div>
   </div>
 </div>
-{{/if}}
+{{/unless}}

@@ -1,9 +1,9 @@
 {{!-- Site footer --}}
 
 {{!-- Email subscribe form at the main page --}}
-{{#if @labs.subscribers}}
+{{#unless @member}}
     {{> subscribe}}
-{{/if}}
+{{/unless}}
 
 {{!-- Footer --}}
 <footer class="footer">
